@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainWindowController" />
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane fx:id="mainWindow" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainWindowController">
+    <VBox prefHeight="1000.0" prefWidth="215.0">
+        <fx:include source="LeftMenu.fxml" fx:id="leftMenu" />
+    </VBox>
+</BorderPane>
