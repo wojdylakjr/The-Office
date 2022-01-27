@@ -66,7 +66,7 @@ public class CategoryService {
         categoryRepository.save(category);
     }
 
-    public void listClients() throws SQLException {
+    public void listCategories() throws SQLException {
         List<Category> categories = categoryRepository.getListOfObjects();
         this.categoryFxObservableList.clear();
         for (Category category : categories) {
@@ -74,14 +74,14 @@ public class CategoryService {
         }
     }
 
-    public void updateClientInDatabase() throws SQLException {
+    public void updateCategoryInDatabase() throws SQLException {
         System.out.println(this.getCategoryFxObjectPropertyUpdate());
         Category category = CategoryConverter.convertToCategoryWithId(this.getCategoryFxObjectPropertyUpdate());
         System.out.println(category);
         categoryRepository.update(category);
     }
 
-    public void deleteClientInDatabase() throws SQLException {
+    public void deleteCategoryInDatabase() throws SQLException {
         categoryRepository.delete(this.getCategoryFxObjectPropertyUpdate().getId());
     }
 }

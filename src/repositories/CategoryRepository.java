@@ -18,6 +18,8 @@ public class CategoryRepository implements Repository<Category> {
         statement.setString(1, client.getCategoryName());
         statement.executeUpdate();
         statement.close();
+
+
     }
 
     @Override

@@ -6,6 +6,7 @@ import javafx.scene.control.ToggleGroup;
 public class LeftMenuController {
     private static final String CLIENT_FXML = "/fxml/Client.fxml";
     private static final String JOB_POSITION_FXML = "/fxml/JobPosition.fxml";
+    private static final String CATEGORY_FXML = "/fxml/Category.fxml";
 
     private MainWindowController mainWindowController;
     private ToggleGroup leftMenu;
@@ -39,6 +40,7 @@ public class LeftMenuController {
     @FXML
     public void getCategories() {
         System.out.println("5");
+        mainWindowController.setRight(CATEGORY_FXML);
     }
 
     @FXML
