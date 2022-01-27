@@ -23,11 +23,11 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </HBox>
-      <TableView fx:id="clientTableView" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="clientTableView" editable="true" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="75.0" text="id" />
-          <TableColumn fx:id="firstNameColumn" prefWidth="270.666748046875" text="imie" />
-            <TableColumn fx:id="lastNameColumn" prefWidth="252.6666259765625" text="Nazwisko" />
+          <TableColumn fx:id="firstNameColumn" onEditCommit="#onEditCommitFirstName" prefWidth="270.666748046875" text="imie" />
+            <TableColumn fx:id="lastNameColumn" onEditCommit="#onEditCommitLastName" prefWidth="252.6666259765625" text="Nazwisko" />
         </columns>
       </TableView>
    </children>

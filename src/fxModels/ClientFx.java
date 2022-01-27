@@ -55,4 +55,13 @@ public class ClientFx {
     public void setLastName(String lastName) {
         this.lastName.set(lastName);
     }
+
+    @Override
+    public String toString() {
+        return "ClientFx{" +
+                "id=" + id +
+                ", firstName=" + firstName +
+                ", lastName=" + lastName +
+                '}';
+    }
 }

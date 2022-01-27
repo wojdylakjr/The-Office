@@ -6,11 +6,17 @@ import models.Client;
 public class ClientConverter {
     public static Client convertToClient(ClientFx clientFx){
         Client client = new Client();
-//        client.setId(clientFx.getId()); /////////////////////////////// NIE WIEM CZY TO MOZE ZOSTAC
         client.setFirstName(clientFx.getFirstName());
         client.setLastName(clientFx.getLastName());
         return client;
+    }
 
+    public static Client convertToClientWithId(ClientFx clientFx){
+        Client client = new Client();
+        client.setId(clientFx.getId());
+        client.setFirstName(clientFx.getFirstName());
+        client.setLastName(clientFx.getLastName());
+        return client;
     }
 
     public static ClientFx convertToClientFx(Client client) {

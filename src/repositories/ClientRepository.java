@@ -29,8 +29,14 @@ public class ClientRepository implements Repository<Client> {
     }
 
     @Override
-    public void update(int id) {
-
+    public void update(Client client) throws SQLException {
+        System.out.println("Client repo, imie: " + client.getFirstName()+", nazwisko: " + client.getFirstName() +", id: " + client.getId() );
+        PreparedStatement statement = DataBaseManager.connection.prepareStatement("UPDATE biuro.klient SET imie = ?, nazwisko = ? WHERE id_klient = ?");
+        statement.setString(1,client.getFirstName());
+        statement.setString(2,client.getLastName());
+        statement.setInt(3, client.getId());
+        statement.executeUpdate();
+        statement.close();
     }
 
     @Override
