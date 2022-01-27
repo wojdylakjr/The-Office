@@ -7,10 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
 import models.Client;
 import services.ClientService;
@@ -39,6 +36,9 @@ public class ClientController {
     @FXML
     private TableColumn<ClientFx, String> lastNameColumn;
 
+    @FXML
+    private MenuItem deleteMenuItem;
+
     private ClientService clientService;
 
     public void initialize() {
@@ -56,10 +56,10 @@ public class ClientController {
 
 
         //edytowanie
-        this.idColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.firstNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.lastNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
+        //zaznaczony wiersz
         this.clientTableView.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
             this.clientService.setClientFxObjectPropertyUpdate(newValue);
         });
@@ -93,11 +93,10 @@ public class ClientController {
 
     @FXML
     public void onEditCommitLastName(TableColumn.CellEditEvent<ClientFx, String> clientFxStringCellEditEvent) {
-        this.clientService.getClientFxObjectPropertyUpdate().setFirstName(clientFxStringCellEditEvent.getNewValue());
+        this.clientService.getClientFxObjectPropertyUpdate().setLastName(clientFxStringCellEditEvent.getNewValue());
 //        this.clientService.getClientFxObjectPropertyUpdate().setLastName(clientFxStringCellEditEvent.getNewValue());
         this.updateInDatabase();
     }
-
     private void updateInDatabase() {
         try {
             System.out.println("client controller");
@@ -105,5 +104,22 @@ public class ClientController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        this.listClients();
     }
+
+    @FXML
+    public void deleteClientOnAction() {
+        try {
+            this.clientService.deleteClientInDatabase();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        this.listClients();
+    }
+
+
+
+
+
+
 }

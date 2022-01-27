@@ -2,7 +2,9 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -29,6 +31,13 @@
           <TableColumn fx:id="firstNameColumn" onEditCommit="#onEditCommitFirstName" prefWidth="270.666748046875" text="imie" />
             <TableColumn fx:id="lastNameColumn" onEditCommit="#onEditCommitLastName" prefWidth="252.6666259765625" text="Nazwisko" />
         </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem fx:id="deleteMenuItem" mnemonicParsing="false" onAction="#deleteClientOnAction" text="Usun rekord" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
       </TableView>
    </children>
 </VBox>

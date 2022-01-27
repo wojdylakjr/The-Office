@@ -24,8 +24,12 @@ public class ClientRepository implements Repository<Client> {
     }
 
     @Override
-    public void delete(int id) {
-
+    public void delete(int id) throws SQLException {
+//        System.out.println("Client repo, imie: " + client.getFirstName()+", nazwisko: " + client.getFirstName() +", id: " + client.getId() );
+        PreparedStatement statement = DataBaseManager.connection.prepareStatement("DELETE FROM biuro.klient WHERE id_klient = ?");
+        statement.setInt(1,id);
+        statement.executeUpdate();
+        statement.close();
     }
 
     @Override

@@ -69,4 +69,8 @@ public class ClientService {
         System.out.println(client);
         clientRepository.update(client);
     }
+
+    public void deleteClientInDatabase() throws SQLException {
+        clientRepository.delete(this.getClientFxObjectPropertyUpdate().getId());
+    }
 }
