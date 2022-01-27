@@ -7,6 +7,7 @@ import javafx.scene.control.ToggleGroup;
 public class LeftMenuController {
 
     private MainWindowController mainWindowController;
+    private ToggleGroup leftMenu;
 
     public void setMainWindowController(MainWindowController mainWindowController) {
         this.mainWindowController = mainWindowController;
