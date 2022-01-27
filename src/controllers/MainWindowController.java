@@ -26,7 +26,7 @@ public class MainWindowController {
         leftMenuController.setMainWindowController(this);
     }
 
-    public void setCenter(String fxmlPath) {
+    public void setRight(String fxmlPath) {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource(fxmlPath));
 //        BorderPane borderPane
 //        loader.setResources(bundle);

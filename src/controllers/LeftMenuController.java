@@ -1,11 +1,10 @@
 package controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ToggleGroup;
 
 public class LeftMenuController {
-    private static final String CLIENT_FXML = "/fxml/Client.fxml";
+    private static final String CLIENT_FXML = "/fxml/AddClient.fxml";
 
     private MainWindowController mainWindowController;
     private ToggleGroup leftMenu;
@@ -22,7 +21,8 @@ public class LeftMenuController {
     @FXML
     public void getClients() {
         System.out.println("2");
-        mainWindowController.setCenter(CLIENT_FXML);
+        mainWindowController.setRight(CLIENT_FXML);
+//        mainWindowController.se
     }
 
     @FXML

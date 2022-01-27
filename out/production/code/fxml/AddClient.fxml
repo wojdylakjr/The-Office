@@ -11,9 +11,9 @@
    <children>
       <HBox alignment="CENTER" prefWidth="200.0" spacing="20.0">
          <children>
-            <Label text="Label" />
+            <Label text="Imie" />
             <TextField fx:id="clientFirstName" />
-            <Label text="Label" />
+            <Label text="Nazwisko" />
             <TextField fx:id="clientLastName" />
             <Button fx:id="addClientButton" alignment="CENTER" mnemonicParsing="false" onAction="#addClientOnAction" prefHeight="27.0" prefWidth="59.0" text="Submit" />
          </children>
