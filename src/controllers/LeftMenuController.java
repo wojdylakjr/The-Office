@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ToggleGroup;
 
 public class LeftMenuController {
+    private static final String CLIENT_FXML = "/fxml/Client.fxml";
 
     private MainWindowController mainWindowController;
     private ToggleGroup leftMenu;
@@ -21,6 +22,7 @@ public class LeftMenuController {
     @FXML
     public void getClients() {
         System.out.println("2");
+        mainWindowController.setCenter(CLIENT_FXML);
     }
 
     @FXML

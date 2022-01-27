@@ -1,12 +1,13 @@
 package controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
+import javafx.util.*;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.util.ResourceBundle;
 
 public class MainWindowController {
 
@@ -21,8 +22,22 @@ public class MainWindowController {
     }
 
     @FXML
-   void initialize() {
+    void initialize() {
         leftMenuController.setMainWindowController(this);
     }
+
+    public void setCenter(String fxmlPath) {
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource(fxmlPath));
+//        BorderPane borderPane
+//        loader.setResources(bundle);
+        Parent parent = null;
+        try {
+            parent = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        mainWindow.setRight(parent);
+    }
+
 
 }

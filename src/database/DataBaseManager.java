@@ -23,6 +23,7 @@ public class DataBaseManager {
 
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            System.out.println("Polaczono z baza");
         } catch (SQLException se) {
             System.out.println("Brak polaczenia z baza danych, wydruk logu sledzenia i koniec.");
             se.printStackTrace();
