@@ -7,16 +7,16 @@ public class CategoryFx {
     private StringProperty id = new SimpleStringProperty();
     private StringProperty categoryName= new SimpleStringProperty();
 
-    public String getId() {
-        return id.get();
+    public int getId() {
+        return Integer.parseInt(id.get());
     }
 
     public StringProperty idProperty() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id.set(id);
+    public void setId(int id) {
+        this.id.set(String.valueOf(id));
     }
 
     public String getCategoryName() {
