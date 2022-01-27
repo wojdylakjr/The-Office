@@ -8,6 +8,6 @@ public interface Repository<T> {
     void delete(int id);
     void update(int id);
     T getObject(int id);
-    List<T> getListOfObjects();
+    List<T> getListOfObjects() throws SQLException;
 
 }

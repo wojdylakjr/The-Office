@@ -6,7 +6,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class ClientFx {
-    private IntegerProperty id = new SimpleIntegerProperty();
+    private StringProperty id = new SimpleStringProperty();
     private StringProperty firstName = new SimpleStringProperty();
     private StringProperty lastName = new SimpleStringProperty();
 
@@ -21,15 +21,15 @@ public class ClientFx {
 //    }
 
     public int getId() {
-        return id.get();
+        return Integer.parseInt(id.get());
     }
 
-    public IntegerProperty idProperty() {
+    public StringProperty idProperty() {
         return id;
     }
 
     public void setId(int id) {
-        this.id.set(id);
+        this.id.set(String.valueOf(id));
     }
 
     public String getFirstName() {
