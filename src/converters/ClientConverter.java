@@ -1,4 +1,4 @@
-package converter;
+package converters;
 
 import fxModels.ClientFx;
 import models.Client;

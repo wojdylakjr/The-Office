@@ -10,7 +10,7 @@ public class ClientFx {
     private StringProperty firstName = new SimpleStringProperty();
     private StringProperty lastName = new SimpleStringProperty();
 
-    
+
     public int getId() {
         return Integer.parseInt(id.get());
     }

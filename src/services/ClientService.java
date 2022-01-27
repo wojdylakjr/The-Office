@@ -1,6 +1,6 @@
 package services;
 
-import converter.ClientConverter;
+import converters.ClientConverter;
 import fxModels.ClientFx;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -19,6 +19,15 @@ public class ClientService {
     private ObservableList<ClientFx> clientFxObservableList = FXCollections.observableArrayList();
 
     //automatyczne getery i setery
+
+    public ClientRepository getClientRepository() {
+        return clientRepository;
+    }
+
+    public void setClientRepository(ClientRepository clientRepository) {
+        this.clientRepository = clientRepository;
+    }
+
     public ClientFx getClientFxObjectProperty() {
         return clientFxObjectProperty.get();
     }
@@ -31,14 +40,6 @@ public class ClientService {
         this.clientFxObjectProperty.set(clientFxObjectProperty);
     }
 
-    public ObservableList<ClientFx> getClientFxObservableList() {
-        return clientFxObservableList;
-    }
-
-    public void setClientFxObservableList(ObservableList<ClientFx> clientFxObservableList) {
-        this.clientFxObservableList = clientFxObservableList;
-    }
-
     public ClientFx getClientFxObjectPropertyUpdate() {
         return clientFxObjectPropertyUpdate.get();
     }
@@ -49,6 +50,14 @@ public class ClientService {
 
     public void setClientFxObjectPropertyUpdate(ClientFx clientFxObjectPropertyUpdate) {
         this.clientFxObjectPropertyUpdate.set(clientFxObjectPropertyUpdate);
+    }
+
+    public ObservableList<ClientFx> getClientFxObservableList() {
+        return clientFxObservableList;
+    }
+
+    public void setClientFxObservableList(ObservableList<ClientFx> clientFxObservableList) {
+        this.clientFxObservableList = clientFxObservableList;
     }
 
     //CRUD

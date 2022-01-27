@@ -11,5 +11,52 @@ public class JobPositionFx {
     private StringProperty minSalary = new SimpleStringProperty();
     private StringProperty maxSalary = new SimpleStringProperty();
 
+    public int getId() {
+        return Integer.parseInt(id.get());
+    }
+
+    public StringProperty idProperty() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id.set(String.valueOf(id));
+    }
+
+    public String getPositionName() {
+        return positionName.get();
+    }
+
+    public StringProperty positionNameProperty() {
+        return positionName;
+    }
+
+    public void setPositionName(String positionName) {
+        this.positionName.set(positionName);
+    }
+
+    public int getMinSalary() {
+        return Integer.parseInt(minSalary.get());
+    }
+
+    public StringProperty minSalaryProperty() {
+        return minSalary;
+    }
+
+    public void setMinSalary(int minSalary) {
+        this.minSalary.set(String.valueOf(minSalary));
+    }
+
+    public int getMaxSalary() {
+        return Integer.parseInt(maxSalary.get());
+    }
+
+    public StringProperty maxSalaryProperty() {
+        return maxSalary;
+    }
+
+    public void setMaxSalary(int maxSalary) {
+        this.maxSalary.set(String.valueOf(maxSalary));
+    }
 
 }

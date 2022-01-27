@@ -41,7 +41,7 @@
             <columns>
                 <TableColumn fx:id="idColumn" prefWidth="75.0" text="id" />
                 <TableColumn fx:id="positionNameColumn" onEditCommit="#onEditCommitName" prefWidth="289.3333206176758" text="Nazwa" />
-            <TableColumn fx:id="minSalaryColumn" onEditCommit="#onEditCommitMaxSalary" prefWidth="239.33322143554688" text="Minimalna pensja" />
+            <TableColumn fx:id="minSalaryColumn" onEditCommit="#onEditCommitMinSalary" prefWidth="239.33322143554688" text="Minimalna pensja" />
                 <TableColumn fx:id="maxSalaryColumn" onEditCommit="#onEditCommitMaxSalary" prefWidth="239.33349609375" text="Maksymalna pensja" />
             </columns>
             <contextMenu>
