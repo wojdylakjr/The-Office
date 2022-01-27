@@ -4,14 +4,17 @@ import fxModels.ClientFx;
 import models.Client;
 
 public class ClientConverter {
-    public static Client convertToClient(ClientFx clientFx){
+
+    //zapisujemy bez id
+    public static Client convertToClient(ClientFx clientFx) {
         Client client = new Client();
         client.setFirstName(clientFx.getFirstName());
         client.setLastName(clientFx.getLastName());
         return client;
     }
 
-    public static Client convertToClientWithId(ClientFx clientFx){
+    //update robimy z id
+    public static Client convertToClientWithId(ClientFx clientFx) {
         Client client = new Client();
         client.setId(clientFx.getId());
         client.setFirstName(clientFx.getFirstName());

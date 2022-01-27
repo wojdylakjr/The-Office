@@ -10,16 +10,7 @@ public class ClientFx {
     private StringProperty firstName = new SimpleStringProperty();
     private StringProperty lastName = new SimpleStringProperty();
 
-//    private IntegerProperty id;
-//    private StringProperty firstName;
-//    private StringProperty lastName;
-
-//    public ClientFx() {
-//        this.id = new SimpleIntegerProperty();
-//        this.firstName = new SimpleStringProperty();
-//        this.lastName = new SimpleStringProperty();
-//    }
-
+    
     public int getId() {
         return Integer.parseInt(id.get());
     }

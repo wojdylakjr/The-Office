@@ -1,20 +1,17 @@
 package controllers;
 
 import fxModels.ClientFx;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.StringProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
-import models.Client;
 import services.ClientService;
 
 import java.sql.SQLException;
 
 public class ClientController {
+    //dodawanie
     @FXML
     private TextField clientFirstName;
 
@@ -23,6 +20,8 @@ public class ClientController {
 
     @FXML
     private Button addClientButton;
+
+    //wyswietlanie i edycja
 
     @FXML
     private TableView<ClientFx> clientTableView;
@@ -36,6 +35,7 @@ public class ClientController {
     @FXML
     private TableColumn<ClientFx, String> lastNameColumn;
 
+    //usuwanie
     @FXML
     private MenuItem deleteMenuItem;
 
@@ -65,6 +65,7 @@ public class ClientController {
         });
     }
 
+    //obsluga przycisku do zapisu
     @FXML
     public void addClientOnAction() {
         System.out.println("Wcisnieto przycisk");
@@ -84,6 +85,7 @@ public class ClientController {
         }
     }
 
+    //edycja konkretnych kolumn
     @FXML
     public void onEditCommitFirstName(TableColumn.CellEditEvent<ClientFx, String> clientFxStringCellEditEvent) {
         this.clientService.getClientFxObjectPropertyUpdate().setFirstName(clientFxStringCellEditEvent.getNewValue());
@@ -97,6 +99,7 @@ public class ClientController {
 //        this.clientService.getClientFxObjectPropertyUpdate().setLastName(clientFxStringCellEditEvent.getNewValue());
         this.updateInDatabase();
     }
+
     private void updateInDatabase() {
         try {
             System.out.println("client controller");
@@ -116,9 +119,6 @@ public class ClientController {
         }
         this.listClients();
     }
-
-
-
 
 
 

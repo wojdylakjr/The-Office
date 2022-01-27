@@ -18,6 +18,7 @@ public class ClientService {
     private ObjectProperty<ClientFx> clientFxObjectPropertyUpdate = new SimpleObjectProperty<>(new ClientFx());
     private ObservableList<ClientFx> clientFxObservableList = FXCollections.observableArrayList();
 
+    //automatyczne getery i setery
     public ClientFx getClientFxObjectProperty() {
         return clientFxObjectProperty.get();
     }
@@ -50,15 +51,16 @@ public class ClientService {
         this.clientFxObjectPropertyUpdate.set(clientFxObjectPropertyUpdate);
     }
 
+    //CRUD
     public void saveClientInDatabase() throws SQLException {
         Client client = ClientConverter.convertToClient(this.getClientFxObjectProperty());
-            clientRepository.save(client);
+        clientRepository.save(client);
     }
 
     public void listClients() throws SQLException {
         List<Client> clients = clientRepository.getListOfObjects();
         this.clientFxObservableList.clear();
-        for(Client client : clients){
+        for (Client client : clients) {
             this.clientFxObservableList.add(ClientConverter.convertToClientFx(client));
         }
     }
