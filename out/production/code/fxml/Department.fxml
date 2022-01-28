@@ -31,7 +31,7 @@
                 <Label text="Maksymalna liczba pracownikow" />
                 <TextField fx:id="departmentMaxNumberOfEmployees" prefHeight="25.0" prefWidth="83.0" />
             <Label text="Minimalna liczba pracownikow" />
-            <TextField fx:id="departmentMinNumberOfEmployees1" prefHeight="25.0" prefWidth="83.0" />
+            <TextField fx:id="departmentMinNumberOfEmployees" prefHeight="25.0" prefWidth="83.0" />
             </children>
             <padding>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -49,19 +49,19 @@
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
         </HBox>
-        <TableView fx:id="employeeTableView" editable="true" prefHeight="584.0" prefWidth="771.0" tableMenuButtonVisible="true">
+        <TableView fx:id="departmentTableView" editable="true" prefHeight="584.0" prefWidth="771.0" tableMenuButtonVisible="true">
             <columns>
                 <TableColumn fx:id="idColumn" prefWidth="31.999998092651367" text="id" />
                 <TableColumn fx:id="departmentNameColumn" onEditCommit="#onEditCommitDepartmentName" prefWidth="166.66668319702148" text="Nazwa" />
-                <TableColumn fx:id="departmentMaxNumberOfEmployeesColumn" onEditCommit="#onEditCommitdepartmentMaxNumberOfEmployees" prefWidth="149.3333282470703" text="Max. liczba pracownikow" />
-                <TableColumn fx:id="departmentMinNumberOfEmployeesColumn" onEditCommit="#onEditCommitdepartmentMinNumberOfEmployees" prefWidth="160.66671752929688" text="Min. liczba pracownikow" />
-                <TableColumn fx:id="departmentManagerColumn" onEditCommit="#onEditCommitEmployeeBonus" prefWidth="149.333251953125" text="Kierownik dzialu" />
+                <TableColumn fx:id="departmentMaxNumberOfEmployeesColumn" onEditCommit="#onEditCommitDepartmentMaxNumberOfEmployees" prefWidth="149.3333282470703" text="Max. liczba pracownikow" />
+                <TableColumn fx:id="departmentMinNumberOfEmployeesColumn" onEditCommit="#onEditCommitDepartmentMinNumberOfEmployees" prefWidth="160.66671752929688" text="Min. liczba pracownikow" />
+                <TableColumn fx:id="departmentManagerColumn"  prefWidth="149.333251953125" text="Kierownik dzialu" />
                 <TableColumn fx:id="departmentBranchColumn" prefWidth="184.0" text="Oddzial" />
             </columns>
             <contextMenu>
                 <ContextMenu>
                     <items>
-                        <MenuItem fx:id="deleteMenuItem" mnemonicParsing="false" onAction="#deleteEmployeeOnAction" text="Usun rekord" />
+                        <MenuItem fx:id="deleteMenuItem" mnemonicParsing="false" onAction="#deleteDepartmentOnAction" text="Usun rekord" />
                     </items>
                 </ContextMenu>
             </contextMenu>

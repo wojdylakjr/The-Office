@@ -13,8 +13,16 @@ public class EmployeeConverter {
         employee.setSalary(employeeFx.getSalary());
         employee.setBonus(employeeFx.getBonus());
         employee.setEmployeeJobPosition(JobPositionConverter.convertToJobPositionWithId(employeeFx.getEmployeeJobPosition()));
-        employee.setEmployeeBoss(EmployeeConverter.convertToEmployeeWithId(employeeFx.getEmployeeBoss()));
-        employee.setEmployeeDepartment(DepartmentConverter.convertToDepartmentWithId(employeeFx.getEmployeeDepartment()));
+
+        //w szefie podamy tylko jego id i zaciagniemy go z bazy
+        employee.setEmployeeBoss(employeeFx.getEmployeeBoss().getId());
+
+
+//        employee.setEmployeeBoss(EmployeeConverter.convertToEmployeeWithId(employeeFx.getEmployeeBoss()));
+//        employee.setEmployeeBossID(EmployeeConverter.convertToEmployeeWithId(employeeFx.getEmployeeBoss()));
+
+
+//        employee.setEmployeeDepartment(DepartmentConverter.convertToDepartmentWithId(employeeFx.getEmployeeDepartment()));
         return employee;
     }
 
@@ -27,7 +35,10 @@ public class EmployeeConverter {
         employee.setSalary(employeeFx.getSalary());
         employee.setBonus(employeeFx.getBonus());
         employee.setEmployeeJobPosition(JobPositionConverter.convertToJobPositionWithId(employeeFx.getEmployeeJobPosition()));
-        employee.setEmployeeBoss(EmployeeConverter.convertToEmployeeWithId(employeeFx.getEmployeeBoss()));
+        employee.setEmployeeBoss(employeeFx.getEmployeeBoss().getId());
+//        employee.setEmployeeBossID(EmployeeConverter.convertToEmployeeWithId(employeeFx.getEmployeeBoss()));
+
+
         employee.setEmployeeDepartment(DepartmentConverter.convertToDepartmentWithId(employeeFx.getEmployeeDepartment()));
         return employee;
     }
@@ -40,7 +51,7 @@ public class EmployeeConverter {
         employeeFx.setSalary(employee.getSalary());
         employeeFx.setBonus(employee.getBonus());
         employeeFx.setEmployeeJobPosition(JobPositionConverter.convertToJobPositionFx(employee.getEmployeeJobPosition()));
-        employeeFx.setEmployeeBoss(EmployeeConverter.convertToEmployeeFx(employee.getEmployeeBoss()));
+//        employeeFx.setEmployeeBoss(EmployeeConverter.convertToEmployeeFx(employee.getEmployeeBoss()));
         employeeFx.setEmployeeDepartment(DepartmentConverter.convertToDepartmentFx(employee.getEmployeeDepartment()));
         return employeeFx;
     }

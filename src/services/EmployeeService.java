@@ -171,4 +171,8 @@ public class EmployeeService {
     public void deleteEmployeeInDatabase() throws SQLException {
         employeeRepository.delete(this.getEmployeeFxObjectPropertyUpdate().getId());
     }
+
+    public Employee getEmployeeById(int id) throws SQLException{
+        return employeeRepository.getObject(id);
+    }
 }

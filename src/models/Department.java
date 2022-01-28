@@ -55,4 +55,16 @@ public class Department {
     public void setDepartmentBranch(Branch departmentBranch) {
         this.departmentBranch = departmentBranch;
     }
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", maxNumberOfEmployees=" + maxNumberOfEmployees +
+                ", minNumberOfEmployees=" + minNumberOfEmployees +
+                ", departmentManager=" + departmentManager +
+                ", departmentBranch=" + departmentBranch +
+                '}';
+    }
 }

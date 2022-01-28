@@ -50,6 +50,9 @@ public class EmployeeRepository implements Repository<Employee> {
 
     @Override
     public Employee getObject(int id) {
+        Employee test = new Employee();
+        test.setId(1);
+        test.setFirstName("SZEF");
         return null;
     }
 

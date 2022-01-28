@@ -1,5 +1,10 @@
 package models;
 
+import services.ClientService;
+import services.EmployeeService;
+
+import java.sql.SQLException;
+
 public class Employee {
     private int id;
     private String firstName;
@@ -11,7 +16,7 @@ public class Employee {
     private Department employeeDepartment;
 
     public Employee() {
-        this.employeeBoss = new Employee();
+//        this.employeeBoss = new Employee();
         this.employeeJobPosition = new JobPosition();
         this.employeeDepartment = new Department();
     }
@@ -60,8 +65,15 @@ public class Employee {
         return employeeBoss;
     }
 
-    public void setEmployeeBoss(Employee employeeBoss) {
-        this.employeeBoss = employeeBoss;
+    public void setEmployeeBoss(int bossId) {
+        EmployeeService employeeService= new EmployeeService();
+        Employee boss = new Employee();
+        try {
+            boss = employeeService.getEmployeeById(bossId);
+            this.employeeBoss = boss;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public JobPosition getEmployeeJobPosition() {

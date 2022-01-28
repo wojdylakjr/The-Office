@@ -86,4 +86,16 @@ public class DepartmentFx {
     public void setDepartmentBranch(BranchFx departmentBranch) {
         this.departmentBranch.set(departmentBranch);
     }
+
+    @Override
+    public String toString() {
+        return "DepartmentFx{" +
+                "id=" + id +
+                ", name=" + name +
+                ", maxNumberOfEmployees=" + maxNumberOfEmployees +
+                ", minNumberOfEmployees=" + minNumberOfEmployees +
+                ", departmentManager=" + departmentManager +
+                ", departmentBranch=" + departmentBranch +
+                '}';
+    }
 }
