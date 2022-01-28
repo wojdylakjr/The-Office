@@ -1,6 +1,5 @@
 package controllers;
 
-import converters.Department;
 import fxModels.DepartmentFx;
 import fxModels.JobPositionFx;
 import fxModels.EmployeeFx;

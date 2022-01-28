@@ -123,6 +123,8 @@ public class EmployeeService {
 
     public void listEmployees() throws SQLException {
         this.initJobPositionList();
+        this.initDepartmentList();
+        this.initBossList();
         List<Employee> employees = employeeRepository.getListOfObjects();
         this.employeeFxObservableList.clear();
         for (Employee employee : employees) {
