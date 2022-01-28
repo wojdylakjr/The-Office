@@ -59,4 +59,8 @@ public class JobPositionFx {
         this.maxSalary.set(String.valueOf(maxSalary));
     }
 
+    @Override
+    public String toString() {
+        return positionName.getValue();
+    }
 }

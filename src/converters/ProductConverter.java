@@ -1,7 +1,7 @@
 package converters;
 
-import fxModels.ProductFx;
-import models.Product;
+        import fxModels.ProductFx;
+        import models.Product;
 
 public class ProductConverter {
 

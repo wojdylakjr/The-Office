@@ -8,6 +8,7 @@ public class LeftMenuController {
     private static final String JOB_POSITION_FXML = "/fxml/JobPosition.fxml";
     private static final String CATEGORY_FXML = "/fxml/Category.fxml";
     private static final String PRODUCT_FXML = "/fxml/Product.fxml";
+    private static final String EMPLOYEE_FXML = "/fxml/Employee.fxml";
 
     private MainWindowController mainWindowController;
     private ToggleGroup leftMenu;
@@ -19,6 +20,7 @@ public class LeftMenuController {
     @FXML
     public void getEmployees() {
         System.out.println("1");
+        mainWindowController.setRight(EMPLOYEE_FXML);
     }
 
     @FXML

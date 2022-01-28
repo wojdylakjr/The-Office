@@ -1,15 +1,15 @@
 package repositories;
 
-import database.DataBaseManager;
-import models.*;
+        import database.DataBaseManager;
+        import models.*;
 
-import java.lang.reflect.Array;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+        import java.lang.reflect.Array;
+        import java.sql.PreparedStatement;
+        import java.sql.ResultSet;
+        import java.sql.SQLException;
+        import java.sql.Statement;
+        import java.util.ArrayList;
+        import java.util.List;
 
 public class ProductRepository implements Repository<Product> {
 
@@ -58,7 +58,7 @@ public class ProductRepository implements Repository<Product> {
         System.out.println("Operacja w product repository");
         ArrayList<Product> products = new ArrayList<>();
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("SELECT id_produkt, produkt.nazwa AS \"produkt\", cena, kategoria.nazwa as \"kategoria\" FROM biuro.produkt\n" +
-                                                                                      "JOIN biuro.kategoria ON produkt.id_kategoria = kategoria.id_kategoria");
+                "JOIN biuro.kategoria ON produkt.id_kategoria = kategoria.id_kategoria");
         ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()) {
             Product product = new Product();
