@@ -30,4 +30,9 @@ public class CategoryFx {
     public void setCategoryName(String categoryName) {
         this.categoryName.set(categoryName);
     }
+
+    @Override
+    public String toString() {
+        return categoryName.getValue();
+    }
 }

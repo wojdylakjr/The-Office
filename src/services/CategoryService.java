@@ -1,7 +1,6 @@
 package services;
 
 import converters.CategoryConverter;
-import converters.ClientConverter;
 import fxModels.CategoryFx;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
