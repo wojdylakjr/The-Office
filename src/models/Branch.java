@@ -3,7 +3,7 @@ package models;
 public class Branch {
     private int id;
     private String cityName;
-    private Employee branchManager;
+    private Employee branchDirector;
 
     public int getId() {
         return id;
@@ -21,11 +21,11 @@ public class Branch {
         this.cityName = cityName;
     }
 
-    public Employee getBranchManager() {
-        return branchManager;
+    public Employee getBranchDirector() {
+        return branchDirector;
     }
 
-    public void setBranchManager(Employee branchManager) {
-        this.branchManager = branchManager;
+    public void setBranchDirector(Employee branchDirector) {
+        this.branchDirector = branchDirector;
     }
 }

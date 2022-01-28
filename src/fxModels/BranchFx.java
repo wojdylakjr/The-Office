@@ -9,7 +9,7 @@ import models.Employee;
 public class BranchFx {
     private StringProperty id = new SimpleStringProperty();
     private StringProperty cityName = new SimpleStringProperty();
-    private ObjectProperty<EmployeeFx> branchManager = new SimpleObjectProperty<>();
+    private ObjectProperty<EmployeeFx> branchDirector = new SimpleObjectProperty<>();
 
     public int getId() {
         return Integer.parseInt(id.get());
@@ -35,15 +35,15 @@ public class BranchFx {
         this.cityName.set(cityName);
     }
 
-    public EmployeeFx getBranchManager() {
-        return branchManager.get();
+    public EmployeeFx getBranchDirector() {
+        return branchDirector.get();
     }
 
-    public ObjectProperty<EmployeeFx> branchManagerProperty() {
-        return branchManager;
+    public ObjectProperty<EmployeeFx> branchDirectorProperty() {
+        return branchDirector;
     }
 
-    public void setBranchManager(EmployeeFx branchManager) {
-        this.branchManager.set(branchManager);
+    public void setBranchDirector(EmployeeFx branchDirector) {
+        this.branchDirector.set(branchDirector);
     }
 }

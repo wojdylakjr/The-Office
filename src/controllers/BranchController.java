@@ -20,7 +20,7 @@ public class BranchController {
 
 
     @FXML
-    private ComboBox<EmployeeFx> branchManagerComboBox;
+    private ComboBox<EmployeeFx> branchDirectorComboBox;
 
     @FXML
     private Button addBranchButton;
@@ -37,7 +37,7 @@ public class BranchController {
     private TableColumn<BranchFx, String> branchCityNameColumn;
 
     @FXML
-    private TableColumn<BranchFx, EmployeeFx> branchManagerColumn;
+    private TableColumn<BranchFx, EmployeeFx> branchDirectorColumn;
 
     //usuwanie
     @FXML
@@ -50,17 +50,17 @@ public class BranchController {
         this.listBranches();
         //dodanie elementow do combo boxa
         System.out.println(this.branchService.getEmployeeFxObservableList());
-        this.branchManagerComboBox.setItems(this.branchService.getEmployeeFxObservableList());
+        this.branchDirectorComboBox.setItems(this.branchService.getEmployeeFxObservableList());
         //dodawanie
         this.branchService.branchFxObjectPropertyProperty().get().cityNameProperty().bind(this.branchCityName.textProperty());
 
-        this.branchService.branchFxObjectPropertyProperty().get().branchManagerProperty().bind(this.branchManagerComboBox.valueProperty());
-        this.addBranchButton.disableProperty().bind(this.branchCityName.textProperty().isEmpty().or(this.branchManagerComboBox.valueProperty().isNull()));
+        this.branchService.branchFxObjectPropertyProperty().get().branchDirectorProperty().bind(this.branchDirectorComboBox.valueProperty());
+        this.addBranchButton.disableProperty().bind(this.branchCityName.textProperty().isEmpty().or(this.branchDirectorComboBox.valueProperty().isNull()));
         //wyswietlanie
         this.branchTableView.setItems(this.branchService.getBranchFxObservableList());
         this.idColumn.setCellValueFactory(cellData -> cellData.getValue().idProperty());
         this.branchCityNameColumn.setCellValueFactory(cellData -> cellData.getValue().cityNameProperty());
-        this.branchManagerColumn.setCellValueFactory(cellData -> cellData.getValue().branchManagerProperty());
+        this.branchDirectorColumn.setCellValueFactory(cellData -> cellData.getValue().branchDirectorProperty());
 
 
         //edytowanie

@@ -29,7 +29,7 @@
                 <Label text="Miasto" />
                 <TextField fx:id="branchCityName" prefHeight="25.0" prefWidth="125.0" />
                 <Label text="Kierownik" />
-                <ComboBox fx:id="branchManagerComboBox" prefHeight="25.0" prefWidth="140.0" />
+                <ComboBox fx:id="branchDirectorComboBox" prefHeight="25.0" prefWidth="140.0" />
                 <Button fx:id="addBranchButton" alignment="CENTER" mnemonicParsing="false" onAction="#addBranchOnAction" prefHeight="27.0" prefWidth="59.0" text="Submit" />
             </children>
             <padding>
@@ -40,7 +40,7 @@
             <columns>
                 <TableColumn fx:id="idColumn" prefWidth="103.33331489562988" text="id" />
                 <TableColumn fx:id="branchCityNameColumn" onEditCommit="#onEditCommitBranchName" prefWidth="331.3333206176758" text="MIasto" />
-                <TableColumn fx:id="branchManagerColumn" prefWidth="407.9999694824219" text="Kierownik" />
+                <TableColumn fx:id="branchDirectorColumn" prefWidth="407.9999694824219" text="Kierownik" />
             </columns>
             <contextMenu>
                 <ContextMenu>

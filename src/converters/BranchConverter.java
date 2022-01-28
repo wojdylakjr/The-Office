@@ -9,7 +9,7 @@ public class BranchConverter {
     public static Branch convertToBranch(BranchFx branchFx) {
         Branch branch = new Branch();
         branch.setCityName(branchFx.getCityName());
-        branch.setBranchManager(EmployeeConverter.convertToEmployeeWithId(branchFx.getBranchManager()));
+        branch.setBranchDirector(EmployeeConverter.convertToEmployeeWithId(branchFx.getBranchDirector()));
         return branch;
     }
 
@@ -18,7 +18,7 @@ public class BranchConverter {
         Branch branch = new Branch();
         branch.setId(branchFx.getId());
         branch.setCityName(branchFx.getCityName());
-        branch.setBranchManager(EmployeeConverter.convertToEmployeeWithId(branchFx.getBranchManager()));
+        branch.setBranchDirector(EmployeeConverter.convertToEmployeeWithId(branchFx.getBranchDirector()));
         return branch;
     }
 
@@ -26,7 +26,7 @@ public class BranchConverter {
         BranchFx branchFx = new BranchFx();
         branchFx.setId(branch.getId());
         branchFx.setCityName(branch.getCityName());
-        branchFx.setBranchManager(EmployeeConverter.convertToEmployeeFx(branch.getBranchManager()));
+        branchFx.setBranchDirector(EmployeeConverter.convertToEmployeeFx(branch.getBranchDirector()));
         return branchFx;
     }
 
