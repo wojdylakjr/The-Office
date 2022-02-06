@@ -59,16 +59,14 @@ public class ProductRepository implements Repository<Product> {
                 "JOIN biuro.kategoria ON produkt.id_kategoria = kategoria.id_kategoria");
         ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()) {
-            Product product = new Product();
+            Product product = new Product(resultSet.getInt("id_produkt"),resultSet.getString("produkt"),resultSet.getInt("cena"));
             product.getProductCategory().setCategoryName(resultSet.getString("kategoria"));
             System.out.println(resultSet.getInt("id_produkt"));
             System.out.println(resultSet.getString("produkt"));
             System.out.println(resultSet.getInt("cena"));
             System.out.println(resultSet.getString("kategoria"));
 
-            product.setId(resultSet.getInt("id_produkt"));
-            product.setName(resultSet.getString("produkt"));
-            product.setPrice(resultSet.getInt("cena"));
+
             product.getProductCategory().setCategoryName(resultSet.getString("kategoria"));
             products.add(product);
         }

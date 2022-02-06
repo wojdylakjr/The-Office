@@ -22,6 +22,35 @@ public class Employee {
     public Employee() {
     }
 
+    public Employee(int id, String firstName, String lastName, int bonus, int salary) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.bonus = bonus;
+        this.salary = salary;
+    }
+
+    public Employee(int id, String firstName, String lastName, int bonus, int salary, EmployeeDto employeeBoss, JobPosition employeeJobPosition, DepartmentDto employeeDepartment) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.bonus = bonus;
+        this.salary = salary;
+        this.employeeBoss = employeeBoss;
+        this.employeeJobPosition = employeeJobPosition;
+        this.employeeDepartment = employeeDepartment;
+    }
+
+    public Employee(String firstName, String lastName, int bonus, int salary, EmployeeDto employeeBoss, JobPosition employeeJobPosition, DepartmentDto employeeDepartment) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.bonus = bonus;
+        this.salary = salary;
+        this.employeeBoss = employeeBoss;
+        this.employeeJobPosition = employeeJobPosition;
+        this.employeeDepartment = employeeDepartment;
+    }
+
     public int getId() {
         return id;
     }

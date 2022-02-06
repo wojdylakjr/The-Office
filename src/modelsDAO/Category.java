@@ -4,6 +4,18 @@ public class Category {
     private int id;
     private String categoryName;
 
+    public Category() {
+    }
+
+    public Category(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public Category(int id, String categoryName) {
+        this.id = id;
+        this.categoryName = categoryName;
+    }
+
     public int getId() {
         return id;
     }

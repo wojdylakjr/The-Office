@@ -10,6 +10,25 @@ public class Branch {
     private String cityName;
     private EmployeeDto branchDirector;
 
+    public Branch() {
+    }
+
+    public Branch(int id, String cityName) {
+        this.id = id;
+        this.cityName = cityName;
+    }
+
+    public Branch(String cityName, EmployeeDto branchDirector) {
+        this.cityName = cityName;
+        this.branchDirector = branchDirector;
+    }
+
+    public Branch(int id, String cityName, EmployeeDto branchDirector) {
+        this.id = id;
+        this.cityName = cityName;
+        this.branchDirector = branchDirector;
+    }
+
     public int getId() {
         return id;
     }
@@ -31,7 +50,7 @@ public class Branch {
     }
 
     public void setBranchDirectorFromDatabase(int branchDirectorId) {
-        EmployeeService employeeService= new EmployeeService();
+        EmployeeService employeeService = new EmployeeService();
         try {
             this.branchDirector = employeeService.getEmployeeDtoById(branchDirectorId);
         } catch (SQLException e) {

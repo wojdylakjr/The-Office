@@ -8,6 +8,26 @@ public class Department {
     private Employee departmentManager;
     private Branch departmentBranch;
 
+    public Department() {
+    }
+
+    public Department(String name, int maxNumberOfEmployees, int minNumberOfEmployees, Employee departmentManager, Branch departmentBranch) {
+        this.name = name;
+        this.maxNumberOfEmployees = maxNumberOfEmployees;
+        this.minNumberOfEmployees = minNumberOfEmployees;
+        this.departmentManager = departmentManager;
+        this.departmentBranch = departmentBranch;
+    }
+
+    public Department(int id, String name, int maxNumberOfEmployees, int minNumberOfEmployees, Employee departmentManager, Branch departmentBranch) {
+        this.id = id;
+        this.name = name;
+        this.maxNumberOfEmployees = maxNumberOfEmployees;
+        this.minNumberOfEmployees = minNumberOfEmployees;
+        this.departmentManager = departmentManager;
+        this.departmentBranch = departmentBranch;
+    }
+
     public int getId() {
         return id;
     }

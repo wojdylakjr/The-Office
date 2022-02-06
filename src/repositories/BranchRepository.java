@@ -58,16 +58,14 @@ public class BranchRepository implements Repository<Branch> {
 //                "JOIN biuro.kategoria ON produkt.id_kategoria = kategoria.id_kategoria");
         ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()) {
-            Branch branch = new Branch();
+            Branch branch = new Branch(resultSet.getInt("id_oddzial"),resultSet.getString("miasto"));
 //            branch.getBranchDirector().setEmployeeCityName(resultSet.getString("kategoria"));
 
             System.out.println(resultSet.getInt("id_oddzial"));
             System.out.println(resultSet.getString("miasto"));
             System.out.println(resultSet.getInt("id_dyrektor_oddzial"));
-//            System.out.println(resultSet.getString("kategoria"));
 
-            branch.setId(resultSet.getInt("id_oddzial"));
-            branch.setCityName(resultSet.getString("miasto"));
+
           branch.setBranchDirectorFromDatabase(resultSet.getInt("id_dyrektor_oddzial"));
 //            System.out.println(branch.getBranchDirector());
             branchs.add(branch);

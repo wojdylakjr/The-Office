@@ -7,19 +7,13 @@ public class ClientConverter {
 
     //zapisujemy bez id
     public static Client convertToClient(ClientFx clientFx) {
-        Client client = new Client();
-        client.setFirstName(clientFx.getFirstName());
-        client.setLastName(clientFx.getLastName());
-        return client;
+        return new Client(clientFx.getFirstName(), clientFx.getLastName());
     }
 
     //update robimy z id
     public static Client convertToClientWithId(ClientFx clientFx) {
-        Client client = new Client();
-        client.setId(clientFx.getId());
-        client.setFirstName(clientFx.getFirstName());
-        client.setLastName(clientFx.getLastName());
-        return client;
+        return new Client(clientFx.getId(), clientFx.getFirstName(),clientFx.getLastName() );
+
     }
 
     public static ClientFx convertToClientFx(Client client) {

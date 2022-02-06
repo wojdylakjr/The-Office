@@ -98,12 +98,8 @@ public class EmployeeRepository implements Repository<Employee> {
         ResultSet resultSet = statement.executeQuery();
 
         while (resultSet.next()) {
-            Employee employee = new Employee();
-            employee.setId(resultSet.getInt("id_pracownik"));
-            employee.setFirstName(resultSet.getString("imie"));
-            employee.setLastName(resultSet.getString("nazwisko"));
-            employee.setBonus(resultSet.getInt("premia"));
-            employee.setSalary(resultSet.getInt("pensja"));
+            Employee employee = new Employee(resultSet.getInt("id_pracownik"), resultSet.getString("imie"),resultSet.getString("nazwisko"),resultSet.getInt("premia"),resultSet.getInt("pensja"));
+
             employee.setEmployeeBossFromDatabase(resultSet.getInt("id_szef"));
             employee.setEmployeeJobPositionFromDatabase(resultSet.getInt("id_stanowisko"));
             employee.setEmployeeDepartmentFromDatabase(resultSet.getInt("id_dzial_firmy"));

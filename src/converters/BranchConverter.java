@@ -7,19 +7,12 @@ public class BranchConverter {
 
     //zapisujemy bez id
     public static Branch convertToBranch(BranchFx branchFx) {
-        Branch branch = new Branch();
-        branch.setCityName(branchFx.getCityName());
-        branch.setBranchDirector(EmployeeConverter.convertToEmployeeDto(branchFx.getBranchDirector()));
-        return branch;
+        return new Branch(branchFx.getCityName(), EmployeeConverter.convertToEmployeeDto(branchFx.getBranchDirector()));
     }
 
     //update robimy z id
     public static Branch convertToBranchWithId(BranchFx branchFx) {
-        Branch branch = new Branch();
-        branch.setId(branchFx.getId());
-        branch.setCityName(branchFx.getCityName());
-        branch.setBranchDirector(EmployeeConverter.convertToEmployeeDto(branchFx.getBranchDirector()));
-        return branch;
+        return new Branch(branchFx.getId(), branchFx.getCityName(), EmployeeConverter.convertToEmployeeDto(branchFx.getBranchDirector()));
     }
 
     public static BranchFx convertToBranchFx(Branch branch) {

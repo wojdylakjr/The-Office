@@ -8,26 +8,13 @@ public class DepartmentConverter {
 
     //zapisujemy bez id
     public static Department convertToDepartment(DepartmentFx departmentFx) {
-        Department department = new Department();
-        department.setName(departmentFx.getName());
-        department.setMaxNumberOfEmployees(departmentFx.getMaxNumberOfEmployees());
-        department.setMinNumberOfEmployees(departmentFx.getMinNumberOfEmployees());
-        department.setDepartmentBranch(BranchConverter.convertToBranchWithId(departmentFx.getDepartmentBranch()));
-        department.setDepartmentManager(EmployeeConverter.convertToEmployeeWithId(departmentFx.getDepartmentManager()));
-
-        return department;
+        return new Department(departmentFx.getName(), departmentFx.getMaxNumberOfEmployees(),departmentFx.getMinNumberOfEmployees(),EmployeeConverter.convertToEmployeeWithId(departmentFx.getDepartmentManager()),BranchConverter.convertToBranchWithId(departmentFx.getDepartmentBranch()));
     }
 
     //update robimy z id
     public static Department convertToDepartmentWithId(DepartmentFx departmentFx) {
-        Department department = new Department();
-        department.setId(departmentFx.getId());
-        department.setName(departmentFx.getName());
-        department.setMaxNumberOfEmployees(departmentFx.getMaxNumberOfEmployees());
-        department.setMinNumberOfEmployees(departmentFx.getMinNumberOfEmployees());
-        department.setDepartmentBranch(BranchConverter.convertToBranchWithId(departmentFx.getDepartmentBranch()));
-        department.setDepartmentManager(EmployeeConverter.convertToEmployeeWithId(departmentFx.getDepartmentManager()));
-        return department;
+        return new Department(departmentFx.getId(),departmentFx.getName(), departmentFx.getMaxNumberOfEmployees(),departmentFx.getMinNumberOfEmployees(),EmployeeConverter.convertToEmployeeWithId(departmentFx.getDepartmentManager()),BranchConverter.convertToBranchWithId(departmentFx.getDepartmentBranch()));
+
     }
 
     public static DepartmentFx convertToDepartmentFx(Department department) {

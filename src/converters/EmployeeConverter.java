@@ -8,35 +8,14 @@ public class EmployeeConverter {
 
     //zapisujemy bez id
     public static Employee convertToEmployee(EmployeeFx employeeFx) {
-        Employee employee = new Employee();
-        employee.setFirstName(employeeFx.getFirstName());
-        employee.setLastName(employeeFx.getLastName());
-        employee.setSalary(employeeFx.getSalary());
-        employee.setBonus(employeeFx.getBonus());
-        employee.setEmployeeJobPosition(JobPositionConverter.convertToJobPositionWithId(employeeFx.getEmployeeJobPosition()));
+        return new Employee(employeeFx.getFirstName(),employeeFx.getLastName(),employeeFx.getSalary(),employeeFx.getBonus(),convertToEmployeeDto(employeeFx),JobPositionConverter.convertToJobPositionWithId(employeeFx.getEmployeeJobPosition()),DepartmentConverter.convertToDepartmentDto(employeeFx.getEmployeeDepartment()));
 
-        //w szefie podamy tylko jego id i zaciagniemy go z bazy
-        employee.setEmployeeBoss(convertToEmployeeDto(employeeFx));
-        employee.setEmployeeDepartment(DepartmentConverter.convertToDepartmentDto(employeeFx.getEmployeeDepartment()));
-
-
-//        employee.setEmployeeBoss(EmployeeConverter.convertToEmployeeWithId(employeeFx.getEmployeeBoss()));
-//        employee.setEmployeeBossID(EmployeeConverter.convertToEmployeeWithId(employeeFx.getEmployeeBoss()));
-
-        return employee;
     }
 
     //update robimy z id
     public static Employee convertToEmployeeWithId(EmployeeFx employeeFx) {
-        Employee employee = new Employee();
+        Employee employee = convertToEmployee(employeeFx);
         employee.setId(employeeFx.getId());
-        employee.setFirstName(employeeFx.getFirstName());
-        employee.setLastName(employeeFx.getLastName());
-        employee.setSalary(employeeFx.getSalary());
-        employee.setBonus(employeeFx.getBonus());
-        employee.setEmployeeJobPosition(JobPositionConverter.convertToJobPositionWithId(employeeFx.getEmployeeJobPosition()));
-        employee.setEmployeeBoss(convertToEmployeeDto(employeeFx));
-        employee.setEmployeeDepartment(DepartmentConverter.convertToDepartmentDto(employeeFx.getEmployeeDepartment()));
         return employee;
     }
 

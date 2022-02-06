@@ -6,6 +6,22 @@ public class JobPosition {
     private int minSalary;
     private int maxSalary;
 
+    public JobPosition() {
+    }
+
+    public JobPosition(int id, String positionName, int minSalary, int maxSalary) {
+        this.id = id;
+        this.positionName = positionName;
+        this.minSalary = minSalary;
+        this.maxSalary = maxSalary;
+    }
+
+    public JobPosition(String positionName, int minSalary, int maxSalary) {
+        this.positionName = positionName;
+        this.minSalary = minSalary;
+        this.maxSalary = maxSalary;
+    }
+
     public int getId() {
         return id;
     }

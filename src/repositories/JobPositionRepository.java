@@ -49,13 +49,9 @@ public class JobPositionRepository implements Repository<JobPosition> {
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("SELECT id_stanowisko, nazwa, min_pensja, max_pensja FROM biuro.Stanowisko WHERE id_stanowisko = ?");
         statement.setInt(1,id);
         ResultSet resultSet = statement.executeQuery();
-        JobPosition jobPosition = new JobPosition();
+        JobPosition jobPosition = null;
         while (resultSet.next()) {
-            jobPosition.setId(resultSet.getInt("id_stanowisko"));
-            jobPosition.setPositionName(resultSet.getString("nazwa"));
-            jobPosition.setMinSalary(resultSet.getInt("min_pensja"));
-            jobPosition.setMaxSalary(resultSet.getInt("max_pensja"));
-
+             jobPosition= new JobPosition(resultSet.getInt("id_stanowisko"), resultSet.getString("nazwa"),resultSet.getInt("min_pensja"),resultSet.getInt("max_pensja"));
         }
         statement.close();
         return jobPosition;
@@ -67,11 +63,7 @@ public class JobPositionRepository implements Repository<JobPosition> {
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("SELECT id_stanowisko, nazwa, min_pensja, max_pensja FROM biuro.Stanowisko");
         ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()) {
-            JobPosition jobPosition = new JobPosition();
-            jobPosition.setId(resultSet.getInt("id_stanowisko"));
-            jobPosition.setPositionName(resultSet.getString("nazwa"));
-            jobPosition.setMinSalary(resultSet.getInt("min_pensja"));
-            jobPosition.setMaxSalary(resultSet.getInt("max_pensja"));
+            JobPosition jobPosition = new JobPosition(resultSet.getInt("id_stanowisko"), resultSet.getString("nazwa"),resultSet.getInt("min_pensja"),resultSet.getInt("max_pensja"));
             jobPositions.add(jobPosition);
         }
         statement.close();

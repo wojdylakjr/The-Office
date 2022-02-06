@@ -6,9 +6,23 @@ public class Product {
     private int price;
     private Category productCategory;
 
-    public Product() {
+    public Product(int id, String name, int price, Category category) {
         this.productCategory = new Category();
     }
+
+    public Product(int id, String name, int price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+
+    public Product(String name, int price, Category productCategory) {
+        this.name = name;
+        this.price = price;
+        this.productCategory = productCategory;
+    }
+
+
 
     public int getId() {
         return id;
