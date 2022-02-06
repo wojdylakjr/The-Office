@@ -3,16 +3,17 @@ package services;
 import converters.DepartmentConverter;
 import converters.EmployeeConverter;
 import converters.JobPositionConverter;
-import fxModels.DepartmentFx;
-import fxModels.EmployeeFx;
-import fxModels.JobPositionFx;
+import modelsDTO.EmployeeDto;
+import modelsFx.DepartmentFx;
+import modelsFx.EmployeeFx;
+import modelsFx.JobPositionFx;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import models.Department;
-import models.Employee;
-import models.JobPosition;
+import modelsDAO.Department;
+import modelsDAO.Employee;
+import modelsDAO.JobPosition;
 import repositories.DepartmentRepository;
 import repositories.EmployeeRepository;
 import repositories.JobPositionRepository;
@@ -142,6 +143,7 @@ public class EmployeeService {
         }
 //        System.out.println(this.categoryFxObservableList.toString());
     }
+
     private void initDepartmentList() throws SQLException {
         List<Department> departments = this.departmentRepository.getListOfObjects();
         this.departmentFxObservableList.clear();
@@ -151,10 +153,11 @@ public class EmployeeService {
         }
 //        System.out.println(this.categoryFxObservableList.toString());
     }
+
     private void initBossList() throws SQLException {
         List<Employee> bosses = this.employeeRepository.getListOfObjects();
         this.bossFxObservableList.clear();
-        for(Employee employee : bosses) {
+        for (Employee employee : bosses) {
 //            System.out.println(category);
             this.bossFxObservableList.add(EmployeeConverter.convertToEmployeeFx(employee));
         }
@@ -172,7 +175,11 @@ public class EmployeeService {
         employeeRepository.delete(this.getEmployeeFxObjectPropertyUpdate().getId());
     }
 
-    public Employee getEmployeeById(int id) throws SQLException{
+    public Employee getEmployeeById(int id) throws SQLException {
         return employeeRepository.getObject(id);
+    }
+
+    public EmployeeDto getEmployeeDtoById(int id) throws SQLException {
+        return employeeRepository.getDtoObject(id);
     }
 }

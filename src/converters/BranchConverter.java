@@ -1,7 +1,7 @@
 package converters;
 
-import fxModels.BranchFx;
-import models.Branch;
+import modelsFx.BranchFx;
+import modelsDAO.Branch;
 
 public class BranchConverter {
 
@@ -9,7 +9,7 @@ public class BranchConverter {
     public static Branch convertToBranch(BranchFx branchFx) {
         Branch branch = new Branch();
         branch.setCityName(branchFx.getCityName());
-        branch.setBranchDirector(EmployeeConverter.convertToEmployeeWithId(branchFx.getBranchDirector()));
+        branch.setBranchDirector(EmployeeConverter.convertToEmployeeDto(branchFx.getBranchDirector()));
         return branch;
     }
 
@@ -18,7 +18,7 @@ public class BranchConverter {
         Branch branch = new Branch();
         branch.setId(branchFx.getId());
         branch.setCityName(branchFx.getCityName());
-        branch.setBranchDirector(EmployeeConverter.convertToEmployeeWithId(branchFx.getBranchDirector()));
+        branch.setBranchDirector(EmployeeConverter.convertToEmployeeDto(branchFx.getBranchDirector()));
         return branch;
     }
 
@@ -26,7 +26,7 @@ public class BranchConverter {
         BranchFx branchFx = new BranchFx();
         branchFx.setId(branch.getId());
         branchFx.setCityName(branch.getCityName());
-        branchFx.setBranchDirector(EmployeeConverter.convertToEmployeeFx(branch.getBranchDirector()));
+        branchFx.setBranchDirector(EmployeeConverter.convertToEmployeeFxFromDto(branch.getBranchDirector()));
         return branchFx;
     }
 

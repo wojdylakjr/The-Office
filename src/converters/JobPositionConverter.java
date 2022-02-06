@@ -1,7 +1,7 @@
 package converters;
 
-import fxModels.JobPositionFx;
-import models.JobPosition;
+import modelsFx.JobPositionFx;
+import modelsDAO.JobPosition;
 
 public class JobPositionConverter {
     //zapisujemy bez id

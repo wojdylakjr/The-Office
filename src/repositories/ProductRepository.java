@@ -1,13 +1,11 @@
 package repositories;
 
         import database.DataBaseManager;
-        import models.*;
+        import modelsDAO.*;
 
-        import java.lang.reflect.Array;
         import java.sql.PreparedStatement;
         import java.sql.ResultSet;
         import java.sql.SQLException;
-        import java.sql.Statement;
         import java.util.ArrayList;
         import java.util.List;
 

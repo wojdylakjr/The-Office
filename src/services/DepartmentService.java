@@ -3,18 +3,17 @@ package services;
 import converters.BranchConverter;
 import converters.DepartmentConverter;
 import converters.EmployeeConverter;
-import converters.JobPositionConverter;
-import fxModels.BranchFx;
-import fxModels.DepartmentFx;
-import fxModels.EmployeeFx;
+import modelsDTO.DepartmentDto;
+import modelsFx.BranchFx;
+import modelsFx.DepartmentFx;
+import modelsFx.EmployeeFx;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import models.Branch;
-import models.Department;
-import models.Employee;
-import models.JobPosition;
+import modelsDAO.Branch;
+import modelsDAO.Department;
+import modelsDAO.Employee;
 import repositories.BranchRepository;
 import repositories.DepartmentRepository;
 import repositories.EmployeeRepository;
@@ -155,5 +154,13 @@ public class DepartmentService {
 
     public void deleteDepartmentInDatabase() throws SQLException {
         departmentRepository.delete(this.getDepartmentFxObjectPropertyUpdate().getId());
+    }
+
+    public Department getDepartmentById(int id) throws SQLException{
+        return departmentRepository.getObject(id);
+    }
+
+    public DepartmentDto getDepartmentDtoById(int id) throws SQLException {
+        return departmentRepository.getDtoObject(id);
     }
 }

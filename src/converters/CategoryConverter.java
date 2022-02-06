@@ -1,9 +1,7 @@
 package converters;
 
-import fxModels.CategoryFx;
-import fxModels.ClientFx;
-import models.Category;
-import models.Client;
+import modelsFx.CategoryFx;
+import modelsDAO.Category;
 
 public class CategoryConverter {
     //zapisujemy bez id

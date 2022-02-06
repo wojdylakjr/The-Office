@@ -1,7 +1,7 @@
 package repositories;
 
 import database.DataBaseManager;
-import models.*;
+import modelsDAO.*;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -2,14 +2,14 @@ package services;
 
 import converters.EmployeeConverter;
 import converters.BranchConverter;
-import fxModels.EmployeeFx;
-import fxModels.BranchFx;
+import modelsFx.EmployeeFx;
+import modelsFx.BranchFx;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import models.Employee;
-import models.Branch;
+import modelsDAO.Employee;
+import modelsDAO.Branch;
 import repositories.EmployeeRepository;
 import repositories.BranchRepository;
 
@@ -118,5 +118,9 @@ public class BranchService {
 
     public void deleteBranchInDatabase() throws SQLException {
         branchRepository.delete(this.getBranchFxObjectPropertyUpdate().getId());
+    }
+
+    public Branch getBranchById(int id) throws SQLException{
+        return branchRepository.getObject(id);
     }
 }

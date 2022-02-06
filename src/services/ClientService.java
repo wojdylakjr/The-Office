@@ -1,12 +1,12 @@
 package services;
 
 import converters.ClientConverter;
-import fxModels.ClientFx;
+import modelsFx.ClientFx;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import models.Client;
+import modelsDAO.Client;
 import repositories.ClientRepository;
 
 import java.sql.SQLException;

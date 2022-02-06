@@ -1,14 +1,12 @@
 package controllers;
 
-import fxModels.EmployeeFx;
-import fxModels.BranchFx;
+import modelsFx.EmployeeFx;
+import modelsFx.BranchFx;
 import javafx.fxml.FXML;
 
 
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
-import models.Employee;
-import models.Branch;
 import services.BranchService;
 
 import java.sql.SQLException;

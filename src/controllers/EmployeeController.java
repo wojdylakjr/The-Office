@@ -1,8 +1,8 @@
 package controllers;
 
-import fxModels.DepartmentFx;
-import fxModels.JobPositionFx;
-import fxModels.EmployeeFx;
+import modelsFx.DepartmentFx;
+import modelsFx.JobPositionFx;
+import modelsFx.EmployeeFx;
 import javafx.fxml.FXML;
 
 
@@ -118,6 +118,7 @@ public class EmployeeController {
     //obsluga przycisku do zapisu
     @FXML
     public void addEmployeeOnAction() {
+//        System.out.println(this.employeeBossColumn);
         System.out.println("Wcisnieto przycisk");
         try {
             this.employeeService.saveEmployeeInDatabase();

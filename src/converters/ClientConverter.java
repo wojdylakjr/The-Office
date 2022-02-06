@@ -1,7 +1,7 @@
 package converters;
 
-import fxModels.ClientFx;
-import models.Client;
+import modelsFx.ClientFx;
+import modelsDAO.Client;
 
 public class ClientConverter {
 

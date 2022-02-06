@@ -1,13 +1,12 @@
 package repositories;
 
 import database.DataBaseManager;
-import models.*;
+import modelsDAO.*;
+import modelsDTO.DepartmentDto;
 
-import java.lang.reflect.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,16 +48,27 @@ public class DepartmentRepository implements Repository<Department> {
     }
 
     @Override
-    public Department getObject(int id) {
-        return null;
+    public Department getObject(int id) throws SQLException {
+        PreparedStatement statement = DataBaseManager.connection.prepareStatement("SELECT id_dzial_firmy, id_kierownik_dzial, id_oddzial, nazwa, max_liczba_pracownikow, min_liczba_pracownikow FROM biuro.dzial_firmy WHERE id_dzial_firmy = ?");
+        statement.setInt(1,id);
+        ResultSet resultSet = statement.executeQuery();
+        Department department = new Department();
+        while (resultSet.next()) {
+            department.setId(resultSet.getInt("id_dzial_firmy"));
+            department.setName(resultSet.getString("nazwa"));
+            department.setMinNumberOfEmployees(resultSet.getInt("min_liczba_pracownikow"));
+            department.setMaxNumberOfEmployees(resultSet.getInt("max_liczba_pracownikow"));
+
+        }
+        statement.close();
+        return department;
     }
 
     @Override
     public List<Department> getListOfObjects() throws SQLException {
         System.out.println("Operacja w department repository");
         ArrayList<Department> departments = new ArrayList<>();
-//        PreparedStatement statement = DataBaseManager.connection.prepareStatement("SELECT id_produkt, produkt.nazwa AS \"produkt\", cena, kategoria.nazwa as \"kategoria\" FROM biuro.produkt\n" +
-//                "JOIN biuro.kategoria ON produkt.id_kategoria = kategoria.id_kategoria");
+//        PreparedStatement statement = DataBaseManager.connection.prepareStatement("SELECT id_dzial_firmy, FROM biuro.dzial_firmy");
 //        ResultSet resultSet = statement.executeQuery();
 //        while (resultSet.next()) {
 //            Department department = new Department();
@@ -77,5 +87,17 @@ public class DepartmentRepository implements Repository<Department> {
 //        statement.close();
         return departments;
 
+    }
+
+    public DepartmentDto getDtoObject(int id) throws SQLException {
+        PreparedStatement statement = DataBaseManager.connection.prepareStatement("SELECT id_dzial_firmy, id_kierownik_dzial, id_oddzial, nazwa, max_liczba_pracownikow, min_liczba_pracownikow FROM biuro.dzial_firmy WHERE id_dzial_firmy = ?");
+        statement.setInt(1,id);
+        ResultSet resultSet = statement.executeQuery();
+        DepartmentDto department = null;
+        while (resultSet.next()) {
+            department = new DepartmentDto(resultSet.getInt("id_dzial_firmy"), resultSet.getString("nazwa"), resultSet.getInt("min_liczba_pracownikow"),resultSet.getInt("max_liczba_pracownikow"));
+        }
+        statement.close();
+        return department;
     }
 }

@@ -1,10 +1,9 @@
 package controllers;
 
-import fxModels.JobPositionFx;
+import modelsFx.JobPositionFx;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
-import services.ClientService;
 import services.JobPositionService;
 
 import java.sql.SQLException;

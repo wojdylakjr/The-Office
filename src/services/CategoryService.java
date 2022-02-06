@@ -1,13 +1,12 @@
 package services;
 
 import converters.CategoryConverter;
-import fxModels.CategoryFx;
+import modelsFx.CategoryFx;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import models.Category;
-import models.Client;
+import modelsDAO.Category;
 import repositories.CategoryRepository;
 
 import java.sql.SQLException;

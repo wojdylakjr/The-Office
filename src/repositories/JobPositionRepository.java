@@ -1,13 +1,11 @@
 package repositories;
 
 import database.DataBaseManager;
-import models.*;
+import modelsDAO.*;
 
-import java.lang.reflect.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,8 +45,20 @@ public class JobPositionRepository implements Repository<JobPosition> {
     }
 
     @Override
-    public JobPosition getObject(int id) {
-        return null;
+    public JobPosition getObject(int id) throws SQLException {
+        PreparedStatement statement = DataBaseManager.connection.prepareStatement("SELECT id_stanowisko, nazwa, min_pensja, max_pensja FROM biuro.Stanowisko WHERE id_stanowisko = ?");
+        statement.setInt(1,id);
+        ResultSet resultSet = statement.executeQuery();
+        JobPosition jobPosition = new JobPosition();
+        while (resultSet.next()) {
+            jobPosition.setId(resultSet.getInt("id_stanowisko"));
+            jobPosition.setPositionName(resultSet.getString("nazwa"));
+            jobPosition.setMinSalary(resultSet.getInt("min_pensja"));
+            jobPosition.setMaxSalary(resultSet.getInt("max_pensja"));
+
+        }
+        statement.close();
+        return jobPosition;
     }
 
     @Override

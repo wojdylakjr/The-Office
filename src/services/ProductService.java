@@ -2,14 +2,14 @@ package services;
 
 import converters.CategoryConverter;
 import converters.ProductConverter;
-import fxModels.CategoryFx;
-import fxModels.ProductFx;
+import modelsFx.CategoryFx;
+import modelsFx.ProductFx;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import models.Category;
-import models.Product;
+import modelsDAO.Category;
+import modelsDAO.Product;
 import repositories.CategoryRepository;
 import repositories.ProductRepository;
 

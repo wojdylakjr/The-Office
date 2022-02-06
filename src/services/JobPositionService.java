@@ -1,14 +1,12 @@
 package services;
 
-import converters.ClientConverter;
 import converters.JobPositionConverter;
-import fxModels.JobPositionFx;
+import modelsFx.JobPositionFx;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import models.Client;
-import models.JobPosition;
+import modelsDAO.JobPosition;
 import repositories.JobPositionRepository;
 
 import java.sql.SQLException;
@@ -86,5 +84,9 @@ public class JobPositionService {
 
     public void deleteJobPositionInDatabase() throws SQLException {
         jobPositionRepository.delete(this.getJobPositionFxSimpleObjectPropertyUpdate().getId());
+    }
+
+    public JobPosition getJobPositionById(int id) throws SQLException {
+       return jobPositionRepository.getObject(id);
     }
 }

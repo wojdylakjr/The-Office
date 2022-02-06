@@ -1,14 +1,12 @@
 package controllers;
 
-import fxModels.CategoryFx;
-import fxModels.ProductFx;
+import modelsFx.CategoryFx;
+import modelsFx.ProductFx;
 import javafx.fxml.FXML;
 
 
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
-import models.Category;
-import models.Product;
 import services.ProductService;
 
 import java.sql.SQLException;

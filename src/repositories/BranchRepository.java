@@ -1,13 +1,11 @@
 package repositories;
 
 import database.DataBaseManager;
-import models.*;
+import modelsDAO.*;
 
-import java.lang.reflect.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,23 +53,26 @@ public class BranchRepository implements Repository<Branch> {
     public List<Branch> getListOfObjects() throws SQLException {
         System.out.println("Operacja w branch repository");
         ArrayList<Branch> branchs = new ArrayList<>();
-//        PreparedStatement statement = DataBaseDirector.connection.prepareStatement("SELECT id_produkt, produkt.nazwa AS \"produkt\", cena, kategoria.nazwa as \"kategoria\" FROM biuro.produkt\n" +
+        PreparedStatement statement = DataBaseManager.connection.prepareStatement("SELECT id_oddzial,id_dyrektor_oddzial, miasto FROM biuro.oddzial");
+//        PreparedStatement statement = DataBaseManager.connection.prepareStatement("SELECT id_oddzial, miasto FROM biuro.oddzial\n" +
 //                "JOIN biuro.kategoria ON produkt.id_kategoria = kategoria.id_kategoria");
-//        ResultSet resultSet = statement.executeQuery();
-//        while (resultSet.next()) {
-//            Branch branch = new Branch();
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+            Branch branch = new Branch();
 //            branch.getBranchDirector().setEmployeeCityName(resultSet.getString("kategoria"));
-//            System.out.println(resultSet.getInt("id_produkt"));
-//            System.out.println(resultSet.getString("produkt"));
-//            System.out.println(resultSet.getInt("cena"));
+
+            System.out.println(resultSet.getInt("id_oddzial"));
+            System.out.println(resultSet.getString("miasto"));
+            System.out.println(resultSet.getInt("id_dyrektor_oddzial"));
 //            System.out.println(resultSet.getString("kategoria"));
-//
-//            branch.setId(resultSet.getInt("id_produkt"));
-//            branch.setCityName(resultSet.getString("produkt"));
-//            branch.getBranchDirector().setEmployeeCityName(resultSet.getString("kategoria"));
-//            branchs.add(branch);
-//        }
-//        statement.close();
+
+            branch.setId(resultSet.getInt("id_oddzial"));
+            branch.setCityName(resultSet.getString("miasto"));
+          branch.setBranchDirectorFromDatabase(resultSet.getInt("id_dyrektor_oddzial"));
+//            System.out.println(branch.getBranchDirector());
+            branchs.add(branch);
+        }
+        statement.close();
         return branchs;
 
     }

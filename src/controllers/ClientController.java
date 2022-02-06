@@ -1,6 +1,6 @@
 package controllers;
 
-import fxModels.ClientFx;
+import modelsFx.ClientFx;
 import javafx.fxml.FXML;
 
 

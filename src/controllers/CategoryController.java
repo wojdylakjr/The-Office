@@ -1,6 +1,6 @@
 package controllers;
 
-import fxModels.CategoryFx;
+import modelsFx.CategoryFx;
 import javafx.fxml.FXML;
 
 

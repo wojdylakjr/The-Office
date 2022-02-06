@@ -1,8 +1,8 @@
 package controllers;
 
-import fxModels.BranchFx;
-import fxModels.DepartmentFx;
-import fxModels.EmployeeFx;
+import modelsFx.BranchFx;
+import modelsFx.DepartmentFx;
+import modelsFx.EmployeeFx;
 import javafx.fxml.FXML;
 
 
@@ -78,8 +78,8 @@ public class DepartmentController {
 
         //dodawanie
         this.departmentService.departmentFxObjectPropertyProperty().get().nameProperty().bind(this.departmentName.textProperty());
-        this.departmentService.departmentFxObjectPropertyProperty().get().minNumberOfEmployeesProperty().bind(this.departmentMinNumberOfEmployeesColumn.textProperty());
-        this.departmentService.departmentFxObjectPropertyProperty().get().maxNumberOfEmployeesProperty().bind(this.departmentMaxNumberOfEmployeesColumn.textProperty());
+        this.departmentService.departmentFxObjectPropertyProperty().get().minNumberOfEmployeesProperty().bind(this.departmentMinNumberOfEmployees.textProperty());
+        this.departmentService.departmentFxObjectPropertyProperty().get().maxNumberOfEmployeesProperty().bind(this.departmentMaxNumberOfEmployees.textProperty());
         this.departmentService.departmentFxObjectPropertyProperty().get().departmentManagerProperty().bind(this.departmentManagerComboBox.valueProperty());
         this.departmentService.departmentFxObjectPropertyProperty().get().departmentBranchProperty().bind(this.departmentBranchComboBox.valueProperty());
 

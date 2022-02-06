@@ -1,7 +1,8 @@
 package converters;
 
-import fxModels.EmployeeFx;
-import models.Employee;
+import modelsDTO.EmployeeDto;
+import modelsFx.EmployeeFx;
+import modelsDAO.Employee;
 
 public class EmployeeConverter {
 
@@ -15,14 +16,13 @@ public class EmployeeConverter {
         employee.setEmployeeJobPosition(JobPositionConverter.convertToJobPositionWithId(employeeFx.getEmployeeJobPosition()));
 
         //w szefie podamy tylko jego id i zaciagniemy go z bazy
-        employee.setEmployeeBoss(employeeFx.getEmployeeBoss().getId());
+        employee.setEmployeeBoss(convertToEmployeeDto(employeeFx));
+        employee.setEmployeeDepartment(DepartmentConverter.convertToDepartmentDto(employeeFx.getEmployeeDepartment()));
 
 
 //        employee.setEmployeeBoss(EmployeeConverter.convertToEmployeeWithId(employeeFx.getEmployeeBoss()));
 //        employee.setEmployeeBossID(EmployeeConverter.convertToEmployeeWithId(employeeFx.getEmployeeBoss()));
 
-
-//        employee.setEmployeeDepartment(DepartmentConverter.convertToDepartmentWithId(employeeFx.getEmployeeDepartment()));
         return employee;
     }
 
@@ -35,15 +35,13 @@ public class EmployeeConverter {
         employee.setSalary(employeeFx.getSalary());
         employee.setBonus(employeeFx.getBonus());
         employee.setEmployeeJobPosition(JobPositionConverter.convertToJobPositionWithId(employeeFx.getEmployeeJobPosition()));
-        employee.setEmployeeBoss(employeeFx.getEmployeeBoss().getId());
-//        employee.setEmployeeBossID(EmployeeConverter.convertToEmployeeWithId(employeeFx.getEmployeeBoss()));
-
-
-        employee.setEmployeeDepartment(DepartmentConverter.convertToDepartmentWithId(employeeFx.getEmployeeDepartment()));
+        employee.setEmployeeBoss(convertToEmployeeDto(employeeFx));
+        employee.setEmployeeDepartment(DepartmentConverter.convertToDepartmentDto(employeeFx.getEmployeeDepartment()));
         return employee;
     }
 
     public static EmployeeFx convertToEmployeeFx(Employee employee) {
+        System.out.println(employee + "i jego szef" + employee.getEmployeeBoss());
         EmployeeFx employeeFx = new EmployeeFx();
         employeeFx.setId(employee.getId());
         employeeFx.setFirstName(employee.getFirstName());
@@ -51,10 +49,27 @@ public class EmployeeConverter {
         employeeFx.setSalary(employee.getSalary());
         employeeFx.setBonus(employee.getBonus());
         employeeFx.setEmployeeJobPosition(JobPositionConverter.convertToJobPositionFx(employee.getEmployeeJobPosition()));
-//        employeeFx.setEmployeeBoss(EmployeeConverter.convertToEmployeeFx(employee.getEmployeeBoss()));
-        employeeFx.setEmployeeDepartment(DepartmentConverter.convertToDepartmentFx(employee.getEmployeeDepartment()));
+        if(employee.getEmployeeBoss() != null){
+            employeeFx.setEmployeeBoss(EmployeeConverter.convertToEmployeeFxFromDto(employee.getEmployeeBoss()));
+        }
+
+        employeeFx.setEmployeeDepartment(DepartmentConverter.convertToDepartmentFxFromDto(employee.getEmployeeDepartment()));
         return employeeFx;
     }
 
+    public static EmployeeDto convertToEmployeeDto(EmployeeFx employeeFx) {
+        return new EmployeeDto(employeeFx.getId(), employeeFx.getFirstName(),employeeFx.getLastName(),employeeFx.getBonus(),employeeFx.getSalary());
+    }
+
+    public static EmployeeFx convertToEmployeeFxFromDto(EmployeeDto employee) {
+
+        EmployeeFx employeeFx = new EmployeeFx();
+        employeeFx.setId(employee.getId());
+        employeeFx.setFirstName(employee.getFirstName());
+        employeeFx.setLastName(employee.getLastName());
+        employeeFx.setSalary(employee.getSalary());
+        employeeFx.setBonus(employee.getBonus());
+        return employeeFx;
+    }
 }
 

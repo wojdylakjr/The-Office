@@ -2,16 +2,97 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controllers/DepartmentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelsDAO/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelsDTO/BranchDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelsDTO/DepartmentDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelsDTO/EmployeeDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/LeftMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/LeftMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/controllers/BranchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/controllers/BranchController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/controllers/CategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/controllers/CategoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/controllers/ClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/controllers/ClientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/controllers/DepartmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/controllers/DepartmentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/controllers/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/controllers/EmployeeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/controllers/JobPositionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/controllers/JobPositionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/controllers/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/controllers/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/converters/BranchConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/converters/BranchConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/converters/CategoryConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/converters/CategoryConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/converters/ClientConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/converters/ClientConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/converters/DepartmentConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/converters/DepartmentConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/converters/EmployeeConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/converters/EmployeeConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/converters/JobPositionConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/converters/JobPositionConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/converters/ProductConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/converters/ProductConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/fxModels/BranchFx.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/fxModels/CategoryFx.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/fxModels/ClientFx.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/fxModels/DepartmentFx.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/fxModels/EmployeeFx.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/fxModels/JobPositionFx.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/fxModels/ProductFx.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/models/Branch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/models/Category.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/models/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/models/Department.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/models/Employee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/models/JobPosition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/models/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/repositories/BranchRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/repositories/BranchRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/repositories/CategoryRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/repositories/CategoryRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/repositories/ClientRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/repositories/ClientRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/repositories/DepartmentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/repositories/DepartmentRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/repositories/EmployeeRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/repositories/EmployeeRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/repositories/JobPositionRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/repositories/JobPositionRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/repositories/ProductRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/repositories/ProductRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/repositories/Repository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/repositories/Repository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/services/BranchService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/services/BranchService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/services/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/services/CategoryService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/services/ClientService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/services/ClientService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/services/DepartmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/services/DepartmentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/services/EmployeeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/services/EmployeeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/services/JobPositionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/services/JobPositionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/code/services/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/code/services/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/BranchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/BranchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/DepartmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/JobPositionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/JobPositionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/converters/BranchConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/converters/BranchConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/converters/CategoryConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/converters/CategoryConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/converters/ClientConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/converters/ClientConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/converters/DepartmentConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/converters/DepartmentConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/converters/EmployeeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/converters/EmployeeConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fxModels/DepartmentFx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxModels/DepartmentFx.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fxml/Department.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/Department.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Department.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/converters/JobPositionConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/converters/JobPositionConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/converters/ProductConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/converters/ProductConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxModels/BranchFx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelsFx/BranchFx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxModels/CategoryFx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelsFx/CategoryFx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxModels/ClientFx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelsFx/ClientFx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxModels/DepartmentFx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelsFx/DepartmentFx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxModels/EmployeeFx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelsFx/EmployeeFx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxModels/JobPositionFx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelsFx/JobPositionFx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxModels/ProductFx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelsFx/ProductFx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Branch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelsDAO/Branch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelsDAO/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelsDAO/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelsDAO/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Employee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/JobPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelsDAO/JobPosition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelsDAO/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/BranchRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/BranchRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/ClientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/DepartmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/DepartmentRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repositories/EmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/EmployeeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/JobPositionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/JobPositionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/Repository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/BranchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/BranchService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ClientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/DepartmentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/JobPositionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/JobPositionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ProductService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +191,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Product_Manager_Java_Spring/productmanager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -227,11 +308,11 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1086" y="417" key="#com.intellij.ide.util.MemberChooser" timestamp="1643382659162">
+    <state x="1086" y="417" key="#com.intellij.ide.util.MemberChooser" timestamp="1644163186055">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="815" y="310" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1643371931978" />
-    <state x="1086" y="417" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1643382659162" />
+    <state x="1086" y="417" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1644163186055" />
     <state x="1078" y="586" width="404" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1643304741858">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -245,46 +326,46 @@
     </state>
     <state x="758" y="333" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1643372481834" />
     <state x="1011" y="448" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1643304701347" />
-    <state x="1061" y="442" key="FileChooserDialogImpl" timestamp="1643234260396">
+    <state x="1061" y="442" key="FileChooserDialogImpl" timestamp="1643837191112">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1061" y="442" key="FileChooserDialogImpl/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1643234260396" />
-    <state width="2517" height="499" key="GridCell.Tab.0.bottom" timestamp="1643388454010">
+    <state x="1061" y="442" key="FileChooserDialogImpl/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1643837191112" />
+    <state width="2517" height="2" key="GridCell.Tab.0.bottom" timestamp="1644171834450">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1877" height="244" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1643373712965" />
-    <state width="2517" height="499" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1643388454010" />
-    <state width="2517" height="499" key="GridCell.Tab.0.center" timestamp="1643388454010">
+    <state width="2517" height="2" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1644171834450" />
+    <state width="2517" height="2" key="GridCell.Tab.0.center" timestamp="1644171834449">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1877" height="244" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1643373712965" />
-    <state width="2517" height="499" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1643388454010" />
-    <state width="2517" height="499" key="GridCell.Tab.0.left" timestamp="1643388454009">
+    <state width="2517" height="2" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1644171834449" />
+    <state width="2517" height="2" key="GridCell.Tab.0.left" timestamp="1644171834449">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1877" height="244" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1643373712964" />
-    <state width="2517" height="499" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1643388454009" />
-    <state width="2517" height="499" key="GridCell.Tab.0.right" timestamp="1643388454010">
+    <state width="2517" height="2" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1644171834449" />
+    <state width="2517" height="2" key="GridCell.Tab.0.right" timestamp="1644171834449">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1877" height="244" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1643373712965" />
-    <state width="2517" height="499" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1643388454010" />
-    <state width="2517" height="492" key="GridCell.Tab.1.bottom" timestamp="1643307935731">
+    <state width="2517" height="2" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1644171834449" />
+    <state width="2517" height="492" key="GridCell.Tab.1.bottom" timestamp="1644163745907">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="492" key="GridCell.Tab.1.bottom/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1643307935731" />
-    <state width="2517" height="492" key="GridCell.Tab.1.center" timestamp="1643307935730">
+    <state width="2517" height="492" key="GridCell.Tab.1.bottom/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1644163745907" />
+    <state width="2517" height="492" key="GridCell.Tab.1.center" timestamp="1644163745907">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="492" key="GridCell.Tab.1.center/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1643307935730" />
-    <state width="2517" height="492" key="GridCell.Tab.1.left" timestamp="1643307935730">
+    <state width="2517" height="492" key="GridCell.Tab.1.center/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1644163745907" />
+    <state width="2517" height="492" key="GridCell.Tab.1.left" timestamp="1644163745907">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="492" key="GridCell.Tab.1.left/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1643307935730" />
-    <state width="2517" height="492" key="GridCell.Tab.1.right" timestamp="1643307935731">
+    <state width="2517" height="492" key="GridCell.Tab.1.left/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1644163745907" />
+    <state width="2517" height="492" key="GridCell.Tab.1.right" timestamp="1644163745907">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="492" key="GridCell.Tab.1.right/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1643307935731" />
+    <state width="2517" height="492" key="GridCell.Tab.1.right/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1644163745907" />
     <state x="1096" y="635" key="ReplaceDuplicatesPrompt" timestamp="1643295329835">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -293,10 +374,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="782" y="343" key="SettingsEditor/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1643232470695" />
-    <state x="977" y="525" key="com.intellij.ide.util.TipDialog" timestamp="1643360531227">
+    <state x="977" y="525" key="com.intellij.ide.util.TipDialog" timestamp="1643837127368">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="977" y="525" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1643360531227" />
+    <state x="977" y="525" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1643837127368" />
     <state x="1011" y="456" width="538" height="495" key="extract.method.dialog" timestamp="1643295327942">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -305,6 +386,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="983" y="298" width="671" height="804" key="find.popup/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1643315266399" />
+    <state x="731" y="403" key="new project wizard" timestamp="1643837193769">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="731" y="403" key="new project wizard/0.0.2560.1400/-1920.174.1920.1040@0.0.2560.1400" timestamp="1643837193769" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1643374225338">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

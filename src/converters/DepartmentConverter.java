@@ -1,9 +1,8 @@
 package converters;
 
-import fxModels.DepartmentFx;
-import models.Branch;
-import models.Department;
-import models.Employee;
+import modelsDTO.DepartmentDto;
+import modelsFx.DepartmentFx;
+import modelsDAO.Department;
 
 public class DepartmentConverter {
 
@@ -32,6 +31,7 @@ public class DepartmentConverter {
     }
 
     public static DepartmentFx convertToDepartmentFx(Department department) {
+
         DepartmentFx departmentFx = new DepartmentFx();
         departmentFx.setId(department.getId());
         departmentFx.setName(department.getName());
@@ -42,5 +42,17 @@ public class DepartmentConverter {
         return departmentFx;
     }
 
+    public static DepartmentDto convertToDepartmentDto(DepartmentFx employeeDepartment) {
+        return new DepartmentDto(employeeDepartment.getId(), employeeDepartment.getName(), employeeDepartment.getMaxNumberOfEmployees(), employeeDepartment.getMinNumberOfEmployees());
+    }
+
+    public static DepartmentFx convertToDepartmentFxFromDto(DepartmentDto department) {
+        DepartmentFx departmentFx = new DepartmentFx();
+        departmentFx.setId(department.getId());
+        departmentFx.setName(department.getName());
+        departmentFx.setMaxNumberOfEmployees(department.getMaxNumberOfEmployees());
+        departmentFx.setMinNumberOfEmployees(department.getMinNumberOfEmployees());
+        return departmentFx;
+    }
 }
 
