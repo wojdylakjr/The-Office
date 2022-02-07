@@ -28,4 +28,12 @@ public class BranchDto {
     public void setCityName(String cityName) {
         this.cityName = cityName;
     }
+
+    @Override
+    public String toString() {
+        return "BranchDto{" +
+                "id=" + id +
+                ", cityName='" + cityName + '\'' +
+                '}';
+    }
 }

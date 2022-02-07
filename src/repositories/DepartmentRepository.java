@@ -17,42 +17,45 @@ public class DepartmentRepository implements Repository<Department> {
 
     @Override
     public void save(Department department) throws SQLException {
-        System.out.println("Operacja w department repository");
-//        System.out.println(department);
-//        PreparedStatement statement = DataBaseManager.connection.prepareStatement("INSERT INTO biuro.Produkt(nazwa, cena, id_kategoria) VALUES(?,?,?)");
-//        statement.setString(1, department.getName());
-//        statement.setInt(2, department.getPrice());
-//        statement.setInt(3, department.getDepartmentCategory().getId());
-//        statement.executeUpdate();
-//        statement.close();
+        System.out.println("Dodanie  w department repository");
+        System.out.println(department);
+        PreparedStatement statement = DataBaseManager.connection.prepareStatement("INSERT INTO biuro.dzial_firmy(nazwa, max_liczba_pracownikow, min_liczba_pracownikow, id_kierownik_dzial, id_oddzial) VALUES(?,?,?,?,?)");
+        statement.setString(1, department.getName());
+        statement.setInt(2, department.getMaxNumberOfEmployees());
+        statement.setInt(3, department.getMinNumberOfEmployees());
+        statement.setInt(4, department.getDepartmentManager().getId());
+        statement.setInt(5, department.getDepartmentBranch().getId());
+        statement.executeUpdate();
+        statement.close();
     }
 
     @Override
     public void delete(int id) throws SQLException {
         System.out.println("Operacja w department repository");
-//////        System.out.println("Department repo, imie: " + department.getName()+", nazwisko: " + department.getName() +", id: " + department.getId() );
-//        PreparedStatement statement = DataBaseManager.connection.prepareStatement("DELETE FROM biuro.produkt WHERE id_produkt = ?");
-//        statement.setInt(1, id);
-//        statement.executeUpdate();
-//        statement.close();
+////        System.out.println("Department repo, imie: " + department.getName()+", nazwisko: " + department.getName() +", id: " + department.getId() );
+        PreparedStatement statement = DataBaseManager.connection.prepareStatement("DELETE FROM biuro.dzial_firmy WHERE id_dzial_firmy = ?");
+        statement.setInt(1, id);
+        statement.executeUpdate();
+        statement.close();
     }
 
     @Override
     public void update(Department department) throws SQLException {
         System.out.println("Operacja w department repository");
 //        System.out.println("Department repo, imie: " + department.getName() + ", nazwisko: " + department.getName() + ", id: " + department.getId());
-//        PreparedStatement statement = DataBaseManager.connection.prepareStatement("UPDATE biuro.produkt SET nazwa = ?, cena = ? WHERE id_produkt = ?");
-//        statement.setString(1, department.getName());
-//        statement.setInt(2, department.getPrice());
-//        statement.setInt(3, department.getId());
-//        statement.executeUpdate();
-//        statement.close();
+        PreparedStatement statement = DataBaseManager.connection.prepareStatement("UPDATE biuro.dzial_firmy SET nazwa = ?,  max_liczba_pracownikow = ?, min_liczba_pracownikow = ? WHERE id_dzial_firmy = ?");
+        statement.setString(1, department.getName());
+        statement.setInt(2, department.getMaxNumberOfEmployees());
+        statement.setInt(3, department.getMinNumberOfEmployees());
+        statement.setInt(4, department.getId());
+        statement.executeUpdate();
+        statement.close();
     }
 
     @Override
     public Department getObject(int id) throws SQLException {
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("SELECT id_dzial_firmy, id_kierownik_dzial, id_oddzial, nazwa, max_liczba_pracownikow, min_liczba_pracownikow FROM biuro.dzial_firmy WHERE id_dzial_firmy = ?");
-        statement.setInt(1,id);
+        statement.setInt(1, id);
         ResultSet resultSet = statement.executeQuery();
         Department department = new Department();
         while (resultSet.next()) {
@@ -77,18 +80,8 @@ public class DepartmentRepository implements Repository<Department> {
                 "join biuro.oddzial on oddzial.id_oddzial = dzial_firmy.id_oddzial\n");
         ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()) {
-            Department department = new Department(resultSet.getInt("id"), resultSet.getString("dzial_firmy"), resultSet.getInt("max_liczba_pracownikow"),resultSet.getInt("min_liczba_pracownikow"), new EmployeeDto(resultSet.getString("kierownik_imie"), resultSet.getString("kierownik_nazwisko")),
+            Department department = new Department(resultSet.getInt("id"), resultSet.getString("dzial_firmy"), resultSet.getInt("max_liczba_pracownikow"), resultSet.getInt("min_liczba_pracownikow"), new EmployeeDto(resultSet.getString("kierownik_imie"), resultSet.getString("kierownik_nazwisko")),
                     new BranchDto(resultSet.getString("oddzial")));
-////            department.getDepartmentCategory().setCategoryName(resultSet.getString("kategoria"));
-//            System.out.println(resultSet.getInt("id_produkt"));
-//            System.out.println(resultSet.getString("produkt"));
-//            System.out.println(resultSet.getInt("cena"));
-//            System.out.println(resultSet.getString("kategoria"));
-//
-//            department.setId(resultSet.getInt("id_produkt"));
-//            department.setName(resultSet.getString("produkt"));
-//            department.setPrice(resultSet.getInt("cena"));
-//            department.getDepartmentCategory().setCategoryName(resultSet.getString("kategoria"));
             departments.add(department);
         }
         statement.close();
@@ -98,11 +91,11 @@ public class DepartmentRepository implements Repository<Department> {
 
     public DepartmentDto getDtoObject(int id) throws SQLException {
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("SELECT id_dzial_firmy, id_kierownik_dzial, id_oddzial, nazwa, max_liczba_pracownikow, min_liczba_pracownikow FROM biuro.dzial_firmy WHERE id_dzial_firmy = ?");
-        statement.setInt(1,id);
+        statement.setInt(1, id);
         ResultSet resultSet = statement.executeQuery();
         DepartmentDto department = null;
         while (resultSet.next()) {
-            department = new DepartmentDto(resultSet.getInt("id_dzial_firmy"), resultSet.getString("nazwa"), resultSet.getInt("min_liczba_pracownikow"),resultSet.getInt("max_liczba_pracownikow"));
+            department = new DepartmentDto(resultSet.getInt("id_dzial_firmy"), resultSet.getString("nazwa"), resultSet.getInt("min_liczba_pracownikow"), resultSet.getInt("max_liczba_pracownikow"));
         }
         statement.close();
         return department;
