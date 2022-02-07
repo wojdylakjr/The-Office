@@ -31,7 +31,7 @@ public class ProductController {
     private TableView<ProductFx> productTableView;
 
     @FXML
-    private TableColumn<ProductFx, String> idColumn;
+    private TableColumn<ProductFx, Number> idColumn;
 
     @FXML
     private TableColumn<ProductFx, String> productNameColumn;

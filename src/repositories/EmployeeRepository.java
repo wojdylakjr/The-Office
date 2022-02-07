@@ -2,6 +2,7 @@ package repositories;
 
 import database.DataBaseManager;
 import modelsDAO.*;
+import modelsDTO.DepartmentDto;
 import modelsDTO.EmployeeDto;
 
 import java.sql.PreparedStatement;
@@ -94,15 +95,21 @@ public class EmployeeRepository implements Repository<Employee> {
     @Override
     public List<Employee> getListOfObjects() throws SQLException {
         ArrayList<Employee> employees = new ArrayList<>();
-        PreparedStatement statement = DataBaseManager.connection.prepareStatement("SELECT id_pracownik, id_stanowisko, id_dzial_firmy, imie, nazwisko, premia, pensja,id_szef FROM biuro.pracownik");
+        PreparedStatement statement = DataBaseManager.connection.prepareStatement("select pracownik.id_pracownik as id_pracownik, pracownik.imie as pracownik_imie, pracownik.nazwisko as pracownik_nazwisko, pracownik.premia as premia,\n" +
+                "pracownik.pensja as pensja, stanowisko.nazwa as stanowisko, szef.imie as szef_imie, szef.nazwisko as szef_nazwisko, dzial_firmy.nazwa as dzial_firmy\n" +
+                "from biuro.pracownik pracownik\n" +
+                "left join biuro.pracownik szef on pracownik.id_szef = szef.id_pracownik\n" +
+                "join biuro.stanowisko on pracownik.id_stanowisko = stanowisko.id_stanowisko\n" +
+                "join biuro.dzial_firmy on pracownik.id_dzial_firmy = dzial_firmy.id_dzial_firmy;\n");
         ResultSet resultSet = statement.executeQuery();
 
         while (resultSet.next()) {
-            Employee employee = new Employee(resultSet.getInt("id_pracownik"), resultSet.getString("imie"),resultSet.getString("nazwisko"),resultSet.getInt("premia"),resultSet.getInt("pensja"));
+            Employee employee = new Employee(resultSet.getInt("id_pracownik"), resultSet.getString("pracownik_imie"),resultSet.getString("pracownik_nazwisko"),resultSet.getInt("premia"),resultSet.getInt("pensja"));
+            //tutaj zrobic sety, na wywyolanym konstukotrze z danymi z selecta
 
-            employee.setEmployeeBossFromDatabase(resultSet.getInt("id_szef"));
-            employee.setEmployeeJobPositionFromDatabase(resultSet.getInt("id_stanowisko"));
-            employee.setEmployeeDepartmentFromDatabase(resultSet.getInt("id_dzial_firmy"));
+            employee.setEmployeeBoss(new EmployeeDto(resultSet.getString("szef_imie"), resultSet.getString("szef_nazwisko")));
+            employee.setEmployeeJobPosition(new JobPosition(resultSet.getString("stanowisko")));
+            employee.setEmployeeDepartment(new DepartmentDto(resultSet.getString("dzial_firmy")));
 
 //            System.out.println("Dzial pracownika: " + employee.getEmployeeDepartment());
 //            System.out.println("Stanowisko pracownika: " + employee.getEmployeeJobPosition());

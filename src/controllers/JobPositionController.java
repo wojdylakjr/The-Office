@@ -29,7 +29,7 @@ public class JobPositionController {
     private TableView<JobPositionFx> positionTableView;
 
     @FXML
-    private TableColumn<JobPositionFx, String> idColumn;
+    private TableColumn<JobPositionFx, Number> idColumn;
 
     @FXML
     private TableColumn<JobPositionFx, String> positionNameColumn;

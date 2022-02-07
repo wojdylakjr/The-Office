@@ -6,8 +6,12 @@ public class Product {
     private int price;
     private Category productCategory;
 
-    public Product(int id, String name, int price, Category category) {
-        this.productCategory = new Category();
+
+    public Product(int id, String name, int price, Category productCategory) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.productCategory = productCategory;
     }
 
     public Product(int id, String name, int price) {
@@ -63,7 +67,6 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", productCategory=" + productCategory.toString() +
-                ", productCategoryID=" + productCategory.getId() +
                 '}';
     }
 }

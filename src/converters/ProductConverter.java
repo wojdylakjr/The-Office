@@ -7,21 +7,13 @@ public class ProductConverter {
 
     //zapisujemy bez id
     public static Product convertToProduct(ProductFx productFx) {
-        Product product = new Product(productFx.getName(),productFx.getPrice(),CategoryConverter.convertToCategoryWithId(productFx.getProductCategory()));
-        product.setName(productFx.getName());
-        product.setPrice(productFx.getPrice());
-        product.setProductCategory(CategoryConverter.convertToCategoryWithId(productFx.getProductCategory()));
-        return product;
+       return new Product(productFx.getName(),productFx.getPrice(),CategoryConverter.convertToCategoryWithId(productFx.getProductCategory()));
+
     }
 
     //update robimy z id
     public static Product convertToProductWithId(ProductFx productFx) {
-        Product product = new Product(productFx.getId(),productFx.getName(),productFx.getPrice(),CategoryConverter.convertToCategoryWithId(productFx.getProductCategory()));
-        product.setId(productFx.getId());
-        product.setName(productFx.getName());
-        product.setPrice(productFx.getPrice());
-        product.setProductCategory(CategoryConverter.convertToCategoryWithId(productFx.getProductCategory()));
-        return product;
+       return new Product(productFx.getId(),productFx.getName(),productFx.getPrice(),CategoryConverter.convertToCategoryWithId(productFx.getProductCategory()));
     }
 
     public static ProductFx convertToProductFx(Product product) {

@@ -24,7 +24,7 @@ public class CategoryController {
     private TableView<CategoryFx> categoryTableView;
 
     @FXML
-    private TableColumn<CategoryFx, String> idColumn;
+    private TableColumn<CategoryFx, Number> idColumn;
 
     @FXML
     private TableColumn<CategoryFx, String> categoryNameColumn;

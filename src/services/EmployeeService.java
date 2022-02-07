@@ -104,6 +104,7 @@ public class EmployeeService {
     }
 
     public void setDepartmentFxObservableList(ObservableList<DepartmentFx> departmentFxObservableList) {
+
         this.departmentFxObservableList = departmentFxObservableList;
     }
 

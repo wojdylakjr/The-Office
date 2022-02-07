@@ -1,5 +1,6 @@
 package converters;
 
+import modelsDTO.BranchDto;
 import modelsFx.BranchFx;
 import modelsDAO.Branch;
 
@@ -24,4 +25,14 @@ public class BranchConverter {
     }
 
 
+    public static BranchFx convertToBranchFxFromDto(BranchDto branch) {
+        BranchFx branchFx = new BranchFx();
+        branchFx.setId(branch.getId());
+        branchFx.setCityName(branch.getCityName());
+        return branchFx;
+    }
+
+    public static BranchDto convertToBranchDto(BranchFx departmentBranchFx) {
+        return new BranchDto(departmentBranchFx.getId(), departmentBranchFx.getCityName());
+    }
 }

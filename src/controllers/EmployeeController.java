@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
 import services.EmployeeService;
 
+import java.awt.event.ActionEvent;
 import java.sql.SQLException;
 
 public class EmployeeController {
@@ -44,7 +45,7 @@ public class EmployeeController {
     private TableView<EmployeeFx> employeeTableView;
 
     @FXML
-    private TableColumn<EmployeeFx, String> idColumn;
+    private TableColumn<EmployeeFx, Number> idColumn;
 
     @FXML
     private TableColumn<EmployeeFx, String> employeeFirstNameColumn;
@@ -79,6 +80,7 @@ public class EmployeeController {
         //dodanie elementow do combo boxa
 //        System.out.println(this.employeeService.getJobPositionFxObservableList());
         this.employeePositionComboBox.setItems(this.employeeService.getJobPositionFxObservableList());
+//        this.employeePositionComboBox.setPlaceholder(new Label("Wybierz najpierw szefa"));
         this.employeeBossComboBox.setItems(this.employeeService.getBossFxObservableList());
         this.employeeDepartmentsComboBox.setItems(this.employeeService.getDepartmentFxObservableList());
         //dodawanie
@@ -114,6 +116,7 @@ public class EmployeeController {
             this.employeeService.setEmployeeFxObjectPropertyUpdate(newValue);
         });
     }
+
 
     //obsluga przycisku do zapisu
     @FXML
@@ -183,5 +186,8 @@ public class EmployeeController {
         this.listEmployees();
     }
 
-
+    @FXML
+    public void bossComboBoxOnAction(javafx.event.ActionEvent actionEvent) {
+        this.employeePositionComboBox.setItems(this.employeeService.getJobPositionFxObservableList());
+    }
 }

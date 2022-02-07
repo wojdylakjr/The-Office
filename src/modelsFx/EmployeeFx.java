@@ -1,12 +1,9 @@
 package modelsFx;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
 public class EmployeeFx {
-    private StringProperty id = new SimpleStringProperty();
+    private IntegerProperty id = new SimpleIntegerProperty();
     private StringProperty firstName = new SimpleStringProperty();
     private StringProperty lastName = new SimpleStringProperty();
     private StringProperty bonus = new SimpleStringProperty();
@@ -16,15 +13,15 @@ public class EmployeeFx {
     private ObjectProperty<DepartmentFx> employeeDepartment = new SimpleObjectProperty<>();
 
     public int getId() {
-        return Integer.parseInt(id.get());
+        return id.get();
     }
 
-    public StringProperty idProperty() {
+    public IntegerProperty idProperty() {
         return id;
     }
 
     public void setId(int id) {
-        this.id.set(String.valueOf(id));
+        this.id.set(id);
     }
 
     public String getFirstName() {
@@ -113,6 +110,11 @@ public class EmployeeFx {
 
     @Override
     public String toString() {
-        return  this.firstName.getValue() + " " + this.lastName.getValue();
+        if(this.firstName.get() != null){
+            return  this.firstName.getValue() + " " + this.lastName.getValue();
+        }else{
+            return "-";
+        }
+
     }
 }

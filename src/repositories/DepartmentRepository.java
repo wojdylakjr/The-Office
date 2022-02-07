@@ -2,7 +2,9 @@ package repositories;
 
 import database.DataBaseManager;
 import modelsDAO.*;
+import modelsDTO.BranchDto;
 import modelsDTO.DepartmentDto;
+import modelsDTO.EmployeeDto;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -68,11 +70,16 @@ public class DepartmentRepository implements Repository<Department> {
     public List<Department> getListOfObjects() throws SQLException {
         System.out.println("Operacja w department repository");
         ArrayList<Department> departments = new ArrayList<>();
-//        PreparedStatement statement = DataBaseManager.connection.prepareStatement("SELECT id_dzial_firmy, FROM biuro.dzial_firmy");
-//        ResultSet resultSet = statement.executeQuery();
-//        while (resultSet.next()) {
-//            Department department = new Department();
-//            department.getDepartmentCategory().setCategoryName(resultSet.getString("kategoria"));
+        PreparedStatement statement = DataBaseManager.connection.prepareStatement("select dzial_firmy.id_dzial_firmy as id, dzial_firmy.nazwa as dzial_firmy, max_liczba_pracownikow, min_liczba_pracownikow, pracownik.imie as kierownik_imie,\n" +
+                "pracownik.nazwisko as kierownik_nazwisko, oddzial.miasto as oddzial\n" +
+                "from biuro.dzial_firmy\n" +
+                "join biuro.pracownik on id_kierownik_dzial = id_pracownik\n" +
+                "join biuro.oddzial on oddzial.id_oddzial = dzial_firmy.id_oddzial\n");
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+            Department department = new Department(resultSet.getInt("id"), resultSet.getString("dzial_firmy"), resultSet.getInt("max_liczba_pracownikow"),resultSet.getInt("min_liczba_pracownikow"), new EmployeeDto(resultSet.getString("kierownik_imie"), resultSet.getString("kierownik_nazwisko")),
+                    new BranchDto(resultSet.getString("oddzial")));
+////            department.getDepartmentCategory().setCategoryName(resultSet.getString("kategoria"));
 //            System.out.println(resultSet.getInt("id_produkt"));
 //            System.out.println(resultSet.getString("produkt"));
 //            System.out.println(resultSet.getInt("cena"));
@@ -82,9 +89,9 @@ public class DepartmentRepository implements Repository<Department> {
 //            department.setName(resultSet.getString("produkt"));
 //            department.setPrice(resultSet.getInt("cena"));
 //            department.getDepartmentCategory().setCategoryName(resultSet.getString("kategoria"));
-//            departments.add(department);
-//        }
-//        statement.close();
+            departments.add(department);
+        }
+        statement.close();
         return departments;
 
     }

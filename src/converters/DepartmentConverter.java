@@ -8,12 +8,12 @@ public class DepartmentConverter {
 
     //zapisujemy bez id
     public static Department convertToDepartment(DepartmentFx departmentFx) {
-        return new Department(departmentFx.getName(), departmentFx.getMaxNumberOfEmployees(),departmentFx.getMinNumberOfEmployees(),EmployeeConverter.convertToEmployeeWithId(departmentFx.getDepartmentManager()),BranchConverter.convertToBranchWithId(departmentFx.getDepartmentBranch()));
+        return new Department(departmentFx.getName(), departmentFx.getMaxNumberOfEmployees(), departmentFx.getMinNumberOfEmployees(), EmployeeConverter.convertToEmployeeDto(departmentFx.getDepartmentManager()), BranchConverter.convertToBranchDto(departmentFx.getDepartmentBranch()));
     }
 
     //update robimy z id
     public static Department convertToDepartmentWithId(DepartmentFx departmentFx) {
-        return new Department(departmentFx.getId(),departmentFx.getName(), departmentFx.getMaxNumberOfEmployees(),departmentFx.getMinNumberOfEmployees(),EmployeeConverter.convertToEmployeeWithId(departmentFx.getDepartmentManager()),BranchConverter.convertToBranchWithId(departmentFx.getDepartmentBranch()));
+        return new Department(departmentFx.getId(), departmentFx.getName(), departmentFx.getMaxNumberOfEmployees(), departmentFx.getMinNumberOfEmployees(), EmployeeConverter.convertToEmployeeDto(departmentFx.getDepartmentManager()), BranchConverter.convertToBranchDto(departmentFx.getDepartmentBranch()));
 
     }
 
@@ -24,8 +24,8 @@ public class DepartmentConverter {
         departmentFx.setName(department.getName());
         departmentFx.setMaxNumberOfEmployees(department.getMaxNumberOfEmployees());
         departmentFx.setMinNumberOfEmployees(department.getMinNumberOfEmployees());
-        departmentFx.setDepartmentManager(EmployeeConverter.convertToEmployeeFx(department.getDepartmentManager()));
-        departmentFx.setDepartmentBranch(BranchConverter.convertToBranchFx(department.getDepartmentBranch()));
+        departmentFx.setDepartmentManager(EmployeeConverter.convertToEmployeeFxFromDto(department.getDepartmentManager()));
+        departmentFx.setDepartmentBranch(BranchConverter.convertToBranchFxFromDto(department.getDepartmentBranch()));
         return departmentFx;
     }
 

@@ -1,17 +1,20 @@
 package modelsDAO;
 
+import modelsDTO.BranchDto;
+import modelsDTO.EmployeeDto;
+
 public class Department {
     private int id;
     private String name;
     private int maxNumberOfEmployees;
     private int minNumberOfEmployees;
-    private Employee departmentManager;
-    private Branch departmentBranch;
+    private EmployeeDto departmentManager;
+    private BranchDto departmentBranch;
 
     public Department() {
     }
 
-    public Department(String name, int maxNumberOfEmployees, int minNumberOfEmployees, Employee departmentManager, Branch departmentBranch) {
+    public Department(String name, int maxNumberOfEmployees, int minNumberOfEmployees, EmployeeDto departmentManager, BranchDto departmentBranch) {
         this.name = name;
         this.maxNumberOfEmployees = maxNumberOfEmployees;
         this.minNumberOfEmployees = minNumberOfEmployees;
@@ -19,7 +22,7 @@ public class Department {
         this.departmentBranch = departmentBranch;
     }
 
-    public Department(int id, String name, int maxNumberOfEmployees, int minNumberOfEmployees, Employee departmentManager, Branch departmentBranch) {
+    public Department(int id, String name, int maxNumberOfEmployees, int minNumberOfEmployees, EmployeeDto departmentManager, BranchDto departmentBranch) {
         this.id = id;
         this.name = name;
         this.maxNumberOfEmployees = maxNumberOfEmployees;
@@ -60,21 +63,22 @@ public class Department {
         this.minNumberOfEmployees = minNumberOfEmployees;
     }
 
-    public Employee getDepartmentManager() {
+    public EmployeeDto getDepartmentManager() {
         return departmentManager;
     }
 
-    public void setDepartmentManager(Employee departmentManager) {
+    public void setDepartmentManager(EmployeeDto departmentManager) {
         this.departmentManager = departmentManager;
     }
 
-    public Branch getDepartmentBranch() {
+    public BranchDto getDepartmentBranch() {
         return departmentBranch;
     }
 
-    public void setDepartmentBranch(Branch departmentBranch) {
+    public void setDepartmentBranch(BranchDto departmentBranch) {
         this.departmentBranch = departmentBranch;
     }
+
 
 //    public void setDepartmentBranchFromDatabase(int departmentBranch) {
 //        this.departmentBranch = departmentBranch;

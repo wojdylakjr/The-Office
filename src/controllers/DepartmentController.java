@@ -42,7 +42,7 @@ public class DepartmentController {
     private TableView<DepartmentFx> departmentTableView;
 
     @FXML
-    private TableColumn<DepartmentFx, String> idColumn;
+    private TableColumn<DepartmentFx, Number> idColumn;
 
     @FXML
     private TableColumn<DepartmentFx, String> departmentNameColumn;

@@ -27,7 +27,7 @@ public class ClientController {
     private TableView<ClientFx> clientTableView;
 
     @FXML
-    private TableColumn<ClientFx, String> idColumn;
+    private TableColumn<ClientFx, Number> idColumn;
 
     @FXML
     private TableColumn<ClientFx, String> firstNameColumn;

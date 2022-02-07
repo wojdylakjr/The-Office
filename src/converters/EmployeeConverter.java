@@ -8,7 +8,7 @@ public class EmployeeConverter {
 
     //zapisujemy bez id
     public static Employee convertToEmployee(EmployeeFx employeeFx) {
-        return new Employee(employeeFx.getFirstName(),employeeFx.getLastName(),employeeFx.getSalary(),employeeFx.getBonus(),convertToEmployeeDto(employeeFx),JobPositionConverter.convertToJobPositionWithId(employeeFx.getEmployeeJobPosition()),DepartmentConverter.convertToDepartmentDto(employeeFx.getEmployeeDepartment()));
+        return new Employee(employeeFx.getFirstName(),employeeFx.getLastName(),employeeFx.getSalary(),employeeFx.getBonus(),convertToEmployeeDto(employeeFx.getEmployeeBoss()),JobPositionConverter.convertToJobPositionWithId(employeeFx.getEmployeeJobPosition()),DepartmentConverter.convertToDepartmentDto(employeeFx.getEmployeeDepartment()));
 
     }
 
@@ -20,7 +20,7 @@ public class EmployeeConverter {
     }
 
     public static EmployeeFx convertToEmployeeFx(Employee employee) {
-        System.out.println(employee + "i jego szef" + employee.getEmployeeBoss());
+//        System.out.println(employee + "i jego szef" + employee.getEmployeeBoss());
         EmployeeFx employeeFx = new EmployeeFx();
         employeeFx.setId(employee.getId());
         employeeFx.setFirstName(employee.getFirstName());

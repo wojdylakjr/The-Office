@@ -29,7 +29,7 @@ public class BranchController {
     private TableView<BranchFx> branchTableView;
 
     @FXML
-    private TableColumn<BranchFx, String> idColumn;
+    private TableColumn<BranchFx, Number> idColumn;
 
     @FXML
     private TableColumn<BranchFx, String> branchCityNameColumn;

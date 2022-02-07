@@ -16,6 +16,10 @@ public class DepartmentDto {
         this.minNumberOfEmployees = minNumberOfEmployees;
     }
 
+    public DepartmentDto(String name) {
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }

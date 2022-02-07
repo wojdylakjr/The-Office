@@ -22,6 +22,10 @@ public class JobPosition {
         this.maxSalary = maxSalary;
     }
 
+    public JobPosition(String positionName) {
+        this.positionName = positionName;
+    }
+
     public int getId() {
         return id;
     }

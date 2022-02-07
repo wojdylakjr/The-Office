@@ -86,6 +86,7 @@ public class ProductService {
         List<Product> products = productRepository.getListOfObjects();
         this.productFxObservableList.clear();
         for (Product product : products) {
+
             this.productFxObservableList.add(ProductConverter.convertToProductFx(product));
         }
     }

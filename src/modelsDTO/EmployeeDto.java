@@ -18,6 +18,11 @@ public class EmployeeDto {
         this.salary = salary;
     }
 
+    public EmployeeDto(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public int getId() {
         return id;
     }
