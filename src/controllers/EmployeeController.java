@@ -107,7 +107,7 @@ public class EmployeeController {
 
         //edytowanie
         this.employeeFirstNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        this.employeeFirstNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.employeeLastNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.employeeSalaryColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.employeeBonusColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 

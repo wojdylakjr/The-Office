@@ -18,34 +18,40 @@ public class EmployeeRepository implements Repository<Employee> {
     public void save(Employee employee) throws SQLException {
         System.out.println("Operacja w employee repository");
 //        System.out.println(employee);
-//        PreparedStatement statement = DataBaseManager.connection.prepareStatement("INSERT INTO biuro.Produkt(nazwa, cena, id_kategoria) VALUES(?,?,?)");
-//        statement.setString(1, employee.getName());
-//        statement.setInt(2, employee.getPrice());
-//        statement.setInt(3, employee.getEmployeeCategory().getId());
-//        statement.executeUpdate();
-//        statement.close();
+        PreparedStatement statement = DataBaseManager.connection.prepareStatement("INSERT INTO biuro.pracownik(imie, nazwisko, premia, pensja, id_szef, id_dzial_firmy, id_stanowisko) VALUES(?,?,?,?,?,?,?)");
+        statement.setString(1, employee.getFirstName());
+        statement.setString(2, employee.getLastName());
+        statement.setInt(3, employee.getBonus());
+        statement.setInt(4, employee.getSalary());
+        statement.setInt(5, employee.getEmployeeBoss().getId());
+        statement.setInt(6, employee.getEmployeeDepartment().getId());
+        statement.setInt(7, employee.getEmployeeJobPosition().getId());
+        statement.executeUpdate();
+        statement.close();
     }
 
     @Override
     public void delete(int id) throws SQLException {
         System.out.println("Operacja w employee repository");
-////        System.out.println("Employee repo, imie: " + employee.getName()+", nazwisko: " + employee.getName() +", id: " + employee.getId() );
-//        PreparedStatement statement = DataBaseManager.connection.prepareStatement("DELETE FROM biuro.produkt WHERE id_produkt = ?");
-//        statement.setInt(1, id);
-//        statement.executeUpdate();
-//        statement.close();
+//        System.out.println("Employee repo, imie: " + employee.getName()+", nazwisko: " + employee.getName() +", id: " + employee.getId() );
+        PreparedStatement statement = DataBaseManager.connection.prepareStatement("DELETE FROM biuro.pracownik WHERE id_pracownik = ?");
+        statement.setInt(1, id);
+        statement.executeUpdate();
+        statement.close();
     }
 
     @Override
     public void update(Employee employee) throws SQLException {
-////        System.out.println("Operacja w employee repository");
-////        System.out.println("Employee repo, imie: " + employee.getName() + ", nazwisko: " + employee.getName() + ", id: " + employee.getId());
-//        PreparedStatement statement = DataBaseManager.connection.prepareStatement("UPDATE biuro.produkt SET nazwa = ?, cena = ? WHERE id_produkt = ?");
-//        statement.setString(1, employee.getName());
-//        statement.setInt(2, employee.getPrice());
-//        statement.setInt(3, employee.getId());
-//        statement.executeUpdate();
-//        statement.close();
+//        System.out.println("Operacja w employee repository");
+//        System.out.println("Employee repo, imie: " + employee.getName() + ", nazwisko: " + employee.getName() + ", id: " + employee.getId());
+        PreparedStatement statement = DataBaseManager.connection.prepareStatement("UPDATE biuro.pracownik SET imie = ?, nazwisko = ?, premia = ?, pensja = ? WHERE id_pracownik = ?");
+        statement.setString(1, employee.getFirstName());
+        statement.setString(2, employee.getLastName());
+        statement.setInt(3, employee.getBonus());
+        statement.setInt(4, employee.getSalary());
+        statement.setInt(5, employee.getId());
+        statement.executeUpdate();
+        statement.close();
     }
 
     @Override
@@ -104,7 +110,7 @@ public class EmployeeRepository implements Repository<Employee> {
         ResultSet resultSet = statement.executeQuery();
 
         while (resultSet.next()) {
-            Employee employee = new Employee(resultSet.getInt("id_pracownik"), resultSet.getString("pracownik_imie"),resultSet.getString("pracownik_nazwisko"),resultSet.getInt("premia"),resultSet.getInt("pensja"));
+            Employee employee = new Employee(resultSet.getInt("id_pracownik"), resultSet.getString("pracownik_imie"), resultSet.getString("pracownik_nazwisko"), resultSet.getInt("premia"), resultSet.getInt("pensja"));
             //tutaj zrobic sety, na wywyolanym konstukotrze z danymi z selecta
 
             employee.setEmployeeBoss(new EmployeeDto(resultSet.getString("szef_imie"), resultSet.getString("szef_nazwisko")));

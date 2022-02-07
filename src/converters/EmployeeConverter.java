@@ -8,7 +8,10 @@ public class EmployeeConverter {
 
     //zapisujemy bez id
     public static Employee convertToEmployee(EmployeeFx employeeFx) {
-        return new Employee(employeeFx.getFirstName(),employeeFx.getLastName(),employeeFx.getSalary(),employeeFx.getBonus(),convertToEmployeeDto(employeeFx.getEmployeeBoss()),JobPositionConverter.convertToJobPositionWithId(employeeFx.getEmployeeJobPosition()),DepartmentConverter.convertToDepartmentDto(employeeFx.getEmployeeDepartment()));
+        return new Employee(employeeFx.getFirstName(), employeeFx.getLastName(), employeeFx.getBonus(),
+                employeeFx.getSalary(), convertToEmployeeDto(employeeFx.getEmployeeBoss()),
+                JobPositionConverter.convertToJobPositionWithId(employeeFx.getEmployeeJobPosition()),
+                DepartmentConverter.convertToDepartmentDto(employeeFx.getEmployeeDepartment()));
 
     }
 
@@ -28,7 +31,7 @@ public class EmployeeConverter {
         employeeFx.setSalary(employee.getSalary());
         employeeFx.setBonus(employee.getBonus());
         employeeFx.setEmployeeJobPosition(JobPositionConverter.convertToJobPositionFx(employee.getEmployeeJobPosition()));
-        if(employee.getEmployeeBoss() != null){
+        if (employee.getEmployeeBoss() != null) {
             employeeFx.setEmployeeBoss(EmployeeConverter.convertToEmployeeFxFromDto(employee.getEmployeeBoss()));
         }
 
@@ -37,7 +40,7 @@ public class EmployeeConverter {
     }
 
     public static EmployeeDto convertToEmployeeDto(EmployeeFx employeeFx) {
-        return new EmployeeDto(employeeFx.getId(), employeeFx.getFirstName(),employeeFx.getLastName(),employeeFx.getBonus(),employeeFx.getSalary());
+        return new EmployeeDto(employeeFx.getId(), employeeFx.getFirstName(), employeeFx.getLastName(), employeeFx.getBonus(), employeeFx.getSalary());
     }
 
     public static EmployeeFx convertToEmployeeFxFromDto(EmployeeDto employee) {
