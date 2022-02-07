@@ -14,35 +14,36 @@ public class BranchRepository implements Repository<Branch> {
 
     @Override
     public void save(Branch branch) throws SQLException {
-        System.out.println("Operacja w branch repository");
-//        System.out.println(branch);
-//        PreparedStatement statement = DataBaseDirector.connection.prepareStatement("INSERT INTO biuro.Produkt(nazwa, cena, id_kategoria) VALUES(?,?,?)");
-//        statement.setString(1, branch.getCityName());
-//        statement.setInt(3, branch.getBranchDirector().getId());
-//        statement.executeUpdate();
-//        statement.close();
+        System.out.println("Dodanie w branch repository oddzialu:");
+        System.out.println(branch);
+        PreparedStatement statement = DataBaseManager.connection.prepareStatement("INSERT INTO biuro.Oddzial(miasto, id_dyrektor_oddzial) VALUES(?,?)");
+        statement.setString(1, branch.getCityName());
+        statement.setInt(2, branch.getBranchDirector().getId());
+        statement.executeUpdate();
+        statement.close();
     }
 
     @Override
     public void delete(int id) throws SQLException {
         System.out.println("Operacja w branch repository");
-////        System.out.println("Branch repo, imie: " + branch.getCityName()+", nazwisko: " + branch.getCityName() +", id: " + branch.getId() );
-//        PreparedStatement statement = DataBaseDirector.connection.prepareStatement("DELETE FROM biuro.produkt WHERE id_produkt = ?");
-//        statement.setInt(1, id);
-//        statement.executeUpdate();
-//        statement.close();
+//        System.out.println("Branch repo, imie: " + branch.getCityName()+", nazwisko: " + branch.getCityName() +", id: " + branch.getId() );
+        PreparedStatement statement = DataBaseManager.connection.prepareStatement("DELETE FROM biuro.Oddzial WHERE id_oddzial = ?");
+        statement.setInt(1, id);
+        statement.executeUpdate();
+        statement.close();
     }
 
     @Override
     public void update(Branch branch) throws SQLException {
-//        System.out.println("Operacja w branch repository");
-//        System.out.println("Branch repo, imie: " + branch.getCityName() + ", nazwisko: " + branch.getCityName() + ", id: " + branch.getId());
-//        PreparedStatement statement = DataBaseDirector.connection.prepareStatement("UPDATE biuro.produkt SET nazwa = ?, cena = ? WHERE id_produkt = ?");
-//        statement.setString(1, branch.getCityName());
-//        statement.setInt(3, branch.getId());
-//        statement.executeUpdate();
-//        statement.close();
-    }
+        System.out.println("Operacja w branch repository");
+        System.out.println();
+        System.out.println("Branch repo, imie: " + branch.getCityName() + ", nazwisko: " + branch.getCityName() + ", id: " + branch.getId());
+        PreparedStatement statement = DataBaseManager.connection.prepareStatement("UPDATE biuro.oddzial SET miasto = ? WHERE id_oddzial = ?");
+        statement.setString(1, branch.getCityName());
+        statement.setInt(2, branch.getId());
+        statement.executeUpdate();
+        statement.close();
+}
 
     @Override
     public Branch getObject(int id) {

@@ -61,4 +61,13 @@ public class Branch {
     public void setBranchDirector(EmployeeDto branchDirector) {
         this.branchDirector = branchDirector;
     }
+
+    @Override
+    public String toString() {
+        return "Branch{" +
+                "id=" + id +
+                ", cityName='" + cityName + '\'' +
+                ", branchDirector=" + branchDirector +
+                '}';
+    }
 }
