@@ -6,12 +6,10 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import modelsDAO.*;
-import modelsFx.ClientFx;
-import modelsFx.EmployeeFx;
-import modelsFx.ProductFx;
-import modelsFx.ProductInOrderFx;
+import modelsFx.*;
 import repositories.ClientRepository;
 import repositories.EmployeeRepository;
+import repositories.OrderRepository;
 import repositories.ProductRepository;
 
 import java.sql.Array;
@@ -22,20 +20,37 @@ import java.util.List;
 public class AddOrderService {
     private List<ProductInOrderFx> productInOrderFxArrayList = new ArrayList<>();
     private  ObservableList<ProductInOrderFx> productsInOrderFxObservableList = FXCollections.observableArrayList();
-
+//lista produktow
     private ObjectProperty<ProductInOrderFx> addOrderFxObjectProperty = new SimpleObjectProperty<>(new ProductInOrderFx());
     private ObjectProperty<ProductInOrderFx> addOrderFxObjectPropertyUpdate = new SimpleObjectProperty<>(new ProductInOrderFx());
-
+//zamowienie
+private ObjectProperty<OrderFx> orderFxObjectProperty = new SimpleObjectProperty<>(new OrderFx());
 
     private EmployeeRepository employeeRepository = new EmployeeRepository();
     private ClientRepository clientRepository = new ClientRepository();
     private ProductRepository productRepository = new ProductRepository();
+    private OrderRepository orderRepository = new OrderRepository();
 
 //    private ObjectProperty<List<String>> products = new SimpleObjectProperty<>();
     private ObservableList<EmployeeFx> employeeFxObservableList = FXCollections.observableArrayList();
     private ObservableList<ClientFx> clientFxObservableList = FXCollections.observableArrayList();
     private ObservableList<ProductFx> productFxObservableList = FXCollections.observableArrayList();
 
+    public void setProductInOrderFxArrayList(List<ProductInOrderFx> productInOrderFxArrayList) {
+        this.productInOrderFxArrayList = productInOrderFxArrayList;
+    }
+
+    public OrderFx getOrderFxObjectProperty() {
+        return orderFxObjectProperty.get();
+    }
+
+    public ObjectProperty<OrderFx> orderFxObjectPropertyProperty() {
+        return orderFxObjectProperty;
+    }
+
+    public void setOrderFxObjectProperty(OrderFx orderFxObjectProperty) {
+        this.orderFxObjectProperty.set(orderFxObjectProperty);
+    }
 
     public List<ProductInOrderFx> getProductInOrderFxArrayList() {
         return productInOrderFxArrayList;
@@ -188,5 +203,19 @@ public class AddOrderService {
         if(newProduct.productProperty() != null)
         this.productInOrderFxArrayList.add(newProduct);
         System.out.println("ArrayLista po dodaniu w add "+ this.productInOrderFxArrayList);
+    }
+
+    public void addOrder() throws  SQLException {
+//        System.out.println(this.getAddOrderFxObjectProperty());
+        Order order = OrderConverter.convertToOrder(this.getOrderFxObjectProperty());
+        orderRepository.save(order);
+//potrzebuje id zamowinie, pobiore je po czasie
+        order.setId(orderRepository.getOrderId(order));
+        System.out.println(order.getId());
+        for(ProductInOrderFx product : productInOrderFxArrayList){
+            System.out.println("Id produktu: " +product.getProduct().getId());
+            System.out.println("Ilosc produktu: " +product.getQuantity());
+            orderRepository.saveDetailOrder(order, product);
+        }
     }
 }

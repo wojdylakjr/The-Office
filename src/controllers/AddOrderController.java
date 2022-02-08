@@ -33,6 +33,7 @@ public class AddOrderController {
     @FXML
     public Button addOrderButton;
 
+
     private AddOrderService addOrderService;
 
     public void initialize() {
@@ -44,9 +45,13 @@ public class AddOrderController {
         this.employeesComboBox.setItems(this.addOrderService.getEmployeeFxObservableList());
         this.productsComboBox.setItems(this.addOrderService.getProductFxObservableList());
         //dodawanie
-
+//lista produkotw
         this.addOrderService.addOrderFxObjectPropertyProperty().get().quantityProperty().bind(this.quantityTextField.textProperty());
         this.addOrderService.addOrderFxObjectPropertyProperty().get().productProperty().bind(this.productsComboBox.valueProperty());
+
+        //zamowienie
+        this.addOrderService.orderFxObjectPropertyProperty().get().clientProperty().bind(this.clientsComboBox.valueProperty());
+        this.addOrderService.orderFxObjectPropertyProperty().get().employeeProperty().bind(this.employeesComboBox.valueProperty());
 
         //tu ustalam co jest wymagane
 //        this.addaddOrderButton.disableProperty().bind(this.addOrderFirstName.textProperty().isEmpty().or(this.addOrderSalary.textProperty().isEmpty()).or(this.addOrderPositionComboBox.valueProperty().isNull()));
@@ -84,6 +89,11 @@ public class AddOrderController {
     }
 
     public void addOrderOnAction(ActionEvent actionEvent) {
+        try {
+            this.addOrderService.addOrder();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 
