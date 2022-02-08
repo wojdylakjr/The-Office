@@ -1,5 +1,6 @@
 package controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ToggleGroup;
 
@@ -12,6 +13,7 @@ public class LeftMenuController {
     private static final String BRANCH_FXML = "/fxml/Branch.fxml";
     private static final String DEPARTMENT_FXML = "/fxml/Department.fxml";
     private static final String ADD_ORDER_FXML = "/fxml/AddOrder.fxml";
+    private static final String LIST_ORDERS_FXML = "/fxml/OrdersView.fxml";
 
     private MainWindowController mainWindowController;
     private ToggleGroup leftMenu;
@@ -66,5 +68,9 @@ public class LeftMenuController {
     @FXML
     public void addOrder(){
         mainWindowController.setRight(ADD_ORDER_FXML);
+    }
+
+    public void listOrder(ActionEvent actionEvent) {
+        mainWindowController.setRight(LIST_ORDERS_FXML);
     }
 }

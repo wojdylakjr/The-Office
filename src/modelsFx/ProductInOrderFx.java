@@ -10,6 +10,10 @@ public class ProductInOrderFx implements Cloneable {
     public ProductInOrderFx() {
     }
 
+    public ProductInOrderFx(String productName, String quantity) {
+        this.quantity.setValue(quantity);
+        this.product.set(new ProductFx(productName));
+    }
     public ProductInOrderFx(ProductInOrderFx product) throws CloneNotSupportedException {
         this.quantity.setValue(product.getQuantity());
         ProductFx newProduct = new ProductFx(product.getProduct().getId(), product.getProduct().getName(), product.getProduct().getPrice(), product.getProduct().getProductCategory());
@@ -21,6 +25,7 @@ public class ProductInOrderFx implements Cloneable {
 
 
     }
+
     public ProductInOrderFx(StringProperty quantity, ObjectProperty<ProductFx> product) {
         this.quantity = quantity;
         this.product = product;
@@ -60,9 +65,9 @@ public class ProductInOrderFx implements Cloneable {
 
     @Override
     public String toString() {
-        return "ProductInOrderFx{" +
-                "quantity=" + quantity.get() +
-                ", product=" + product.get() +
-                '}';
+        if(product.get() != null){
+            return product.get().getName() + ", ilość: " + quantity.getValue() +". sztuk";
+        }
+        return "Brak";
     }
 }

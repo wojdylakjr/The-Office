@@ -12,6 +12,14 @@ public class EmployeeFx {
     private ObjectProperty<JobPositionFx> employeeJobPosition = new SimpleObjectProperty<>();
     private ObjectProperty<DepartmentFx> employeeDepartment = new SimpleObjectProperty<>();
 
+    public EmployeeFx() {
+    }
+
+    public EmployeeFx(String firstName, String lastName) {
+        this.firstName.setValue(firstName);
+        this.lastName.setValue(lastName);
+    }
+
     public int getId() {
         return id.get();
     }
@@ -110,9 +118,9 @@ public class EmployeeFx {
 
     @Override
     public String toString() {
-        if(this.firstName.get() != null){
-            return  this.firstName.getValue() + " " + this.lastName.getValue();
-        }else{
+        if (this.firstName.get() != null) {
+            return this.firstName.getValue() + " " + this.lastName.getValue();
+        } else {
             return "-";
         }
 

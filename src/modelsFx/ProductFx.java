@@ -11,7 +11,9 @@ public class ProductFx implements Cloneable{
 
     public ProductFx() {
     }
-
+    public ProductFx(String name) {
+        this.setName(name);
+    }
     public ProductFx(IntegerProperty id, StringProperty name, StringProperty price, ObjectProperty<CategoryFx> productCategory) {
         this.id = id;
         this.name = name;

@@ -28,7 +28,7 @@
             <children>
                 <Label text="Klient" />
                 <ComboBox fx:id="clientsComboBox" onAction="#clientsComboBoxOnAction" prefHeight="25.0" prefWidth="176.0" />
-                <Label text="Pracownik" />
+                <Label text="Sprzedawca" />
                 <ComboBox fx:id="employeesComboBox" onAction="#employeesComboBoxOnAction" prefHeight="25.0" prefWidth="173.0" />
             </children>
             <padding>

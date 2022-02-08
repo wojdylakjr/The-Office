@@ -17,11 +17,8 @@
       <ToggleButton maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getCategories" prefHeight="25.0" prefWidth="114.0" text="Katogrie produktow" toggleGroup="$leftMenu" />
       <ToggleButton maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getProducts" prefHeight="25.0" prefWidth="114.0" text="Produkty" toggleGroup="$leftMenu" />
       <ToggleButton maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getJobPositions" prefHeight="25.0" prefWidth="114.0" text="Stanowiska" toggleGroup="$leftMenu" />
-      <ToggleButton layoutX="15.0" layoutY="199.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addOrder" prefHeight="25.0" prefWidth="114.0" text="Dodaj zamowienie">
-         <toggleGroup>
-            <ToggleGroup fx:id="leftMenu1" />
-         </toggleGroup>
-      </ToggleButton>
+      <ToggleButton layoutX="15.0" layoutY="199.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addOrder" prefHeight="25.0" prefWidth="114.0" text="Dodaj zamowienie" toggleGroup="$leftMenu" />
+      <ToggleButton layoutX="15.0" layoutY="230.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#listOrder" prefHeight="25.0" prefWidth="114.0" text="Wyświetl zamowienia" toggleGroup="$leftMenu" />
    </children>
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

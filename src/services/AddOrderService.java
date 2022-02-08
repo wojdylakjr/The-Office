@@ -19,19 +19,19 @@ import java.util.List;
 
 public class AddOrderService {
     private List<ProductInOrderFx> productInOrderFxArrayList = new ArrayList<>();
-    private  ObservableList<ProductInOrderFx> productsInOrderFxObservableList = FXCollections.observableArrayList();
-//lista produktow
+    private ObservableList<ProductInOrderFx> productsInOrderFxObservableList = FXCollections.observableArrayList();
+    //lista produktow
     private ObjectProperty<ProductInOrderFx> addOrderFxObjectProperty = new SimpleObjectProperty<>(new ProductInOrderFx());
     private ObjectProperty<ProductInOrderFx> addOrderFxObjectPropertyUpdate = new SimpleObjectProperty<>(new ProductInOrderFx());
-//zamowienie
-private ObjectProperty<OrderFx> orderFxObjectProperty = new SimpleObjectProperty<>(new OrderFx());
+    //zamowienie
+    private ObjectProperty<OrderFx> orderFxObjectProperty = new SimpleObjectProperty<>(new OrderFx());
 
     private EmployeeRepository employeeRepository = new EmployeeRepository();
     private ClientRepository clientRepository = new ClientRepository();
     private ProductRepository productRepository = new ProductRepository();
     private OrderRepository orderRepository = new OrderRepository();
 
-//    private ObjectProperty<List<String>> products = new SimpleObjectProperty<>();
+    //    private ObjectProperty<List<String>> products = new SimpleObjectProperty<>();
     private ObservableList<EmployeeFx> employeeFxObservableList = FXCollections.observableArrayList();
     private ObservableList<ClientFx> clientFxObservableList = FXCollections.observableArrayList();
     private ObservableList<ProductFx> productFxObservableList = FXCollections.observableArrayList();
@@ -152,7 +152,7 @@ private ObjectProperty<OrderFx> orderFxObjectProperty = new SimpleObjectProperty
 //        System.out.println("Observable list przed: " + productsInOrderFxObservableList);
 ////        this.productsInOrderFxObservableList.addAll(productInOrderFxArrayList);
         this.productsInOrderFxObservableList.clear();
-        for(ProductInOrderFx product : productInOrderFxArrayList){
+        for (ProductInOrderFx product : productInOrderFxArrayList) {
             productsInOrderFxObservableList.add(product);
         }
 //        System.out.println("Arraylista po wysiwetleniu" + productsInOrderFxObservableList);
@@ -187,10 +187,10 @@ private ObjectProperty<OrderFx> orderFxObjectProperty = new SimpleObjectProperty
     }
 
     private void initEmployeeList() throws SQLException {
-        List<Employee> employees = this.employeeRepository.getListOfObjects();
+        List<Employee> employees = this.employeeRepository.getListOfSellers();
         this.employeeFxObservableList.clear();
         for (Employee employee : employees) {
-//            System.out.println(category);
+            System.out.println(employee);
             this.employeeFxObservableList.add(EmployeeConverter.convertToEmployeeFx(employee));
         }
 //        System.out.println(this.categoryFxObservableList.toString());
@@ -200,21 +200,21 @@ private ObjectProperty<OrderFx> orderFxObjectProperty = new SimpleObjectProperty
 
 //        System.out.println("to co dostaje po add" + this.getAddOrderFxObjectProperty());
         ProductInOrderFx newProduct = new ProductInOrderFx(this.addOrderFxObjectProperty.get());
-        if(newProduct.productProperty() != null)
-        this.productInOrderFxArrayList.add(newProduct);
-        System.out.println("ArrayLista po dodaniu w add "+ this.productInOrderFxArrayList);
+        if (newProduct.productProperty() != null)
+            this.productInOrderFxArrayList.add(newProduct);
+        System.out.println("ArrayLista po dodaniu w add " + this.productInOrderFxArrayList);
     }
 
-    public void addOrder() throws  SQLException {
+    public void addOrder() throws SQLException {
 //        System.out.println(this.getAddOrderFxObjectProperty());
         Order order = OrderConverter.convertToOrder(this.getOrderFxObjectProperty());
         orderRepository.save(order);
 //potrzebuje id zamowinie, pobiore je po czasie
         order.setId(orderRepository.getOrderId(order));
         System.out.println(order.getId());
-        for(ProductInOrderFx product : productInOrderFxArrayList){
-            System.out.println("Id produktu: " +product.getProduct().getId());
-            System.out.println("Ilosc produktu: " +product.getQuantity());
+        for (ProductInOrderFx product : productInOrderFxArrayList) {
+            System.out.println("Id produktu: " + product.getProduct().getId());
+            System.out.println("Ilosc produktu: " + product.getQuantity());
             orderRepository.saveDetailOrder(order, product);
         }
     }
