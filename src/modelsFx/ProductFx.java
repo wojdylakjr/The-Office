@@ -1,12 +1,30 @@
 package modelsFx;
 
 import javafx.beans.property.*;
+import modelsDAO.Category;
 
-public class ProductFx {
+public class ProductFx implements Cloneable{
     private IntegerProperty id = new SimpleIntegerProperty();
     private StringProperty name = new SimpleStringProperty();
     private StringProperty price = new SimpleStringProperty();
     private ObjectProperty<CategoryFx> productCategory = new SimpleObjectProperty<>();
+
+    public ProductFx() {
+    }
+
+    public ProductFx(IntegerProperty id, StringProperty name, StringProperty price, ObjectProperty<CategoryFx> productCategory) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.productCategory = productCategory;
+    }
+
+    public ProductFx(int id, String name, int price, CategoryFx productCategory) {
+        this.id.set(id);
+        this.setName(name);
+        this.setPrice(price);
+        this.setProductCategory(productCategory);
+    }
 
     public int getId() {
         return (id.get());
@@ -54,5 +72,15 @@ public class ProductFx {
 
     public void setProductCategory(CategoryFx productCategory) {
         this.productCategory.set(productCategory);
+    }
+
+    @Override
+    public ProductFx clone() throws CloneNotSupportedException {
+        return (ProductFx) super.clone();
+
+    }
+    @Override
+    public String toString() {
+        return name.get() + " - " +productCategory.get() ;
     }
 }

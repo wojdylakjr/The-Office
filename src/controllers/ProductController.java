@@ -80,6 +80,7 @@ public class ProductController {
     //obsluga przycisku do zapisu
     @FXML
     public void addProductOnAction() {
+        SingleSelectionModel<CategoryFx> selectionModel = productCategoryComboBox.getSelectionModel();
         System.out.println("Wcisnieto przycisk");
         try {
             this.productService.saveProductInDatabase();

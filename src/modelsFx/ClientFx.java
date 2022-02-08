@@ -49,10 +49,6 @@ public class ClientFx {
 
     @Override
     public String toString() {
-        return "ClientFx{" +
-                "id=" + id +
-                ", firstName=" + firstName +
-                ", lastName=" + lastName +
-                '}';
+        return firstName.get() + " " + lastName.get();
     }
 }

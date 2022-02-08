@@ -129,6 +129,7 @@ public class EmployeeController {
             e.printStackTrace();
         }
         this.listEmployees();
+
     }
 
     public void listEmployees() {

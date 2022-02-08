@@ -61,7 +61,7 @@ public class ProductRepository implements Repository<Product> {
         while (resultSet.next()) {
             Product product = new Product(resultSet.getInt("id_produkt"),resultSet.getString("produkt"),resultSet.getInt("cena"), new Category(resultSet.getString("kategoria")));
             products.add(product);
-            System.out.println(product);
+//            System.out.println(product);
         }
         statement.close();
         return products;
