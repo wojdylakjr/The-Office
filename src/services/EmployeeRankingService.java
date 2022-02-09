@@ -49,7 +49,7 @@ public class EmployeeRankingService {
         ResultSet resultSet = statement.executeQuery();
 
         while (resultSet.next()) {
-            EmployeeRankingFx employee = new EmployeeRankingFx(resultSet.getString("pracownik_imie"), resultSet.getString("pracownik_nazwisko"), resultSet.getString("przychod"));
+            EmployeeRankingFx employee = new EmployeeRankingFx(resultSet.getString("pracownik_imie"), resultSet.getString("pracownik_nazwisko"), resultSet.getInt("przychod"));
 
             employeeRankingFxObservableList.add(employee);
 

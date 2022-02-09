@@ -7,13 +7,13 @@ import modelsDAO.Employee;
 public class EmployeeRankingFx {
     private StringProperty firstName = new SimpleStringProperty();
     private StringProperty lastName = new SimpleStringProperty();
-    private StringProperty income = new SimpleStringProperty();
+    private IntegerProperty income = new SimpleIntegerProperty();
 
     public EmployeeRankingFx(){
 
     }
 
-    public EmployeeRankingFx(String firstName, String lastName, String income){
+    public EmployeeRankingFx(String firstName, String lastName, int income){
         this.firstName.setValue(firstName);
         this.lastName.setValue(lastName);
         this.income.set(income);
@@ -43,15 +43,15 @@ public class EmployeeRankingFx {
         this.lastName.set(lastName);
     }
 
-    public String getIncome() {
+    public int getIncome() {
         return income.get();
     }
 
-    public StringProperty incomeProperty() {
+    public IntegerProperty incomeProperty() {
         return income;
     }
 
-    public void setIncome(String income) {
+    public void setIncome(int income) {
         this.income.set(income);
     }
 }

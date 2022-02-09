@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProductRankingController">
+    <children>
+        <Text fill="#4c4c4c" strokeType="OUTSIDE" strokeWidth="0.0" text="Ranking najlepiej sprzedawanych produktów" wrappingWidth="488.9857177734375">
+            <font>
+                <Font size="24.0" />
+            </font>
+            <VBox.margin>
+                <Insets bottom="10.0" left="200.0" />
+            </VBox.margin>
+        </Text>
+        <TableView fx:id="productRankingTableView" editable="true" prefHeight="694.0" prefWidth="514.0" tableMenuButtonVisible="true">
+            <columns>
+                <TableColumn fx:id="productColumn" editable="false" prefWidth="282.66675758361816" text="Produkt" />
+                <TableColumn fx:id="quantityColumn" editable="false" prefWidth="309.9999694824219" text="Ilość sprzedanych sztuk" />
+                <TableColumn fx:id="incomeColumn" editable="false" prefWidth="248.66664632161462" text="Wygenerowany przychód" />
+            </columns>
+            <contextMenu>
+                <ContextMenu>
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Usun rekord" />
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+        </TableView>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="100.0" top="20.0" />
+    </padding>
+</VBox>

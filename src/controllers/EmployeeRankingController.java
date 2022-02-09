@@ -16,7 +16,7 @@ public class EmployeeRankingController {
     @FXML
     public TableColumn<EmployeeRankingFx, String> lastNameColumn;
     @FXML
-    public TableColumn<EmployeeRankingFx, String> incomeColumn;
+    public TableColumn<EmployeeRankingFx, Number> incomeColumn;
 
     private EmployeeRankingService employeeRankingService;
 
