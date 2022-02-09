@@ -101,12 +101,7 @@ public class EmployeeRepository implements Repository<Employee> {
     @Override
     public List<Employee> getListOfObjects() throws SQLException {
         ArrayList<Employee> employees = new ArrayList<>();
-        PreparedStatement statement = DataBaseManager.connection.prepareStatement("select pracownik.id_pracownik as id_pracownik, pracownik.imie as pracownik_imie, pracownik.nazwisko as pracownik_nazwisko, pracownik.premia as premia,\n" +
-                "pracownik.pensja as pensja, stanowisko.nazwa as stanowisko, szef.imie as szef_imie, szef.nazwisko as szef_nazwisko, dzial_firmy.nazwa as dzial_firmy\n" +
-                "from biuro.pracownik pracownik\n" +
-                "left join biuro.pracownik szef on pracownik.id_szef = szef.id_pracownik\n" +
-                "join biuro.stanowisko on pracownik.id_stanowisko = stanowisko.id_stanowisko\n" +
-                "join biuro.dzial_firmy on pracownik.id_dzial_firmy = dzial_firmy.id_dzial_firmy;\n");
+        PreparedStatement statement = DataBaseManager.connection.prepareStatement("select * from pracownicy");
         ResultSet resultSet = statement.executeQuery();
 
         while (resultSet.next()) {
@@ -129,13 +124,7 @@ public class EmployeeRepository implements Repository<Employee> {
 
     public List<Employee> getListOfSellers() throws SQLException {
         ArrayList<Employee> employees = new ArrayList<>();
-        PreparedStatement statement = DataBaseManager.connection.prepareStatement("select pracownik.id_pracownik as id_pracownik, pracownik.imie as pracownik_imie, pracownik.nazwisko as pracownik_nazwisko, pracownik.premia as premia,\n" +
-                "pracownik.pensja as pensja, stanowisko.nazwa as stanowisko, szef.imie as szef_imie, szef.nazwisko as szef_nazwisko, dzial_firmy.nazwa as dzial_firmy\n" +
-                "from biuro.pracownik pracownik\n" +
-                "left join biuro.pracownik szef on pracownik.id_szef = szef.id_pracownik\n" +
-                "join biuro.stanowisko on pracownik.id_stanowisko = stanowisko.id_stanowisko\n" +
-                "join biuro.dzial_firmy on pracownik.id_dzial_firmy = dzial_firmy.id_dzial_firmy\n" +
-                "where stanowisko.nazwa = 'Handlowiec';\n");
+        PreparedStatement statement = DataBaseManager.connection.prepareStatement("select * from pracownicy where stanowisko = 'Handlowiec'");
         ResultSet resultSet = statement.executeQuery();
 
         while (resultSet.next()) {

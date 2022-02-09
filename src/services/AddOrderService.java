@@ -23,6 +23,7 @@ public class AddOrderService {
     //lista produktow
     private ObjectProperty<ProductInOrderFx> addOrderFxObjectProperty = new SimpleObjectProperty<>(new ProductInOrderFx());
     private ObjectProperty<ProductInOrderFx> addOrderFxObjectPropertyUpdate = new SimpleObjectProperty<>(new ProductInOrderFx());
+
     //zamowienie
     private ObjectProperty<OrderFx> orderFxObjectProperty = new SimpleObjectProperty<>(new OrderFx());
 
@@ -218,4 +219,21 @@ public class AddOrderService {
             orderRepository.saveDetailOrder(order, product);
         }
     }
+
+    public void delete() {
+        ProductInOrderFx addOrderFxObjectProperty = this.getAddOrderFxObjectPropertyUpdate();
+        productInOrderFxArrayList.remove(addOrderFxObjectProperty);
+
+    }
+
+//    public void updateProductList() {
+//
+//            ProductInOrderFx addOrderFxObjectProperty = this.getAddOrderFxObjectPropertyUpdate();
+//            int id = addOrderFxObjectProperty.getProduct().getId();
+//            String quantity = addOrderFxObjectProperty.getQuantity();
+//            System.out.println("id produktu:" + id + "ilosc"+ quantity);
+//
+//
+////
+//    }
 }

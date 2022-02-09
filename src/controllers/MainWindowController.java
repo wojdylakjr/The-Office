@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.ResourceBundle;
 
 public class MainWindowController {
-
+    private static final String EMPLOYEE_FXML = "/fxml/Employee.fxml";
 
     @FXML
     private BorderPane mainWindow;
@@ -24,6 +24,7 @@ public class MainWindowController {
     @FXML
     void initialize() {
         leftMenuController.setMainWindowController(this);
+        this.setRight(EMPLOYEE_FXML);
     }
 
     public void setRight(String fxmlPath) {

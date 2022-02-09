@@ -3,6 +3,7 @@ package controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.TextFieldTableCell;
 import modelsFx.ClientFx;
 import modelsFx.EmployeeFx;
 import modelsFx.ProductFx;
@@ -44,6 +45,8 @@ public class AddOrderController {
 //        this.addOrderPositionComboBox.setPlaceholder(new Label("Wybierz najpierw szefa"));
         this.employeesComboBox.setItems(this.addOrderService.getEmployeeFxObservableList());
         this.productsComboBox.setItems(this.addOrderService.getProductFxObservableList());
+
+
         //dodawanie
 //lista produkotw
         this.addOrderService.addOrderFxObjectPropertyProperty().get().quantityProperty().bind(this.quantityTextField.textProperty());
@@ -60,12 +63,16 @@ public class AddOrderController {
         this.productsColumn.setCellValueFactory(cellData -> cellData.getValue().productProperty());
         this.quantityColumn.setCellValueFactory(cellData -> cellData.getValue().quantityProperty());
 
+//edytowanie
+        this.quantityColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
-        //edytowanie
-//        this.addOrderFirstNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-//        this.addOrderLastNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-//        this.addOrderSalaryColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-//        this.addOrderBonusColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        //zaznaczony wiersz
+        this.productsTableView.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
+            this.addOrderService.setAddOrderFxObjectPropertyUpdate(newValue);
+
+        });
+
     }
 
     public void clientsComboBoxOnAction(ActionEvent actionEvent) {
@@ -86,6 +93,9 @@ public class AddOrderController {
 
 
     public void deleteOnAction(ActionEvent actionEvent) {
+        System.out.println("Usuwam");
+        this.addOrderService.delete();
+        this.listProducts();
     }
 
     public void addOrderOnAction(ActionEvent actionEvent) {
@@ -115,7 +125,10 @@ public class AddOrderController {
         }
     }
 
-
-
-
+@FXML
+    public void quantityColumnOnEdit(TableColumn.CellEditEvent<ProductInOrderFx, String> productInOrderFxStringCellEditEvent) {
+    this.addOrderService.getAddOrderFxObjectPropertyUpdate().setQuantity(productInOrderFxStringCellEditEvent.getNewValue());
+//        this.clientService.getClientFxObjectPropertyUpdate().setLastName(clientFxStringCellEditEvent.getNewValue());
+//    this.addOrderService.updateProductList();
+    }
 }

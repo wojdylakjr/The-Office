@@ -6,13 +6,13 @@ import modelsDAO.JobPosition;
 public class JobPositionConverter {
     //zapisujemy bez id
     public static JobPosition convertToJobPosition(JobPositionFx jobPositionFx) {
-        return new JobPosition(jobPositionFx.getPositionName(),jobPositionFx.getMaxSalary(),jobPositionFx.getMinSalary());
+        return new JobPosition(jobPositionFx.getPositionName(),jobPositionFx.getMinSalary(),jobPositionFx.getMaxSalary());
 
     }
 
     //update robimy z id
     public static JobPosition convertToJobPositionWithId(JobPositionFx jobPositionFx) {
-        return new JobPosition(jobPositionFx.getId(),jobPositionFx.getPositionName(),jobPositionFx.getMaxSalary(),jobPositionFx.getMinSalary());
+        return new JobPosition(jobPositionFx.getId(),jobPositionFx.getPositionName(),jobPositionFx.getMinSalary(),jobPositionFx.getMaxSalary());
     }
 
     public static JobPositionFx convertToJobPositionFx(JobPosition jobPosition) {
