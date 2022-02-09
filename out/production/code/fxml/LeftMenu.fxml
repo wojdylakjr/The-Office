@@ -19,6 +19,7 @@
       <ToggleButton maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getJobPositions" prefHeight="25.0" prefWidth="114.0" text="Stanowiska" toggleGroup="$leftMenu" />
       <ToggleButton layoutX="15.0" layoutY="199.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addOrder" prefHeight="25.0" prefWidth="114.0" text="Dodaj zamowienie" toggleGroup="$leftMenu" />
       <ToggleButton layoutX="15.0" layoutY="230.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#listOrder" prefHeight="25.0" prefWidth="114.0" text="Wyświetl zamowienia" toggleGroup="$leftMenu" />
+      <ToggleButton layoutX="15.0" layoutY="261.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getEmployeeRanking" prefHeight="25.0" prefWidth="114.0" text="Ranking sprzedawcow" toggleGroup="$leftMenu" />
    </children>
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

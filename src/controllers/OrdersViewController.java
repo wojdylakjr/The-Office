@@ -45,10 +45,10 @@ OrdersViewService ordersViewService;
         //edytowanie
 
 
-//        //zaznaczony wiersz
-//        this.productTableView.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
-//            this.productService.setProductFxObjectPropertyUpdate(newValue);
-//        });
+        //zaznaczony wiersz
+        this.ordersTableView.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
+            this.ordersViewService.setOrdersViewFxObjectPropertyUpdate(newValue);
+        });
     }
 
     private void listOrders() {
@@ -62,5 +62,7 @@ OrdersViewService ordersViewService;
 
     @FXML
     public void deleteCategoryOnAction(ActionEvent actionEvent) {
+        System.out.println("usuwam");
+        this.ordersViewService.deleteOrder();
     }
 }

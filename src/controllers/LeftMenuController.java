@@ -14,6 +14,7 @@ public class LeftMenuController {
     private static final String DEPARTMENT_FXML = "/fxml/Department.fxml";
     private static final String ADD_ORDER_FXML = "/fxml/AddOrder.fxml";
     private static final String LIST_ORDERS_FXML = "/fxml/OrdersView.fxml";
+    private static final String EMPLOYEE_RANKING_FXML = "/fxml/EmployeeRanking.fxml";
 
     private MainWindowController mainWindowController;
     private ToggleGroup leftMenu;
@@ -64,6 +65,14 @@ public class LeftMenuController {
         System.out.println("7");
         mainWindowController.setRight(JOB_POSITION_FXML);
     }
+
+    @FXML
+    public void getEmployeeRanking() {
+//        System.out.println("7");
+        mainWindowController.setRight(EMPLOYEE_RANKING_FXML);
+    }
+
+
 
     @FXML
     public void addOrder(){

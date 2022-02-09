@@ -19,10 +19,23 @@ public class OrdersViewService {
     private ObservableList<OrdersViewFx> ordersViewFxObservableList = FXCollections.observableArrayList();
     //widok zamowien
     private ObjectProperty<OrdersViewFx> ordersViewFxObjectProperty = new SimpleObjectProperty<>(new OrdersViewFx());
+    private ObjectProperty<OrdersViewFx> ordersViewFxObjectPropertyUpdate = new SimpleObjectProperty<>(new OrdersViewFx());
     private OrderRepository orderRepository = new OrderRepository();
 
     //lista produktow
     private ObservableList<ProductInOrderFx> productsFxObservableList = FXCollections.observableArrayList();
+
+    public OrdersViewFx getOrdersViewFxObjectPropertyUpdate() {
+        return ordersViewFxObjectPropertyUpdate.get();
+    }
+
+    public ObjectProperty<OrdersViewFx> ordersViewFxObjectPropertyUpdateProperty() {
+        return ordersViewFxObjectPropertyUpdate;
+    }
+
+    public void setOrdersViewFxObjectPropertyUpdate(OrdersViewFx ordersViewFxObjectPropertyUpdate) {
+        this.ordersViewFxObjectPropertyUpdate.set(ordersViewFxObjectPropertyUpdate);
+    }
 
     public ObservableList<OrdersViewFx> getOrdersViewFxObservableList() {
         return ordersViewFxObservableList;
@@ -63,5 +76,9 @@ public class OrdersViewService {
     public void list() throws SQLException {
 
         this.orderRepository.getOrders(this.ordersViewFxObservableList);
+    }
+
+    public void deleteOrder() {
+        System.out.println(this.getOrdersViewFxObjectPropertyUpdate());
     }
 }
