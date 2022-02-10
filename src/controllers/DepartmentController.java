@@ -116,6 +116,8 @@ public class DepartmentController {
         try {
             this.departmentService.saveDepartmentInDatabase();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listDepartments();
@@ -125,6 +127,8 @@ public class DepartmentController {
         try {
             this.departmentService.listDepartments();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
     }
@@ -156,6 +160,8 @@ public class DepartmentController {
             System.out.println("department controller");
             this.departmentService.updateDepartmentInDatabase();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listDepartments();
@@ -166,6 +172,8 @@ public class DepartmentController {
         try {
             this.departmentService.deleteDepartmentInDatabase();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listDepartments();

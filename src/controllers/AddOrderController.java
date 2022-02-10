@@ -86,6 +86,8 @@ public class AddOrderController {
         try {
             this.addOrderService.addProducts();
         } catch (CloneNotSupportedException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listProducts();
@@ -102,6 +104,8 @@ public class AddOrderController {
         try {
             this.addOrderService.addOrder();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
 
@@ -114,6 +118,8 @@ public class AddOrderController {
         try {
             this.addOrderService.list();
         } catch (SQLException | CloneNotSupportedException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
     }
@@ -122,6 +128,8 @@ public class AddOrderController {
         try {
             this.addOrderService.init();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
     }

@@ -1,6 +1,8 @@
 package controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import modelsFx.ProductRankingFx;
@@ -34,6 +36,8 @@ public class ProductRankingController {
         try {
             this.productRankingService.list();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
     }

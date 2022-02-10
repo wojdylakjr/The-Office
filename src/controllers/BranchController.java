@@ -78,6 +78,8 @@ public class BranchController {
         try {
             this.branchService.saveBranchInDatabase();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listBranches();
@@ -87,6 +89,8 @@ public class BranchController {
         try {
             this.branchService.listBranches();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
     }
@@ -105,6 +109,8 @@ public class BranchController {
             System.out.println("branch controller");
             this.branchService.updateBranchInDatabase();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listBranches();
@@ -115,6 +121,8 @@ public class BranchController {
         try {
             this.branchService.deleteBranchInDatabase();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listBranches();

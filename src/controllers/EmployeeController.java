@@ -126,6 +126,8 @@ public class EmployeeController {
         try {
             this.employeeService.saveEmployeeInDatabase();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listEmployees();
@@ -136,6 +138,8 @@ public class EmployeeController {
         try {
             this.employeeService.listEmployees();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
     }
@@ -172,6 +176,8 @@ public class EmployeeController {
             System.out.println("employee controller");
             this.employeeService.updateEmployeeInDatabase();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listEmployees();
@@ -182,6 +188,8 @@ public class EmployeeController {
         try {
             this.employeeService.deleteEmployeeInDatabase();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listEmployees();

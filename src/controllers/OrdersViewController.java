@@ -2,9 +2,7 @@ package controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
 import modelsFx.ClientFx;
 import modelsFx.EmployeeFx;
@@ -55,6 +53,8 @@ OrdersViewService ordersViewService;
         try {
             this.ordersViewService.list();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
     }
@@ -66,6 +66,8 @@ OrdersViewService ordersViewService;
         try {
             this.ordersViewService.deleteOrder();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listOrders();

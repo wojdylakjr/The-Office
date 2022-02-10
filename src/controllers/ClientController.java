@@ -72,6 +72,8 @@ public class ClientController {
         try {
             this.clientService.saveClientInDatabase();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listClients();
@@ -81,6 +83,8 @@ public class ClientController {
         try {
             this.clientService.listClients();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
     }
@@ -105,6 +109,8 @@ public class ClientController {
             System.out.println("client controller");
             this.clientService.updateClientInDatabase();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listClients();
@@ -115,6 +121,8 @@ public class ClientController {
         try {
             this.clientService.deleteClientInDatabase();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listClients();

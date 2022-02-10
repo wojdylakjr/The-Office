@@ -66,6 +66,8 @@ public class CategoryController {
         try {
             this.categoryService.saveCategoryInDatabase();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listCategories();
@@ -75,6 +77,8 @@ public class CategoryController {
         try {
             this.categoryService.listCategories();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
     }
@@ -94,6 +98,8 @@ public class CategoryController {
             System.out.println("category controller");
             this.categoryService.updateCategoryInDatabase();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listCategories();
@@ -104,6 +110,8 @@ public class CategoryController {
         try {
             this.categoryService.deleteCategoryInDatabase();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listCategories();

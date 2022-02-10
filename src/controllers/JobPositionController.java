@@ -80,6 +80,8 @@ public class JobPositionController {
         try {
             this.jobPositionService.saveJobPositionInDatabase();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listClients();
@@ -89,6 +91,8 @@ public class JobPositionController {
         try {
             this.jobPositionService.listJobPositions();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
     }
@@ -119,6 +123,8 @@ public class JobPositionController {
             System.out.println("job postion controller");
             this.jobPositionService.updateJobPositionInDatabase();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listClients();
@@ -129,6 +135,8 @@ public class JobPositionController {
         try {
             this.jobPositionService.deleteJobPositionInDatabase();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listClients();

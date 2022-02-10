@@ -85,6 +85,8 @@ public class ProductController {
         try {
             this.productService.saveProductInDatabase();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listProducts();
@@ -94,6 +96,8 @@ public class ProductController {
         try {
             this.productService.listProducts();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
     }
@@ -118,6 +122,8 @@ public class ProductController {
             System.out.println("product controller");
             this.productService.updateProductInDatabase();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listProducts();
@@ -128,6 +134,8 @@ public class ProductController {
         try {
             this.productService.deleteProductInDatabase();
         } catch (SQLException e) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            a1.show();
             e.printStackTrace();
         }
         this.listProducts();
