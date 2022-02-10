@@ -63,6 +63,11 @@ OrdersViewService ordersViewService;
     @FXML
     public void deleteCategoryOnAction(ActionEvent actionEvent) {
         System.out.println("usuwam");
-        this.ordersViewService.deleteOrder();
+        try {
+            this.ordersViewService.deleteOrder();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        this.listOrders();
     }
 }

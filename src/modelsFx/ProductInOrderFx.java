@@ -6,14 +6,17 @@ import repositories.ProductRepository;
 public class ProductInOrderFx implements Cloneable {
     private StringProperty quantity = new SimpleStringProperty();
     private ObjectProperty<ProductFx> product = new SimpleObjectProperty<>();
+    private IntegerProperty productPrice = new SimpleIntegerProperty();
 
     public ProductInOrderFx() {
     }
 
-    public ProductInOrderFx(String productName, String quantity) {
+    public ProductInOrderFx(String productName, String quantity, int price) {
         this.quantity.setValue(quantity);
         this.product.set(new ProductFx(productName));
+        this.productPrice.set(price);
     }
+
     public ProductInOrderFx(ProductInOrderFx product) throws CloneNotSupportedException {
         this.quantity.setValue(product.getQuantity());
         ProductFx newProduct = new ProductFx(product.getProduct().getId(), product.getProduct().getName(), product.getProduct().getPrice(), product.getProduct().getProductCategory());
@@ -65,8 +68,9 @@ public class ProductInOrderFx implements Cloneable {
 
     @Override
     public String toString() {
-        if(product.get() != null){
-            return product.get().getName() + ", ilość: " + quantity.getValue() +". sztuk";
+        if (product.get() != null) {
+//            System.out.println(String.format("%1$-30s %2$-30d %3$-30s", product.get().getName(), this.productPrice.getValue(), quantity.getValue()));
+            return String.format("%1$-15s %2$-10s %3$-10s %4$s", product.get().getName(), "[" + this.productPrice.getValue() + "zl] x ", quantity.getValue() + "szt.", " = " + Integer.parseInt(quantity.getValue()) * productPrice.getValue() + " zl");
         }
         return "Brak";
     }

@@ -78,7 +78,8 @@ public class OrdersViewService {
         this.orderRepository.getOrders(this.ordersViewFxObservableList);
     }
 
-    public void deleteOrder() {
-        System.out.println(this.getOrdersViewFxObjectPropertyUpdate());
+    public void deleteOrder() throws SQLException {
+        System.out.println(this.getOrdersViewFxObjectPropertyUpdate().getId());
+        this.orderRepository.delete(this.getOrdersViewFxObjectPropertyUpdate().getId());
     }
 }

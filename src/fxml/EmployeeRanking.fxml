@@ -28,7 +28,7 @@
             <contextMenu>
                 <ContextMenu>
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Usun rekord" />
+<!--                        <MenuItem mnemonicParsing="false" text="Usun rekord" />-->
                     </items>
                 </ContextMenu>
             </contextMenu>

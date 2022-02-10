@@ -16,12 +16,14 @@ public class LeftMenuController {
     private static final String LIST_ORDERS_FXML = "/fxml/OrdersView.fxml";
     private static final String EMPLOYEE_RANKING_FXML = "/fxml/EmployeeRanking.fxml";
     private static final String PRODUCT_RANKING_FXML = "/fxml/ProductRanking.fxml";
+    private static final String JOB_POSITION_DETAILS_FXML = "/fxml/JobPositionDetails.fxml";
 
     private MainWindowController mainWindowController;
     private ToggleGroup leftMenu;
 
     public void setMainWindowController(MainWindowController mainWindowController) {
         this.mainWindowController = mainWindowController;
+
     }
 
     @FXML
@@ -79,14 +81,18 @@ public class LeftMenuController {
         mainWindowController.setRight(PRODUCT_RANKING_FXML);
     }
 
-
-
     @FXML
-    public void addOrder(){
+    public void addOrder() {
         mainWindowController.setRight(ADD_ORDER_FXML);
     }
 
+    @FXML
     public void listOrder(ActionEvent actionEvent) {
         mainWindowController.setRight(LIST_ORDERS_FXML);
+    }
+
+    @FXML
+    public void getJobPositionDetails(ActionEvent actionEvent) {
+        mainWindowController.setRight(JOB_POSITION_DETAILS_FXML);
     }
 }

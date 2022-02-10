@@ -218,6 +218,7 @@ public class AddOrderService {
             System.out.println("Ilosc produktu: " + product.getQuantity());
             orderRepository.saveDetailOrder(order, product);
         }
+        this.productsInOrderFxObservableList.clear();
     }
 
     public void delete() {
