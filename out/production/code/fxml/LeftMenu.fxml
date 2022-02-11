@@ -1,26 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="200.0" spacing="5.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LeftMenuController">
    <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="200.0" text="The Office" textAlignment="CENTER" textFill="#233cc9">
+         <font>
+            <Font name="System Bold" size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="15.0" layoutY="285.0" prefHeight="25.0" prefWidth="208.0" text="Tabele">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
       <ToggleButton maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getEmployees" prefHeight="25.0" prefWidth="114.0" text="Pracownicy">
          <toggleGroup>
             <ToggleGroup fx:id="leftMenu" />
          </toggleGroup></ToggleButton>
       <ToggleButton maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getClients" prefHeight="25.0" prefWidth="114.0" text="Klienci" toggleGroup="$leftMenu" />
-      <ToggleButton maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getBranches" prefHeight="25.0" prefWidth="114.0" text="Oddzialy" toggleGroup="$leftMenu" />
-      <ToggleButton maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getDepartments" prefHeight="25.0" prefWidth="114.0" text="Dzialy" toggleGroup="$leftMenu" />
-      <ToggleButton maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getCategories" prefHeight="25.0" prefWidth="114.0" text="Katogrie produktow" toggleGroup="$leftMenu" />
+      <ToggleButton maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getBranches" prefHeight="25.0" prefWidth="114.0" text="Oddziały" toggleGroup="$leftMenu" />
+      <ToggleButton maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getDepartments" prefHeight="25.0" prefWidth="114.0" text="Działy" toggleGroup="$leftMenu" />
+      <ToggleButton maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getCategories" prefHeight="25.0" prefWidth="114.0" text="Katogrie produktów" toggleGroup="$leftMenu" />
       <ToggleButton maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getProducts" prefHeight="25.0" prefWidth="114.0" text="Produkty" toggleGroup="$leftMenu" />
       <ToggleButton maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getJobPositions" prefHeight="25.0" prefWidth="114.0" text="Stanowiska" toggleGroup="$leftMenu" />
-      <ToggleButton layoutX="15.0" layoutY="199.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addOrder" prefHeight="25.0" prefWidth="114.0" text="Dodaj zamowienie" toggleGroup="$leftMenu" />
-      <ToggleButton layoutX="15.0" layoutY="230.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#listOrder" prefHeight="25.0" prefWidth="114.0" text="Wyświetl zamowienia" toggleGroup="$leftMenu" />
-      <ToggleButton layoutX="15.0" layoutY="261.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getEmployeeRanking" prefHeight="25.0" prefWidth="114.0" text="Ranking sprzedawcow" toggleGroup="$leftMenu" />
-      <ToggleButton layoutX="15.0" layoutY="291.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getProductRanking" prefHeight="25.0" prefWidth="114.0" text="Ranking produktow" toggleGroup="$leftMenu" />
+      <Label alignment="CENTER" layoutX="15.0" layoutY="347.0" prefHeight="25.0" prefWidth="208.0" text="Zamówienia">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ToggleButton layoutX="15.0" layoutY="199.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addOrder" prefHeight="25.0" prefWidth="114.0" text="Dodaj zamówienie" toggleGroup="$leftMenu" />
+      <ToggleButton layoutX="15.0" layoutY="230.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#listOrder" prefHeight="25.0" prefWidth="114.0" text="Wyświetl zamówienia" toggleGroup="$leftMenu" />
+      <Label alignment="CENTER" prefHeight="25.0" prefWidth="208.0" text="Statystyki">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ToggleButton layoutX="15.0" layoutY="261.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getEmployeeRanking" prefHeight="25.0" prefWidth="114.0" text="Ranking sprzedawców" toggleGroup="$leftMenu" />
+      <ToggleButton layoutX="15.0" layoutY="291.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getProductRanking" prefHeight="25.0" prefWidth="114.0" text="Ranking produktów" toggleGroup="$leftMenu" />
       <ToggleButton layoutX="15.0" layoutY="322.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getJobPositionDetails" prefHeight="25.0" prefWidth="114.0" text="Szczegóły stanowisk pracy" toggleGroup="$leftMenu" />
    </children>
    <padding>

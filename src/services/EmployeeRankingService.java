@@ -45,11 +45,11 @@ public class EmployeeRankingService {
 
     public void list() throws SQLException {
 //        ArrayList<Employee> employees = new ArrayList<>();
-        PreparedStatement statement = DataBaseManager.connection.prepareStatement("select * from ranking_sprzedawcow_przychod");
+        PreparedStatement statement = DataBaseManager.connection.prepareStatement("select * from ranking_sprzedawcow");
         ResultSet resultSet = statement.executeQuery();
 
         while (resultSet.next()) {
-            EmployeeRankingFx employee = new EmployeeRankingFx(resultSet.getString("pracownik_imie"), resultSet.getString("pracownik_nazwisko"), resultSet.getInt("przychod"));
+            EmployeeRankingFx employee = new EmployeeRankingFx(resultSet.getString("pracownik_imie"), resultSet.getString("pracownik_nazwisko"), resultSet.getInt("przychod"),resultSet.getInt("ilosc_klientow"),resultSet.getInt("ilosc_zamowien") );
 
             employeeRankingFxObservableList.add(employee);
 

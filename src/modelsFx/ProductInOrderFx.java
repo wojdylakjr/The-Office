@@ -70,7 +70,7 @@ public class ProductInOrderFx implements Cloneable {
     public String toString() {
         if (product.get() != null) {
 //            System.out.println(String.format("%1$-30s %2$-30d %3$-30s", product.get().getName(), this.productPrice.getValue(), quantity.getValue()));
-            return String.format("%1$-15s %2$-10s %3$-10s %4$s", product.get().getName(), "[" + this.productPrice.getValue() + "zl] x ", quantity.getValue() + "szt.", " = " + Integer.parseInt(quantity.getValue()) * productPrice.getValue() + " zl");
+            return String.format("%1$-15s %2$-10s %3$-10s %4$s", product.get().getName(), "[" + this.productPrice.getValue() + " zł] x ", quantity.getValue() + "szt.", " = " + Integer.parseInt(quantity.getValue()) * productPrice.getValue() + " zł");
         }
         return "Brak";
     }

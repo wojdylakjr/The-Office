@@ -19,6 +19,10 @@ public class EmployeeRankingController {
     public TableColumn<EmployeeRankingFx, String> lastNameColumn;
     @FXML
     public TableColumn<EmployeeRankingFx, Number> incomeColumn;
+    @FXML
+    public TableColumn <EmployeeRankingFx, Number>ordersColumn;
+    @FXML
+    public TableColumn <EmployeeRankingFx, Number>clientsOrder;
 
     private EmployeeRankingService employeeRankingService;
 
@@ -30,6 +34,8 @@ public class EmployeeRankingController {
         this.firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
         this.lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
         this.incomeColumn.setCellValueFactory(cellData -> cellData.getValue().incomeProperty());
+        this.ordersColumn.setCellValueFactory(cellData -> cellData.getValue().ordersProperty());
+        this.clientsOrder.setCellValueFactory(cellData -> cellData.getValue().clientsProperty());
     }
 
     private void list() {

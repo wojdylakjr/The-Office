@@ -16,9 +16,9 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BranchController">
     <children>
-        <Text fill="#4c4c4c" strokeType="OUTSIDE" strokeWidth="0.0" text="Dodaj oddzial firmy" wrappingWidth="207.65234375">
+        <Text fill="#4c4c4c" strokeType="OUTSIDE" strokeWidth="0.0" text="Dodaj oddział firmy" wrappingWidth="224.319091796875">
             <font>
-                <Font size="24.0" />
+                <Font name="System Bold" size="24.0" />
             </font>
             <VBox.margin>
                 <Insets bottom="10.0" left="350.0" />
@@ -30,7 +30,7 @@
                 <TextField fx:id="branchCityName" prefHeight="25.0" prefWidth="125.0" />
                 <Label text="Kierownik" />
                 <ComboBox fx:id="branchDirectorComboBox" prefHeight="25.0" prefWidth="140.0" />
-                <Button fx:id="addBranchButton" alignment="CENTER" mnemonicParsing="false" onAction="#addBranchOnAction" prefHeight="27.0" prefWidth="59.0" text="Submit" />
+                <Button fx:id="addBranchButton" alignment="CENTER" mnemonicParsing="false" onAction="#addBranchOnAction" prefHeight="27.0" prefWidth="59.0" text="Dodaj" />
             </children>
             <padding>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -38,7 +38,7 @@
         </HBox>
         <TableView fx:id="branchTableView" editable="true" prefHeight="584.0" prefWidth="771.0" tableMenuButtonVisible="true">
             <columns>
-                <TableColumn fx:id="idColumn" prefWidth="103.33331489562988" text="id" />
+                <TableColumn fx:id="idColumn" prefWidth="103.33331489562988" text="Id" />
                 <TableColumn fx:id="branchCityNameColumn" onEditCommit="#onEditCommitBranchName" prefWidth="331.3333206176758" text="MIasto" />
                 <TableColumn fx:id="branchDirectorColumn" prefWidth="407.9999694824219" text="Kierownik" />
             </columns>

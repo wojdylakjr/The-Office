@@ -65,11 +65,12 @@ OrdersViewService ordersViewService;
         System.out.println("usuwam");
         try {
             this.ordersViewService.deleteOrder();
+            this.listOrders();
         } catch (SQLException e) {
             Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
-        this.listOrders();
+
     }
 }

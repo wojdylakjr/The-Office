@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ContextMenu?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
@@ -11,9 +10,9 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EmployeeRankingController">
     <children>
-        <Text fill="#4c4c4c" strokeType="OUTSIDE" strokeWidth="0.0" text="Ranking pracowników" wrappingWidth="238.9857177734375">
+        <Text fill="#4c4c4c" strokeType="OUTSIDE" strokeWidth="0.0" text="Ranking pracowników" wrappingWidth="252.319091796875">
             <font>
-                <Font size="24.0" />
+                <Font name="System Bold" size="24.0" />
             </font>
             <VBox.margin>
                 <Insets bottom="10.0" left="300.0" />
@@ -21,9 +20,11 @@
         </Text>
         <TableView fx:id="employeeRankingTableView" editable="true" prefHeight="694.0" prefWidth="514.0" tableMenuButtonVisible="true">
             <columns>
-                <TableColumn fx:id="firstNameColumn" editable="false" prefWidth="282.66675758361816" text="imie" />
-                <TableColumn fx:id="lastNameColumn" editable="false" prefWidth="309.9999694824219" text="Nazwisko" />
-            <TableColumn fx:id="incomeColumn" editable="false" prefWidth="248.66664632161462" text="Wygenerowany przychód" />
+                <TableColumn fx:id="firstNameColumn" editable="false" prefWidth="175.9999942779541" text="Imię" />
+                <TableColumn fx:id="lastNameColumn" editable="false" prefWidth="176.00001525878906" text="Nazwisko" />
+            <TableColumn fx:id="incomeColumn" editable="false" prefWidth="163.99996948242188" text="Wygenerowany przychód" />
+            <TableColumn fx:id="ordersColumn" editable="false" prefWidth="163.99996948242188" text="Liczba zamówień" />
+            <TableColumn fx:id="clientsOrder" editable="false" prefWidth="156.6666259765625" text="Liczba klientów" />
             </columns>
             <contextMenu>
                 <ContextMenu>

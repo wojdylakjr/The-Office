@@ -17,7 +17,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderRepository implements Repository<Order>{
+public class OrderRepository implements Repository<Order> {
 
     @Override
     public void save(Order order) throws SQLException {
@@ -25,8 +25,8 @@ public class OrderRepository implements Repository<Order>{
         System.out.println(order);
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("INSERT INTO biuro.zamowienie(id_klient, id_pracownik, data) VALUES(?,?,?)");
         statement.setInt(1, order.getClient().getId());
-        statement.setInt(2,order.getEmployee().getId());
-        statement.setTimestamp(3,order.getSqlTimestamp());
+        statement.setInt(2, order.getEmployee().getId());
+        statement.setTimestamp(3, order.getSqlTimestamp());
         statement.executeUpdate();
         statement.close();
     }
@@ -60,7 +60,7 @@ public class OrderRepository implements Repository<Order>{
 
     public int getOrderId(Order order) throws SQLException {
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("SELECT id_zamowienie FROM biuro.zamowienie WHERE data = ?");
-        statement.setTimestamp(1,order.getSqlTimestamp());
+        statement.setTimestamp(1, order.getSqlTimestamp());
         ResultSet resultSet = statement.executeQuery();
         int id = 0;
         while (resultSet.next()) {
@@ -75,8 +75,8 @@ public class OrderRepository implements Repository<Order>{
 //        System.out.println(order);
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("INSERT INTO biuro.szczegoly_zamowienia(id_zamowienie, id_produkt, ilosc) VALUES(?,?,?)");
         statement.setInt(1, order.getId());
-        statement.setInt(2,product.getProduct().getId());
-        statement.setInt(3,Integer.parseInt(product.getQuantity()));
+        statement.setInt(2, product.getProduct().getId());
+        statement.setInt(3, Integer.parseInt(product.getQuantity()));
         statement.executeUpdate();
         statement.close();
     }
@@ -90,26 +90,27 @@ public class OrderRepository implements Repository<Order>{
 
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("select id_zamowienie, klient_imie, klient_nazwisko, pracownik_imie, pracownik_nazwisko, data, nazwa, ilosc, cena from zamowienia order by data desc;");
         ResultSet resultSet = statement.executeQuery();
-        Timestamp datetime;
-int counter = 0;
-        while (resultSet.next()) {
-            datetime = resultSet.getTimestamp("data");
+        resultSet.next();
+//        Timestamp datetime;
+
+        while (!resultSet.isAfterLast()) {
+            Timestamp datetime = resultSet.getTimestamp("data");
             int id = resultSet.getInt("id_zamowienie");
             ClientFx tempClient = new ClientFx(resultSet.getString("klient_imie"), resultSet.getString("klient_nazwisko"));
             EmployeeFx tempEmployee = new EmployeeFx(resultSet.getString("pracownik_imie"), resultSet.getString("pracownik_nazwisko"));
             ArrayList<ProductInOrderFx> tempProductList = new ArrayList<>();
             tempProductList.add(new ProductInOrderFx(resultSet.getString("nazwa"), resultSet.getString("ilosc"), resultSet.getInt("cena")));
-            if(resultSet.next()){
-                while(datetime.equals(resultSet.getTimestamp("data"))){
-                    tempProductList.add(new ProductInOrderFx(resultSet.getString("nazwa"), resultSet.getString("ilosc"), resultSet.getInt("cena")));
-                    resultSet.next();
-                }
+            System.out.println("id" + resultSet.getString("id_zamowienie"));
+            System.out.println("resultSet" + resultSet.getTimestamp("data"));
+            System.out.println("pobrane " + datetime);
+            while (resultSet.next() && datetime.equals(resultSet.getTimestamp("data"))) {
+                tempProductList.add(new ProductInOrderFx(resultSet.getString("nazwa"), resultSet.getString("ilosc"), resultSet.getInt("cena")));
             }
 
             ordersViewFxObservableList.add(new OrdersViewFx(id, datetime.toString(), tempProductList, tempClient, tempEmployee));
 //            System.out.println(datetime);
         }
-//        statement.close();
+        statement.close();
 //        return id;
     }
 }

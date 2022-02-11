@@ -11,9 +11,9 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProductRankingController">
     <children>
-        <Text fill="#4c4c4c" strokeType="OUTSIDE" strokeWidth="0.0" text="Ranking najlepiej sprzedawanych produktów" wrappingWidth="488.9857177734375">
+        <Text fill="#4c4c4c" strokeType="OUTSIDE" strokeWidth="0.0" text="Ranking najlepiej sprzedawanych produktów" wrappingWidth="514.3189697265625">
             <font>
-                <Font size="24.0" />
+                <Font name="System Bold" size="24.0" />
             </font>
             <VBox.margin>
                 <Insets bottom="10.0" left="200.0" />

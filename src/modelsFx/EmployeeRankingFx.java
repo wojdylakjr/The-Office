@@ -8,6 +8,8 @@ public class EmployeeRankingFx {
     private StringProperty firstName = new SimpleStringProperty();
     private StringProperty lastName = new SimpleStringProperty();
     private IntegerProperty income = new SimpleIntegerProperty();
+    private IntegerProperty clients = new SimpleIntegerProperty();
+    private IntegerProperty orders = new SimpleIntegerProperty();
 
     public EmployeeRankingFx(){
 
@@ -19,6 +21,13 @@ public class EmployeeRankingFx {
         this.income.set(income);
     }
 
+    public EmployeeRankingFx(String firstName, String lastName, int income, int clients, int orders){
+        this.firstName.setValue(firstName);
+        this.lastName.setValue(lastName);
+        this.income.set(income);
+        this.clients.set(clients);
+        this.orders.set(orders);
+    }
     public String getFirstName() {
         return firstName.get();
     }
@@ -53,5 +62,29 @@ public class EmployeeRankingFx {
 
     public void setIncome(int income) {
         this.income.set(income);
+    }
+
+    public int getClients() {
+        return clients.get();
+    }
+
+    public IntegerProperty clientsProperty() {
+        return clients;
+    }
+
+    public void setClients(int clients) {
+        this.clients.set(clients);
+    }
+
+    public int getOrders() {
+        return orders.get();
+    }
+
+    public IntegerProperty ordersProperty() {
+        return orders;
+    }
+
+    public void setOrders(int orders) {
+        this.orders.set(orders);
     }
 }

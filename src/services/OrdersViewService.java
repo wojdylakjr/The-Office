@@ -74,7 +74,7 @@ public class OrdersViewService {
     }
 
     public void list() throws SQLException {
-
+        this.ordersViewFxObservableList.clear();
         this.orderRepository.getOrders(this.ordersViewFxObservableList);
     }
 

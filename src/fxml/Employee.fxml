@@ -16,9 +16,9 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EmployeeController">
     <children>
-        <Text fill="#4c4c4c" strokeType="OUTSIDE" strokeWidth="0.0" text="Dodaj pracownika" wrappingWidth="194.3189697265625">
+        <Text fill="#4c4c4c" strokeType="OUTSIDE" strokeWidth="0.0" text="Dodaj pracownika" wrappingWidth="206.3189697265625">
             <font>
-                <Font size="24.0" />
+                <Font name="System Bold" size="24.0" />
             </font>
             <VBox.margin>
                 <Insets bottom="10.0" left="350.0" />
@@ -26,7 +26,7 @@
         </Text>
         <HBox alignment="CENTER" prefWidth="200.0" spacing="20.0">
             <children>
-                <Label text="Imie" />
+                <Label text="Imię" />
                 <TextField fx:id="employeeFirstName" prefHeight="25.0" prefWidth="80.0" />
                 <Label text="Nazwisko" />
                 <TextField fx:id="employeeLastName" prefHeight="25.0" prefWidth="83.0" />
@@ -40,12 +40,12 @@
       <HBox alignment="CENTER" layoutX="30.0" layoutY="75.0" prefWidth="200.0" spacing="20.0">
          <children>
             <Label text="Nazwisko szefa" />
-            <ComboBox fx:id="employeeBossComboBox" prefHeight="25.0" prefWidth="81.0" onAction="#bossComboBoxOnAction" />
+            <ComboBox fx:id="employeeBossComboBox" onAction="#bossComboBoxOnAction" prefHeight="25.0" prefWidth="81.0" />
             <Label text="Premia" />
             <TextField fx:id="employeeBonus" prefHeight="25.0" prefWidth="58.0" />
             <Label text="Pensja" />
             <TextField fx:id="employeeSalary" prefHeight="25.0" prefWidth="55.0" />
-            <Label text="Dzial w firmie" />
+            <Label text="Dział w firmie" />
             <ComboBox fx:id="employeeDepartmentsComboBox" prefHeight="25.0" prefWidth="81.0" />
             <Button fx:id="addEmployeeButton" alignment="CENTER" mnemonicParsing="false" onAction="#addEmployeeOnAction" prefHeight="27.0" prefWidth="59.0" text="Submit" />
          </children>
@@ -55,14 +55,14 @@
       </HBox>
         <TableView fx:id="employeeTableView" editable="true" prefHeight="584.0" prefWidth="771.0" tableMenuButtonVisible="true">
             <columns>
-                <TableColumn fx:id="idColumn" prefWidth="31.999998092651367" text="id" />
-                <TableColumn fx:id="employeeFirstNameColumn" onEditCommit="#onEditCommitEmployeeFirstName" prefWidth="93.99999618530273" text="Imie" />
+                <TableColumn fx:id="idColumn" prefWidth="31.999998092651367" text="Id" />
+                <TableColumn fx:id="employeeFirstNameColumn" onEditCommit="#onEditCommitEmployeeFirstName" prefWidth="93.99999618530273" text="Imię" />
                 <TableColumn fx:id="employeeLastNameColumn" onEditCommit="#onEditCommitEmployeeLastName" prefWidth="102.6666259765625" text="Nazwisko" />
             <TableColumn fx:id="employeePositionColumn" prefWidth="112.0" text="Stanowisko" />
             <TableColumn fx:id="employeeBossColumn" prefWidth="126.6666259765625" text="Nazwisko szefa" />
             <TableColumn fx:id="employeeBonusColumn" onEditCommit="#onEditCommitEmployeeBonus" prefWidth="76.66671752929688" text="Premia" />
             <TableColumn fx:id="employeeSalaryColumn" onEditCommit="#onEditCommitEmployeeSalary" prefWidth="140.0001220703125" text="Pensja" />
-            <TableColumn fx:id="employeeDepartmentColumn" prefWidth="106.6666259765625" text="Dzial" />
+            <TableColumn fx:id="employeeDepartmentColumn" prefWidth="106.6666259765625" text="Dział" />
             </columns>
             <contextMenu>
                 <ContextMenu>

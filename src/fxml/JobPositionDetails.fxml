@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ContextMenu?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
@@ -11,9 +10,9 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.JobPositionDetailsController">
     <children>
-        <Text fill="#4c4c4c" strokeType="OUTSIDE" strokeWidth="0.0" text="Statystyki stanowiska pracy" wrappingWidth="298.9857177734375">
+        <Text fill="#4c4c4c" strokeType="OUTSIDE" strokeWidth="0.0" text="Statystyki stanowiska pracy" wrappingWidth="311.65234375">
             <font>
-                <Font size="24.0" />
+                <Font name="System Bold" size="24.0" />
             </font>
             <VBox.margin>
                 <Insets bottom="10.0" left="300.0" />

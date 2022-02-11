@@ -12,9 +12,9 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OrdersViewController">
     <children>
-        <Text fill="#4c4c4c" strokeType="OUTSIDE" strokeWidth="0.0" text="Zamowienia" wrappingWidth="135.65232849121094">
+        <Text fill="#4c4c4c" strokeType="OUTSIDE" strokeWidth="0.0" text="Zamówienia" wrappingWidth="142.31895446777344">
             <font>
-                <Font size="24.0" />
+                <Font name="System Bold" size="24.0" />
             </font>
             <VBox.margin>
                 <Insets bottom="10.0" left="370.0" />
@@ -30,7 +30,7 @@
                 <TableColumn fx:id="clientColumn" prefWidth="118.6666202545166" text="Klient" />
             <TableColumn fx:id="employeeColumn" prefWidth="125.33332824707031" text="Pracownik" />
             <TableColumn fx:id="dateColumn" prefWidth="144.0" text="Data i czas" />
-            <TableColumn id="productListColumn.listCell" fx:id="productListColumn" prefWidth="455.9999694824219" style="-fx-font-family: monospace;" text="Lista produktow &#10;" />
+            <TableColumn id="productListColumn.listCell" fx:id="productListColumn" prefWidth="455.9999694824219" style="-fx-font-family: monospace;" text="Lista produktów &#10;" />
             </columns>
             <contextMenu>
                 <ContextMenu>
