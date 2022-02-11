@@ -89,7 +89,7 @@ public class EmployeeRepository implements Repository<Employee> {
 
     public List<Employee> getListOfSellers() throws SQLException {
         ArrayList<Employee> employees = new ArrayList<>();
-        PreparedStatement statement = DataBaseManager.connection.prepareStatement("select * from pracownicy where stanowisko = 'Handlowiec'");
+        PreparedStatement statement = DataBaseManager.connection.prepareStatement("select * from pracownicy where dzial_firmy = 'Sprzedaz'");
         ResultSet resultSet = statement.executeQuery();
 
         while (resultSet.next()) {

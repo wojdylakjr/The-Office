@@ -52,12 +52,12 @@ public class ProductController {
         this.productService = new ProductService();
         this.listProducts();
         //dodanie elementow do combo boxa
-        System.out.println(this.productService.getCategoryFxObservableList());
         this.productCategoryComboBox.setItems(this.productService.getCategoryFxObservableList());
         //dodawanie
         this.productService.productFxObjectPropertyProperty().get().nameProperty().bind(this.productName.textProperty());
         this.productService.productFxObjectPropertyProperty().get().priceProperty().bind(this.productPrice.textProperty());
         this.productService.productFxObjectPropertyProperty().get().productCategoryProperty().bind(this.productCategoryComboBox.valueProperty());
+        //warunek
         this.addProductButton.disableProperty().bind(this.productName.textProperty().isEmpty().or(this.productPrice.textProperty().isEmpty()).or(this.productCategoryComboBox.valueProperty().isNull()));
         //wyswietlanie
         this.productTableView.setItems(this.productService.getProductFxObservableList());

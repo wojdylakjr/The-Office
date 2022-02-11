@@ -60,6 +60,10 @@ public class AddOrderController {
         this.productsColumn.setCellValueFactory(cellData -> cellData.getValue().productProperty());
         this.quantityColumn.setCellValueFactory(cellData -> cellData.getValue().quantityProperty());
 
+        //warunek
+        this.addProductButton.disableProperty().bind(this.quantityTextField.textProperty().isEmpty().or(this.productsComboBox.valueProperty().isNull()));
+        this.addOrderButton.disableProperty().bind(this.employeesComboBox.valueProperty().isNull().or(this.clientsComboBox.valueProperty().isNull()));
+
 //edytowanie
         this.quantityColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
