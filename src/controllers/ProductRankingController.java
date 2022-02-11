@@ -22,7 +22,7 @@ public class ProductRankingController {
 
     private ProductRankingService productRankingService;
 
-    public void initialize(){
+    public void initialize() {
         productRankingService = new ProductRankingService();
         this.list();
 

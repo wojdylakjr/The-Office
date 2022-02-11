@@ -74,11 +74,10 @@ public class BranchController {
     //obsluga przycisku do zapisu
     @FXML
     public void addBranchOnAction() {
-        System.out.println("Wcisnieto przycisk");
         try {
             this.branchService.saveBranchInDatabase();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
@@ -89,7 +88,7 @@ public class BranchController {
         try {
             this.branchService.listBranches();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
@@ -99,17 +98,16 @@ public class BranchController {
     @FXML
     public void onEditCommitBranchName(TableColumn.CellEditEvent<BranchFx, String> branchFxStringCellEditEvent) {
         this.branchService.getBranchFxObjectPropertyUpdate().setCityName(branchFxStringCellEditEvent.getNewValue());
-//        this.branchService.getBranchFxObjectPropertyUpdate().setLastName(branchFxStringCellEditEvent.getNewValue());
         this.updateInDatabase();
     }
 
 
     private void updateInDatabase() {
         try {
-            System.out.println("branch controller");
+//            System.out.println("branch controller");
             this.branchService.updateBranchInDatabase();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
@@ -121,13 +119,10 @@ public class BranchController {
         try {
             this.branchService.deleteBranchInDatabase();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
         this.listBranches();
     }
-
-
-
 }

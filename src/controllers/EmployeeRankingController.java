@@ -20,13 +20,13 @@ public class EmployeeRankingController {
     @FXML
     public TableColumn<EmployeeRankingFx, Number> incomeColumn;
     @FXML
-    public TableColumn <EmployeeRankingFx, Number>ordersColumn;
+    public TableColumn<EmployeeRankingFx, Number> ordersColumn;
     @FXML
-    public TableColumn <EmployeeRankingFx, Number>clientsOrder;
+    public TableColumn<EmployeeRankingFx, Number> clientsOrder;
 
     private EmployeeRankingService employeeRankingService;
 
-    public void initialize(){
+    public void initialize() {
         employeeRankingService = new EmployeeRankingService();
         this.list();
 

@@ -14,21 +14,21 @@ public class JobPositionDetailsController {
     @FXML
     public TableView<JobPositionDetailsFx> jobPositionDetailsTableView;
     @FXML
-    public TableColumn<JobPositionDetailsFx,String> positionColumn;
+    public TableColumn<JobPositionDetailsFx, String> positionColumn;
     @FXML
-    public TableColumn<JobPositionDetailsFx,Number> averageSalaryColumn;
+    public TableColumn<JobPositionDetailsFx, Number> averageSalaryColumn;
     @FXML
-    public TableColumn<JobPositionDetailsFx,Number> maxSalaryColumn;
+    public TableColumn<JobPositionDetailsFx, Number> maxSalaryColumn;
     @FXML
-    public TableColumn<JobPositionDetailsFx,Number> minSalaryColumn;
+    public TableColumn<JobPositionDetailsFx, Number> minSalaryColumn;
     @FXML
-    public TableColumn<JobPositionDetailsFx,Number> numberOfEmployeesColumn;
+    public TableColumn<JobPositionDetailsFx, Number> numberOfEmployeesColumn;
     @FXML
-    public TableColumn<JobPositionDetailsFx,Number> numberOfBonusesColumn;
+    public TableColumn<JobPositionDetailsFx, Number> numberOfBonusesColumn;
 
     private JobPositionDetailsService jobPositionDetailsService;
 
-    public void initialize(){
+    public void initialize() {
         this.jobPositionDetailsService = new JobPositionDetailsService();
         this.list();
         this.jobPositionDetailsTableView.setItems(this.jobPositionDetailsService.getJobPositionDetailsServiceFxObservableList());

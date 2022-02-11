@@ -68,11 +68,10 @@ public class ClientController {
     //obsluga przycisku do zapisu
     @FXML
     public void addClientOnAction() {
-        System.out.println("Wcisnieto przycisk");
         try {
             this.clientService.saveClientInDatabase();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
@@ -83,7 +82,7 @@ public class ClientController {
         try {
             this.clientService.listClients();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
@@ -93,23 +92,21 @@ public class ClientController {
     @FXML
     public void onEditCommitFirstName(TableColumn.CellEditEvent<ClientFx, String> clientFxStringCellEditEvent) {
         this.clientService.getClientFxObjectPropertyUpdate().setFirstName(clientFxStringCellEditEvent.getNewValue());
-//        this.clientService.getClientFxObjectPropertyUpdate().setLastName(clientFxStringCellEditEvent.getNewValue());
         this.updateInDatabase();
     }
 
     @FXML
     public void onEditCommitLastName(TableColumn.CellEditEvent<ClientFx, String> clientFxStringCellEditEvent) {
         this.clientService.getClientFxObjectPropertyUpdate().setLastName(clientFxStringCellEditEvent.getNewValue());
-//        this.clientService.getClientFxObjectPropertyUpdate().setLastName(clientFxStringCellEditEvent.getNewValue());
         this.updateInDatabase();
     }
 
     private void updateInDatabase() {
         try {
-            System.out.println("client controller");
+//            System.out.println("client controller");
             this.clientService.updateClientInDatabase();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
@@ -121,13 +118,10 @@ public class ClientController {
         try {
             this.clientService.deleteClientInDatabase();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
         this.listClients();
     }
-
-
-
 }

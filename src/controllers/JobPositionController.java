@@ -76,11 +76,10 @@ public class JobPositionController {
 
     @FXML
     public void addPositionOnAction() {
-        System.out.println("Wcisnieto przycisk");
         try {
             this.jobPositionService.saveJobPositionInDatabase();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
@@ -91,7 +90,7 @@ public class JobPositionController {
         try {
             this.jobPositionService.listJobPositions();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
@@ -100,30 +99,26 @@ public class JobPositionController {
     @FXML
     public void onEditCommitName(TableColumn.CellEditEvent<JobPositionFx, String> jobPositionFxStringCellEditEvent) {
         this.jobPositionService.getJobPositionFxSimpleObjectPropertyUpdate().setPositionName(jobPositionFxStringCellEditEvent.getNewValue());
-//        this.clientService.getClientFxObjectPropertyUpdate().setLastName(clientFxStringCellEditEvent.getNewValue());
         this.updateInDatabase();
     }
 
     @FXML
     public void onEditCommitMinSalary(TableColumn.CellEditEvent<JobPositionFx, String> jobPositionFxStringCellEditEvent) {
         this.jobPositionService.getJobPositionFxSimpleObjectPropertyUpdate().setMinSalary(Integer.parseInt(jobPositionFxStringCellEditEvent.getNewValue()));
-//        this.clientService.getClientFxObjectPropertyUpdate().setLastName(clientFxStringCellEditEvent.getNewValue());
         this.updateInDatabase();
     }
 
     @FXML
     public void onEditCommitMaxSalary(TableColumn.CellEditEvent<JobPositionFx, String> jobPositionFxStringCellEditEvent) {
         this.jobPositionService.getJobPositionFxSimpleObjectPropertyUpdate().setMaxSalary(Integer.parseInt(jobPositionFxStringCellEditEvent.getNewValue()));
-//        this.clientService.getClientFxObjectPropertyUpdate().setLastName(clientFxStringCellEditEvent.getNewValue());
         this.updateInDatabase();
     }
 
     private void updateInDatabase() {
         try {
-            System.out.println("job postion controller");
             this.jobPositionService.updateJobPositionInDatabase();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
@@ -135,7 +130,7 @@ public class JobPositionController {
         try {
             this.jobPositionService.deleteJobPositionInDatabase();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }

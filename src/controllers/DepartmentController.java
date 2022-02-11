@@ -24,13 +24,11 @@ public class DepartmentController {
     private TextField departmentMinNumberOfEmployees;
 
 
-
     @FXML
     private ComboBox<EmployeeFx> departmentManagerComboBox;
 
     @FXML
     private ComboBox<BranchFx> departmentBranchComboBox;
-
 
 
     @FXML
@@ -61,7 +59,6 @@ public class DepartmentController {
     private TableColumn<DepartmentFx, BranchFx> departmentBranchColumn;
 
 
-
     //usuwanie
     @FXML
     private MenuItem deleteMenuItem;
@@ -72,7 +69,6 @@ public class DepartmentController {
         this.departmentService = new DepartmentService();
         this.listDepartments();
         //dodanie elementow do combo boxa
-//        System.out.println(this.departmentService.getEmployeeFxObservableList());
         this.departmentManagerComboBox.setItems(this.departmentService.getEmployeeFxObservableList());
         this.departmentBranchComboBox.setItems(this.departmentService.getBranchFxObservableList());
 
@@ -83,7 +79,6 @@ public class DepartmentController {
         this.departmentService.departmentFxObjectPropertyProperty().get().departmentManagerProperty().bind(this.departmentManagerComboBox.valueProperty());
         this.departmentService.departmentFxObjectPropertyProperty().get().departmentBranchProperty().bind(this.departmentBranchComboBox.valueProperty());
 
-        //TODO: uzuelnic obowiazkowe pola formularza
         this.addDepartmentButton.disableProperty().bind(this.departmentName.textProperty().isEmpty());
         //wyswietlanie
         this.departmentTableView.setItems(this.departmentService.getDepartmentFxObservableList());
@@ -96,12 +91,10 @@ public class DepartmentController {
         this.departmentBranchColumn.setCellValueFactory(cellData -> cellData.getValue().departmentBranchProperty());
 
 
-
         //edytowanie
         this.departmentNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.departmentMinNumberOfEmployeesColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.departmentMaxNumberOfEmployeesColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-
 
         //zaznaczony wiersz
         this.departmentTableView.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
@@ -112,11 +105,10 @@ public class DepartmentController {
     //obsluga przycisku do zapisu
     @FXML
     public void addDepartmentOnAction() {
-        System.out.println("Wcisnieto przycisk");
         try {
             this.departmentService.saveDepartmentInDatabase();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
@@ -127,7 +119,7 @@ public class DepartmentController {
         try {
             this.departmentService.listDepartments();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
@@ -154,13 +146,12 @@ public class DepartmentController {
     }
 
 
-
     private void updateInDatabase() {
         try {
-            System.out.println("department controller");
+//            System.out.println("department controller");
             this.departmentService.updateDepartmentInDatabase();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
@@ -172,12 +163,10 @@ public class DepartmentController {
         try {
             this.departmentService.deleteDepartmentInDatabase();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
         this.listDepartments();
     }
-
-
 }

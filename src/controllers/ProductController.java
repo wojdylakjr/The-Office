@@ -81,11 +81,10 @@ public class ProductController {
     @FXML
     public void addProductOnAction() {
         SingleSelectionModel<CategoryFx> selectionModel = productCategoryComboBox.getSelectionModel();
-        System.out.println("Wcisnieto przycisk");
         try {
             this.productService.saveProductInDatabase();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
@@ -96,7 +95,7 @@ public class ProductController {
         try {
             this.productService.listProducts();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
@@ -106,23 +105,20 @@ public class ProductController {
     @FXML
     public void onEditCommitProductName(TableColumn.CellEditEvent<ProductFx, String> productFxStringCellEditEvent) {
         this.productService.getProductFxObjectPropertyUpdate().setName(productFxStringCellEditEvent.getNewValue());
-//        this.productService.getProductFxObjectPropertyUpdate().setLastName(productFxStringCellEditEvent.getNewValue());
         this.updateInDatabase();
     }
 
     @FXML
     public void onEditCommitProductPrice(TableColumn.CellEditEvent<ProductFx, String> productFxStringCellEditEvent) {
         this.productService.getProductFxObjectPropertyUpdate().setPrice(Integer.parseInt(productFxStringCellEditEvent.getNewValue()));
-//        this.productService.getProductFxObjectPropertyUpdate().setLastName(productFxStringCellEditEvent.getNewValue());
         this.updateInDatabase();
     }
 
     private void updateInDatabase() {
         try {
-            System.out.println("product controller");
             this.productService.updateProductInDatabase();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
@@ -134,13 +130,12 @@ public class ProductController {
         try {
             this.productService.deleteProductInDatabase();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
         this.listProducts();
     }
-
 
 
 }

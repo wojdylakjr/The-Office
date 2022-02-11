@@ -22,12 +22,12 @@ public class OrdersViewController {
     @FXML
     public TableColumn<OrdersViewFx, EmployeeFx> employeeColumn;
     @FXML
-//    public TableColumn<OrdersViewFx, LocalDateTime> dateColumn;
     public TableColumn<OrdersViewFx, String> dateColumn;
     @FXML
     public TableColumn<OrdersViewFx, ListView<ProductInOrderFx>> productListColumn;
 
-OrdersViewService ordersViewService;
+    OrdersViewService ordersViewService;
+
     public void initialize() {
         this.ordersViewService = new OrdersViewService();
         this.listOrders();
@@ -39,10 +39,6 @@ OrdersViewService ordersViewService;
         this.dateColumn.setCellValueFactory(cellData -> cellData.getValue().dateTimeProperty());
         this.productListColumn.setCellValueFactory(cellData -> cellData.getValue().productListProperty());
 
-
-        //edytowanie
-
-
         //zaznaczony wiersz
         this.ordersTableView.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
             this.ordersViewService.setOrdersViewFxObjectPropertyUpdate(newValue);
@@ -53,7 +49,7 @@ OrdersViewService ordersViewService;
         try {
             this.ordersViewService.list();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
@@ -62,7 +58,6 @@ OrdersViewService ordersViewService;
 
     @FXML
     public void deleteCategoryOnAction(ActionEvent actionEvent) {
-        System.out.println("usuwam");
         try {
             this.ordersViewService.deleteOrder();
             this.listOrders();

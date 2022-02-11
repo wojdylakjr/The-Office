@@ -62,7 +62,6 @@ public class CategoryController {
     //obsluga przycisku do zapisu
     @FXML
     public void addCategoryOnAction() {
-        System.out.println("Wcisnieto przycisk");
         try {
             this.categoryService.saveCategoryInDatabase();
         } catch (SQLException e) {
@@ -87,7 +86,6 @@ public class CategoryController {
     @FXML
     public void onEditCommitCategoryName(TableColumn.CellEditEvent<CategoryFx, String> categoryFxStringCellEditEvent) {
         this.categoryService.getCategoryFxObjectPropertyUpdate().setCategoryName(categoryFxStringCellEditEvent.getNewValue());
-//        this.categoryService.getCategoryFxObjectPropertyUpdate().setLastName(categoryFxStringCellEditEvent.getNewValue());
         this.updateInDatabase();
     }
 

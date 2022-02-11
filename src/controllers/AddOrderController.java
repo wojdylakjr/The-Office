@@ -42,7 +42,6 @@ public class AddOrderController {
         this.init();
 
         this.clientsComboBox.setItems(this.addOrderService.getClientFxObservableList());
-//        this.addOrderPositionComboBox.setPlaceholder(new Label("Wybierz najpierw szefa"));
         this.employeesComboBox.setItems(this.addOrderService.getEmployeeFxObservableList());
         this.productsComboBox.setItems(this.addOrderService.getProductFxObservableList());
 
@@ -56,8 +55,6 @@ public class AddOrderController {
         this.addOrderService.orderFxObjectPropertyProperty().get().clientProperty().bind(this.clientsComboBox.valueProperty());
         this.addOrderService.orderFxObjectPropertyProperty().get().employeeProperty().bind(this.employeesComboBox.valueProperty());
 
-        //tu ustalam co jest wymagane
-//        this.addaddOrderButton.disableProperty().bind(this.addOrderFirstName.textProperty().isEmpty().or(this.addOrderSalary.textProperty().isEmpty()).or(this.addOrderPositionComboBox.valueProperty().isNull()));
         //wyswietlanie
         this.productsTableView.setItems(this.addOrderService.getProductsInOrderFxObservableList());
         this.productsColumn.setCellValueFactory(cellData -> cellData.getValue().productProperty());
@@ -82,11 +79,11 @@ public class AddOrderController {
     }
 
     public void addProductOnAction(ActionEvent actionEvent) {
-        System.out.println("przycisk");
+//        System.out.println("przycisk");
         try {
             this.addOrderService.addProducts();
         } catch (CloneNotSupportedException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
@@ -95,7 +92,7 @@ public class AddOrderController {
 
 
     public void deleteOnAction(ActionEvent actionEvent) {
-        System.out.println("Usuwam");
+//        System.out.println("Usuwam");
         this.addOrderService.delete();
         this.listProducts();
     }
@@ -104,11 +101,10 @@ public class AddOrderController {
         try {
             this.addOrderService.addOrder();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
-
     }
 
 
@@ -118,26 +114,24 @@ public class AddOrderController {
         try {
             this.addOrderService.list();
         } catch (SQLException | CloneNotSupportedException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
     }
 
-    public void init(){
+    public void init() {
         try {
             this.addOrderService.init();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
     }
 
-@FXML
+    @FXML
     public void quantityColumnOnEdit(TableColumn.CellEditEvent<ProductInOrderFx, String> productInOrderFxStringCellEditEvent) {
-    this.addOrderService.getAddOrderFxObjectPropertyUpdate().setQuantity(productInOrderFxStringCellEditEvent.getNewValue());
-//        this.clientService.getClientFxObjectPropertyUpdate().setLastName(clientFxStringCellEditEvent.getNewValue());
-//    this.addOrderService.updateProductList();
+        this.addOrderService.getAddOrderFxObjectPropertyUpdate().setQuantity(productInOrderFxStringCellEditEvent.getNewValue());
     }
 }

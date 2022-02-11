@@ -28,56 +28,46 @@ public class LeftMenuController {
 
     @FXML
     public void getEmployees() {
-        System.out.println("1");
         mainWindowController.setRight(EMPLOYEE_FXML);
     }
 
     @FXML
     public void getClients() {
-        System.out.println("2");
         mainWindowController.setRight(CLIENT_FXML);
-//        mainWindowController.se
     }
 
     @FXML
     public void getBranches() {
-        System.out.println("3");
         mainWindowController.setRight(BRANCH_FXML);
     }
 
     @FXML
     public void getDepartments() {
-        System.out.println("4");
         mainWindowController.setRight(DEPARTMENT_FXML);
     }
 
     @FXML
     public void getCategories() {
-        System.out.println("5");
         mainWindowController.setRight(CATEGORY_FXML);
     }
 
     @FXML
     public void getProducts() {
-        System.out.println("6");
         mainWindowController.setRight(PRODUCT_FXML);
     }
 
     @FXML
     public void getJobPositions() {
-        System.out.println("7");
         mainWindowController.setRight(JOB_POSITION_FXML);
     }
 
     @FXML
     public void getEmployeeRanking() {
-//        System.out.println("7");
         mainWindowController.setRight(EMPLOYEE_RANKING_FXML);
     }
 
     @FXML
     public void getProductRanking() {
-//        System.out.println("7");
         mainWindowController.setRight(PRODUCT_RANKING_FXML);
     }
 
@@ -87,12 +77,12 @@ public class LeftMenuController {
     }
 
     @FXML
-    public void listOrder(ActionEvent actionEvent) {
+    public void listOrder() {
         mainWindowController.setRight(LIST_ORDERS_FXML);
     }
 
     @FXML
-    public void getJobPositionDetails(ActionEvent actionEvent) {
+    public void getJobPositionDetails() {
         mainWindowController.setRight(JOB_POSITION_DETAILS_FXML);
     }
 }

@@ -29,8 +29,6 @@ public class MainWindowController {
 
     public void setRight(String fxmlPath) {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource(fxmlPath));
-//        BorderPane borderPane
-//        loader.setResources(bundle);
         Parent parent = null;
         try {
             parent = loader.load();

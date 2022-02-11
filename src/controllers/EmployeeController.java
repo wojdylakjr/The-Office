@@ -78,7 +78,6 @@ public class EmployeeController {
         this.employeeService = new EmployeeService();
         this.listEmployees();
         //dodanie elementow do combo boxa
-//        System.out.println(this.employeeService.getJobPositionFxObservableList());
         this.employeePositionComboBox.setItems(this.employeeService.getJobPositionFxObservableList());
 //        this.employeePositionComboBox.setPlaceholder(new Label("Wybierz najpierw szefa"));
         this.employeeBossComboBox.setItems(this.employeeService.getBossFxObservableList());
@@ -91,7 +90,6 @@ public class EmployeeController {
         this.employeeService.employeeFxObjectPropertyProperty().get().employeeJobPositionProperty().bind(this.employeePositionComboBox.valueProperty());
         this.employeeService.employeeFxObjectPropertyProperty().get().employeeBossProperty().bind(this.employeeBossComboBox.valueProperty());
         this.employeeService.employeeFxObjectPropertyProperty().get().employeeDepartmentProperty().bind(this.employeeDepartmentsComboBox.valueProperty());
-        //TODO: uzuelnic obowiazkowe pola formularza
         this.addEmployeeButton.disableProperty().bind(this.employeeFirstName.textProperty().isEmpty().or(this.employeeSalary.textProperty().isEmpty()).or(this.employeePositionComboBox.valueProperty().isNull()));
         //wyswietlanie
         this.employeeTableView.setItems(this.employeeService.getEmployeeFxObservableList());
@@ -103,7 +101,6 @@ public class EmployeeController {
         this.employeePositionColumn.setCellValueFactory(cellData -> cellData.getValue().employeeJobPositionProperty());
         this.employeeBossColumn.setCellValueFactory(cellData -> cellData.getValue().employeeBossProperty());
         this.employeeDepartmentColumn.setCellValueFactory(cellData -> cellData.getValue().employeeDepartmentProperty());
-
 
         //edytowanie
         this.employeeFirstNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -121,12 +118,10 @@ public class EmployeeController {
     //obsluga przycisku do zapisu
     @FXML
     public void addEmployeeOnAction() {
-//        System.out.println(this.employeeBossColumn);
-        System.out.println("Wcisnieto przycisk");
         try {
             this.employeeService.saveEmployeeInDatabase();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
@@ -138,7 +133,7 @@ public class EmployeeController {
         try {
             this.employeeService.listEmployees();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
@@ -160,23 +155,20 @@ public class EmployeeController {
     @FXML
     public void onEditCommitEmployeeBonus(TableColumn.CellEditEvent<EmployeeFx, String> employeeFxStringCellEditEvent) {
         this.employeeService.getEmployeeFxObjectPropertyUpdate().setBonus(Integer.parseInt(employeeFxStringCellEditEvent.getNewValue()));
-//        this.employeeService.getEmployeeFxObjectPropertyUpdate().setLastName(employeeFxStringCellEditEvent.getNewValue());
         this.updateInDatabase();
     }
 
     @FXML
     public void onEditCommitEmployeeSalary(TableColumn.CellEditEvent<EmployeeFx, String> employeeFxStringCellEditEvent) {
         this.employeeService.getEmployeeFxObjectPropertyUpdate().setSalary(Integer.parseInt(employeeFxStringCellEditEvent.getNewValue()));
-//        this.employeeService.getEmployeeFxObjectPropertyUpdate().setLastName(employeeFxStringCellEditEvent.getNewValue());
         this.updateInDatabase();
     }
 
     private void updateInDatabase() {
         try {
-            System.out.println("employee controller");
             this.employeeService.updateEmployeeInDatabase();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
@@ -188,7 +180,7 @@ public class EmployeeController {
         try {
             this.employeeService.deleteEmployeeInDatabase();
         } catch (SQLException e) {
-            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             a1.show();
             e.printStackTrace();
         }
