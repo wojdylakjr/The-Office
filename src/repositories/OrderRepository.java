@@ -21,8 +21,6 @@ public class OrderRepository implements Repository<Order> {
 
     @Override
     public void save(Order order) throws SQLException {
-        System.out.println("Dodanie w order repository zamowienia:");
-        System.out.println(order);
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("INSERT INTO biuro.zamowienie(id_klient, id_pracownik, data) VALUES(?,?,?)");
         statement.setInt(1, order.getClient().getId());
         statement.setInt(2, order.getEmployee().getId());
@@ -33,8 +31,6 @@ public class OrderRepository implements Repository<Order> {
 
     @Override
     public void delete(int id) throws SQLException {
-        System.out.println("usuwanie zamoiwniea  w repository");
-//        System.out.println("Employee repo, imie: " + employee.getName()+", nazwisko: " + employee.getName() +", id: " + employee.getId() );
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("DELETE FROM biuro.szczegoly_zamowienia WHERE id_zamowienie = ?");
         statement.setInt(1, id);
         statement.executeUpdate();
@@ -71,8 +67,6 @@ public class OrderRepository implements Repository<Order> {
     }
 
     public void saveDetailOrder(Order order, ProductInOrderFx product) throws SQLException {
-        System.out.println("Dodanie do szczegoly_zamowienia w repository zamowienia:");
-//        System.out.println(order);
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("INSERT INTO biuro.szczegoly_zamowienia(id_zamowienie, id_produkt, ilosc) VALUES(?,?,?)");
         statement.setInt(1, order.getId());
         statement.setInt(2, product.getProduct().getId());
@@ -82,16 +76,9 @@ public class OrderRepository implements Repository<Order> {
     }
 
     public void getOrders(ObservableList<OrdersViewFx> ordersViewFxObservableList) throws SQLException {
-//        ArrayList<ProductInOrderFx> temp = new ArrayList<>();
-//        temp.add(new ProductInOrderFx());
-//        temp.add(new ProductInOrderFx());
-//        ordersViewFxObservableList.add(new OrdersViewFx(1,"czwartek",temp, new ClientFx(), new EmployeeFx()  ));
-
-
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("select id_zamowienie, klient_imie, klient_nazwisko, pracownik_imie, pracownik_nazwisko, data, nazwa, ilosc, cena from zamowienia order by data desc;");
         ResultSet resultSet = statement.executeQuery();
         resultSet.next();
-//        Timestamp datetime;
 
         while (!resultSet.isAfterLast()) {
             Timestamp datetime = resultSet.getTimestamp("data");
@@ -106,11 +93,8 @@ public class OrderRepository implements Repository<Order> {
             while (resultSet.next() && datetime.equals(resultSet.getTimestamp("data"))) {
                 tempProductList.add(new ProductInOrderFx(resultSet.getString("nazwa"), resultSet.getString("ilosc"), resultSet.getInt("cena")));
             }
-
             ordersViewFxObservableList.add(new OrdersViewFx(id, datetime.toString(), tempProductList, tempClient, tempEmployee));
-//            System.out.println(datetime);
         }
         statement.close();
-//        return id;
     }
 }

@@ -24,7 +24,6 @@ public class CategoryRepository implements Repository<Category> {
 
     @Override
     public void delete(int id) throws SQLException {
-//        System.out.println("Client repo, imie: " + client.getFirstName()+", nazwisko: " + client.getFirstName() +", id: " + client.getId() );
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("DELETE FROM biuro.Kategoria WHERE id_kategoria = ?");
         statement.setInt(1, id);
         statement.executeUpdate();
@@ -33,7 +32,6 @@ public class CategoryRepository implements Repository<Category> {
 
     @Override
     public void update(Category client) throws SQLException {
-       // System.out.println("Client repo, imie: " + client.getFirstName() + ", nazwisko: " + client.getFirstName() + ", id: " + client.getId());
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("UPDATE biuro.Kategoria SET nazwa = ? WHERE id_kategoria = ?");
         statement.setString(1, client.getCategoryName());
         statement.setInt(2, client.getId());

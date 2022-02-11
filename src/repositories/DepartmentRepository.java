@@ -17,8 +17,6 @@ public class DepartmentRepository implements Repository<Department> {
 
     @Override
     public void save(Department department) throws SQLException {
-        System.out.println("Dodanie  w department repository");
-        System.out.println(department);
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("INSERT INTO biuro.dzial_firmy(nazwa, max_liczba_pracownikow, min_liczba_pracownikow, id_kierownik_dzial, id_oddzial) VALUES(?,?,?,?,?)");
         statement.setString(1, department.getName());
         statement.setInt(2, department.getMaxNumberOfEmployees());
@@ -31,8 +29,6 @@ public class DepartmentRepository implements Repository<Department> {
 
     @Override
     public void delete(int id) throws SQLException {
-        System.out.println("Operacja w department repository");
-////        System.out.println("Department repo, imie: " + department.getName()+", nazwisko: " + department.getName() +", id: " + department.getId() );
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("DELETE FROM biuro.dzial_firmy WHERE id_dzial_firmy = ?");
         statement.setInt(1, id);
         statement.executeUpdate();
@@ -41,8 +37,6 @@ public class DepartmentRepository implements Repository<Department> {
 
     @Override
     public void update(Department department) throws SQLException {
-        System.out.println("Operacja w department repository");
-//        System.out.println("Department repo, imie: " + department.getName() + ", nazwisko: " + department.getName() + ", id: " + department.getId());
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("UPDATE biuro.dzial_firmy SET nazwa = ?,  max_liczba_pracownikow = ?, min_liczba_pracownikow = ? WHERE id_dzial_firmy = ?");
         statement.setString(1, department.getName());
         statement.setInt(2, department.getMaxNumberOfEmployees());
@@ -71,7 +65,6 @@ public class DepartmentRepository implements Repository<Department> {
 
     @Override
     public List<Department> getListOfObjects() throws SQLException {
-        System.out.println("Operacja w department repository");
         ArrayList<Department> departments = new ArrayList<>();
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("select dzial_firmy.id_dzial_firmy as id, dzial_firmy.nazwa as dzial_firmy, max_liczba_pracownikow, min_liczba_pracownikow, pracownik.imie as kierownik_imie,\n" +
                 "pracownik.nazwisko as kierownik_nazwisko, oddzial.miasto as oddzial\n" +

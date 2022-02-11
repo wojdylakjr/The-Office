@@ -16,8 +16,6 @@ public class EmployeeRepository implements Repository<Employee> {
 
     @Override
     public void save(Employee employee) throws SQLException {
-        System.out.println("Operacja w employee repository");
-//        System.out.println(employee);
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("INSERT INTO biuro.pracownik(imie, nazwisko, premia, pensja, id_szef, id_dzial_firmy, id_stanowisko) VALUES(?,?,?,?,?,?,?)");
         statement.setString(1, employee.getFirstName());
         statement.setString(2, employee.getLastName());
@@ -32,8 +30,6 @@ public class EmployeeRepository implements Repository<Employee> {
 
     @Override
     public void delete(int id) throws SQLException {
-        System.out.println("Operacja w employee repository");
-//        System.out.println("Employee repo, imie: " + employee.getName()+", nazwisko: " + employee.getName() +", id: " + employee.getId() );
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("DELETE FROM biuro.pracownik WHERE id_pracownik = ?");
         statement.setInt(1, id);
         statement.executeUpdate();
@@ -42,8 +38,6 @@ public class EmployeeRepository implements Repository<Employee> {
 
     @Override
     public void update(Employee employee) throws SQLException {
-//        System.out.println("Operacja w employee repository");
-//        System.out.println("Employee repo, imie: " + employee.getName() + ", nazwisko: " + employee.getName() + ", id: " + employee.getId());
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("UPDATE biuro.pracownik SET imie = ?, nazwisko = ?, premia = ?, pensja = ? WHERE id_pracownik = ?");
         statement.setString(1, employee.getFirstName());
         statement.setString(2, employee.getLastName());
@@ -60,26 +54,6 @@ public class EmployeeRepository implements Repository<Employee> {
         statement.setInt(1, id);
         ResultSet resultSet = statement.executeQuery();
         Employee employee = new Employee();
-//        while (resultSet.next()) {
-//
-////            System.out.println(resultSet.getInt("id_produkt"));
-////            System.out.println(resultSet.getString("produkt"));
-////            System.out.println(resultSet.getInt("cena"));
-////            System.out.println(resultSet.getString("kategoria"));
-//
-//            employee.setId(resultSet.getInt("id_pracownik"));
-//            employee.setFirstName(resultSet.getString("imie"));
-//            employee.setLastName(resultSet.getString("nazwisko"));
-//            employee.setBonus(resultSet.getInt("premia"));
-//            employee.setSalary(resultSet.getInt("pensja"));
-//            employee.setEmployeeBossID(resultSet.getInt("id_szef"));
-//            employee.setEmployeeJobPositionFromDatabase(resultSet.getInt("id_stanowisko"));
-//            employee.setEmployeeDepartmentFromDatabase(resultSet.getInt("id_dzial_firmy"));
-//            System.out.println("Dzial pracownika: " + employee.getEmployeeDepartment());
-//            System.out.println("Stanowisko pracownika: " + employee.getEmployeeJobPosition());
-//
-//        }
-//        statement.close();
         return employee;
     }
 
@@ -91,9 +65,6 @@ public class EmployeeRepository implements Repository<Employee> {
         while (resultSet.next()) {
             employee = new EmployeeDto(resultSet.getInt("id_pracownik"), resultSet.getString("imie"), resultSet.getString("nazwisko"), resultSet.getInt("premia"), resultSet.getInt("pensja"));
         }
-//        System.out.println("EmployeeDto z repo: " + employee);
-
-
         statement.close();
         return employee;
     }
@@ -106,16 +77,10 @@ public class EmployeeRepository implements Repository<Employee> {
 
         while (resultSet.next()) {
             Employee employee = new Employee(resultSet.getInt("id_pracownik"), resultSet.getString("pracownik_imie"), resultSet.getString("pracownik_nazwisko"), resultSet.getInt("premia"), resultSet.getInt("pensja"));
-            //tutaj zrobic sety, na wywyolanym konstukotrze z danymi z selecta
-
             employee.setEmployeeBoss(new EmployeeDto(resultSet.getString("szef_imie"), resultSet.getString("szef_nazwisko")));
             employee.setEmployeeJobPosition(new JobPosition(resultSet.getString("stanowisko")));
             employee.setEmployeeDepartment(new DepartmentDto(resultSet.getString("dzial_firmy")));
-
-//            System.out.println("Dzial pracownika: " + employee.getEmployeeDepartment());
-//            System.out.println("Stanowisko pracownika: " + employee.getEmployeeJobPosition());
             employees.add(employee);
-
         }
         statement.close();
         return employees;
@@ -129,16 +94,10 @@ public class EmployeeRepository implements Repository<Employee> {
 
         while (resultSet.next()) {
             Employee employee = new Employee(resultSet.getInt("id_pracownik"), resultSet.getString("pracownik_imie"), resultSet.getString("pracownik_nazwisko"), resultSet.getInt("premia"), resultSet.getInt("pensja"));
-            //tutaj zrobic sety, na wywyolanym konstukotrze z danymi z selecta
-
             employee.setEmployeeBoss(new EmployeeDto(resultSet.getString("szef_imie"), resultSet.getString("szef_nazwisko")));
             employee.setEmployeeJobPosition(new JobPosition(resultSet.getString("stanowisko")));
             employee.setEmployeeDepartment(new DepartmentDto(resultSet.getString("dzial_firmy")));
-
-//            System.out.println("Dzial pracownika: " + employee.getEmployeeDepartment());
-//            System.out.println("Stanowisko pracownika: " + employee.getEmployeeJobPosition());
             employees.add(employee);
-
         }
         statement.close();
         return employees;
