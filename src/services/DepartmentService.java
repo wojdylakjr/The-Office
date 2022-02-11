@@ -129,26 +129,21 @@ public class DepartmentService {
         List<Branch> branches = this.branchRepository.getListOfObjects();
         this.branchFxObservableList.clear();
         for (Branch branch : branches) {
-//            System.out.println(category);
             this.branchFxObservableList.add(BranchConverter.convertToBranchFx(branch));
         }
-//        System.out.println(this.categoryFxObservableList.toString());
     }
+
     private void initEmployeesList() throws SQLException {
         List<Employee> employees = this.employeeRepository.getListOfObjects();
         this.employeeFxObservableList.clear();
         for (Employee employee : employees) {
-//            System.out.println(category);
             this.employeeFxObservableList.add(EmployeeConverter.convertToEmployeeFx(employee));
         }
-//        System.out.println(this.categoryFxObservableList.toString());
     }
 
 
     public void updateDepartmentInDatabase() throws SQLException {
-        System.out.println(this.getDepartmentFxObjectPropertyUpdate());
         Department department = DepartmentConverter.convertToDepartmentWithId(this.getDepartmentFxObjectPropertyUpdate());
-        System.out.println(department);
         departmentRepository.update(department);
     }
 
@@ -156,7 +151,7 @@ public class DepartmentService {
         departmentRepository.delete(this.getDepartmentFxObjectPropertyUpdate().getId());
     }
 
-    public Department getDepartmentById(int id) throws SQLException{
+    public Department getDepartmentById(int id) throws SQLException {
         return departmentRepository.getObject(id);
     }
 

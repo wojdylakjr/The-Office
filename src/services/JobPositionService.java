@@ -19,8 +19,6 @@ public class JobPositionService {
     private ObservableList<JobPositionFx> JobPositionFxObservableList = FXCollections.observableArrayList();
 
     //automatyczne getery i setery
-
-
     public JobPositionRepository getJobPositionRepository() {
         return jobPositionRepository;
     }
@@ -76,9 +74,7 @@ public class JobPositionService {
     }
 
     public void updateJobPositionInDatabase() throws SQLException {
-//        System.out.println(this.getJobPositionFxSimpleObjectPropertyUpdate());
         JobPosition position = JobPositionConverter.convertToJobPositionWithId(this.getJobPositionFxSimpleObjectPropertyUpdate());
-//        System.out.println(position);
         jobPositionRepository.update(position);
     }
 
@@ -87,6 +83,6 @@ public class JobPositionService {
     }
 
     public JobPosition getJobPositionById(int id) throws SQLException {
-       return jobPositionRepository.getObject(id);
+        return jobPositionRepository.getObject(id);
     }
 }

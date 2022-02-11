@@ -38,14 +38,12 @@ public class JobPositionDetailsService {
     }
 
     public void list() throws SQLException {
-//        ArrayList<Product> products = new ArrayList<>();
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("select * from szczegoly_stanowiska");
         ResultSet resultSet = statement.executeQuery();
 
         while (resultSet.next()) {
-            JobPositionDetailsFx  listElement= new JobPositionDetailsFx(resultSet.getString("min"), resultSet.getInt("srednia_wyplata"),resultSet.getInt("max_wyplata"), resultSet.getInt("min_wyplata"), resultSet.getInt("pracownicy_stanowisko"), resultSet.getInt("ilosc_premii"));
+            JobPositionDetailsFx listElement = new JobPositionDetailsFx(resultSet.getString("min"), resultSet.getInt("srednia_wyplata"), resultSet.getInt("max_wyplata"), resultSet.getInt("min_wyplata"), resultSet.getInt("pracownicy_stanowisko"), resultSet.getInt("ilosc_premii"));
             jobPositionDetailsServiceFxObservableList.add(listElement);
-
         }
         statement.close();
 

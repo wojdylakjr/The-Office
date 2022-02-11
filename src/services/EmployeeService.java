@@ -118,7 +118,6 @@ public class EmployeeService {
 
     //CRUD
     public void saveEmployeeInDatabase() throws SQLException {
-        System.out.println(this.getEmployeeFxObjectProperty());
         Employee employee = EmployeeConverter.convertToEmployee(this.getEmployeeFxObjectProperty());
         employeeRepository.save(employee);
     }
@@ -139,36 +138,28 @@ public class EmployeeService {
         List<JobPosition> jobPositions = this.jobPositionRepository.getListOfObjects();
         this.jobPositionFxObservableList.clear();
         for (JobPosition jobPosition : jobPositions) {
-//            System.out.println(category);
             this.jobPositionFxObservableList.add(JobPositionConverter.convertToJobPositionFx(jobPosition));
         }
-//        System.out.println(this.categoryFxObservableList.toString());
     }
 
     private void initDepartmentList() throws SQLException {
         List<Department> departments = this.departmentRepository.getListOfObjects();
         this.departmentFxObservableList.clear();
         for (Department department : departments) {
-//            System.out.println(category);
             this.departmentFxObservableList.add(DepartmentConverter.convertToDepartmentFx(department));
         }
-//        System.out.println(this.categoryFxObservableList.toString());
     }
 
     private void initBossList() throws SQLException {
         List<Employee> bosses = this.employeeRepository.getListOfObjects();
         this.bossFxObservableList.clear();
         for (Employee employee : bosses) {
-//            System.out.println(category);
             this.bossFxObservableList.add(EmployeeConverter.convertToEmployeeFx(employee));
         }
-//        System.out.println(this.categoryFxObservableList.toString());
     }
 
     public void updateEmployeeInDatabase() throws SQLException {
-        System.out.println(this.getEmployeeFxObjectPropertyUpdate());
         Employee employee = EmployeeConverter.convertToEmployeeWithId(this.getEmployeeFxObjectPropertyUpdate());
-        System.out.println(employee);
         employeeRepository.update(employee);
     }
 

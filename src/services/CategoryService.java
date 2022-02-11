@@ -73,9 +73,7 @@ public class CategoryService {
     }
 
     public void updateCategoryInDatabase() throws SQLException {
-        System.out.println(this.getCategoryFxObjectPropertyUpdate());
         Category category = CategoryConverter.convertToCategoryWithId(this.getCategoryFxObjectPropertyUpdate());
-        System.out.println(category);
         categoryRepository.update(category);
     }
 

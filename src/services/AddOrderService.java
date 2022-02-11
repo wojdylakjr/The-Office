@@ -139,25 +139,10 @@ public class AddOrderService {
     }
 
     public void list() throws SQLException, CloneNotSupportedException {
-//        System.out.println("Przed wyczyszeniem:" );
-//        System.out.println("Arraylista przed wysiwetleniem" + productsInOrderFxObservableList);
-//        System.out.println("Observable list przed: " + productsInOrderFxObservableList);
-
-//        System.out.println("po wyczyszczeniu");
-////        List<Employee> employees = employeeRepository.getListOfObjects();
-////        this.employeeFxObservableList.clear();
-////        this.productsInOrderFxObservableList = FXCollections.observableArrayList(productInOrderFxArrayList);
-////        System.out.println(FXCollections.observableArrayList(this.productInOrderFxArrayList));
-//        //            System.out.println(product);
-//        System.out.println("Arraylista przed wysiwetleniem" + productsInOrderFxObservableList);
-//        System.out.println("Observable list przed: " + productsInOrderFxObservableList);
-////        this.productsInOrderFxObservableList.addAll(productInOrderFxArrayList);
         this.productsInOrderFxObservableList.clear();
         for (ProductInOrderFx product : productInOrderFxArrayList) {
             productsInOrderFxObservableList.add(product);
         }
-//        System.out.println("Arraylista po wysiwetleniu" + productsInOrderFxObservableList);
-//        System.out.println("Observable list po: " + productsInOrderFxObservableList);
     }
 
     public void init() throws SQLException {
@@ -171,51 +156,37 @@ public class AddOrderService {
         List<Client> clients = this.clientRepository.getListOfObjects();
         this.clientFxObservableList.clear();
         for (Client client : clients) {
-//            System.out.println(category);
             this.clientFxObservableList.add(ClientConverter.convertToClientFx(client));
         }
-//        System.out.println(this.categoryFxObservableList.toString());
     }
 
     private void initProductList() throws SQLException {
         List<Product> products = this.productRepository.getListOfObjects();
         this.productFxObservableList.clear();
         for (Product product : products) {
-//            System.out.println(category);
             this.productFxObservableList.add(ProductConverter.convertToProductFx(product));
         }
-//        System.out.println(this.categoryFxObservableList.toString());
     }
 
     private void initEmployeeList() throws SQLException {
         List<Employee> employees = this.employeeRepository.getListOfSellers();
         this.employeeFxObservableList.clear();
         for (Employee employee : employees) {
-            System.out.println(employee);
             this.employeeFxObservableList.add(EmployeeConverter.convertToEmployeeFx(employee));
         }
-//        System.out.println(this.categoryFxObservableList.toString());
     }
 
     public void addProducts() throws CloneNotSupportedException {
-
-//        System.out.println("to co dostaje po add" + this.getAddOrderFxObjectProperty());
         ProductInOrderFx newProduct = new ProductInOrderFx(this.addOrderFxObjectProperty.get());
         if (newProduct.productProperty() != null)
             this.productInOrderFxArrayList.add(newProduct);
-        System.out.println("ArrayLista po dodaniu w add " + this.productInOrderFxArrayList);
     }
 
     public void addOrder() throws SQLException {
-//        System.out.println(this.getAddOrderFxObjectProperty());
         Order order = OrderConverter.convertToOrder(this.getOrderFxObjectProperty());
         orderRepository.save(order);
-//potrzebuje id zamowinie, pobiore je po czasie
         order.setId(orderRepository.getOrderId(order));
-        System.out.println(order.getId());
         for (ProductInOrderFx product : productInOrderFxArrayList) {
-            System.out.println("Id produktu: " + product.getProduct().getId());
-            System.out.println("Ilosc produktu: " + product.getQuantity());
             orderRepository.saveDetailOrder(order, product);
         }
         this.productsInOrderFxObservableList.clear();
@@ -224,17 +195,5 @@ public class AddOrderService {
     public void delete() {
         ProductInOrderFx addOrderFxObjectProperty = this.getAddOrderFxObjectPropertyUpdate();
         productInOrderFxArrayList.remove(addOrderFxObjectProperty);
-
     }
-
-//    public void updateProductList() {
-//
-//            ProductInOrderFx addOrderFxObjectProperty = this.getAddOrderFxObjectPropertyUpdate();
-//            int id = addOrderFxObjectProperty.getProduct().getId();
-//            String quantity = addOrderFxObjectProperty.getQuantity();
-//            System.out.println("id produktu:" + id + "ilosc"+ quantity);
-//
-//
-////
-//    }
 }

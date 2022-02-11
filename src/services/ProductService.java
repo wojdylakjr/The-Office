@@ -86,7 +86,6 @@ public class ProductService {
         List<Product> products = productRepository.getListOfObjects();
         this.productFxObservableList.clear();
         for (Product product : products) {
-
             this.productFxObservableList.add(ProductConverter.convertToProductFx(product));
         }
     }
@@ -95,16 +94,12 @@ public class ProductService {
         List<Category> categories = categoryRepository.getListOfObjects();
         this.categoryFxObservableList.clear();
         for (Category category : categories) {
-//            System.out.println(category);
             this.categoryFxObservableList.add(CategoryConverter.convertToCategoryFx(category));
         }
-//        System.out.println(this.categoryFxObservableList.toString());
     }
 
     public void updateProductInDatabase() throws SQLException {
-        System.out.println(this.getProductFxObjectPropertyUpdate());
         Product product = ProductConverter.convertToProductWithId(this.getProductFxObjectPropertyUpdate());
-        System.out.println(product);
         productRepository.update(product);
     }
 

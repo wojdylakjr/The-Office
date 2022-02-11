@@ -75,9 +75,7 @@ public class ClientService {
     }
 
     public void updateClientInDatabase() throws SQLException {
-        System.out.println(this.getClientFxObjectPropertyUpdate());
         Client client = ClientConverter.convertToClientWithId(this.getClientFxObjectPropertyUpdate());
-        System.out.println(client);
         clientRepository.update(client);
     }
 

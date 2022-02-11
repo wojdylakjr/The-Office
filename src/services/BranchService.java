@@ -103,10 +103,8 @@ public class BranchService {
         List<Employee> employees = employeeRepository.getListOfObjects();
         this.employeeFxObservableList.clear();
         for (Employee employee : employees) {
-//            System.out.println(employee);
             this.employeeFxObservableList.add(EmployeeConverter.convertToEmployeeFx(employee));
         }
-//        System.out.println(this.employeeFxObservableList.toString());
     }
 
     public void updateBranchInDatabase() throws SQLException {
@@ -120,7 +118,7 @@ public class BranchService {
         branchRepository.delete(this.getBranchFxObjectPropertyUpdate().getId());
     }
 
-    public Branch getBranchById(int id) throws SQLException{
+    public Branch getBranchById(int id) throws SQLException {
         return branchRepository.getObject(id);
     }
 }

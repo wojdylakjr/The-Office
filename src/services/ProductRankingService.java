@@ -44,15 +44,12 @@ public class ProductRankingService {
     }
 
     public void list() throws SQLException {
-//        ArrayList<Product> products = new ArrayList<>();
         PreparedStatement statement = DataBaseManager.connection.prepareStatement("select * from ranking_produktow");
         ResultSet resultSet = statement.executeQuery();
 
         while (resultSet.next()) {
             ProductRankingFx product = new ProductRankingFx(resultSet.getString("nazwa"), resultSet.getInt("ilosc_sprzedanych_sztuk"), resultSet.getInt("przychod_produktu"));
-
             productRankingFxObservableList.add(product);
-
         }
         statement.close();
     }
