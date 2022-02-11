@@ -13,7 +13,7 @@ public class Order {
 
     public Order() {
         long now = System.currentTimeMillis();
-       sqlTimestamp = new Timestamp(now);
+        sqlTimestamp = new Timestamp(now);
         System.out.println(sqlTimestamp);
     }
 

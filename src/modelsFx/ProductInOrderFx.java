@@ -21,12 +21,6 @@ public class ProductInOrderFx implements Cloneable {
         this.quantity.setValue(product.getQuantity());
         ProductFx newProduct = new ProductFx(product.getProduct().getId(), product.getProduct().getName(), product.getProduct().getPrice(), product.getProduct().getProductCategory());
         this.productProperty().set(newProduct);
-//        this.product.get().setId(product.getProduct().getId());
-//        this.product.get().setName(product.getProduct().getName());
-//        this.product.get().setPrice(product.getProduct().getPrice());
-//        this.product.get().setProductCategory(product.getProduct().getProductCategory());
-
-
     }
 
     public ProductInOrderFx(StringProperty quantity, ObjectProperty<ProductFx> product) {
@@ -58,13 +52,6 @@ public class ProductInOrderFx implements Cloneable {
         this.product.set(product);
     }
 
-//    @Override
-//    public ProductInOrderFx clone() throws CloneNotSupportedException {
-//        ProductInOrderFx clone = (ProductInOrderFx) super.clone();
-////        clone.productProperty() = (ProductFx)this.product.clone();
-//
-//        return clone;
-//    }
 
     @Override
     public String toString() {

@@ -3,7 +3,7 @@ package modelsFx;
 import javafx.beans.property.*;
 import modelsDAO.Category;
 
-public class ProductFx implements Cloneable{
+public class ProductFx implements Cloneable {
     private IntegerProperty id = new SimpleIntegerProperty();
     private StringProperty name = new SimpleStringProperty();
     private StringProperty price = new SimpleStringProperty();
@@ -11,9 +11,11 @@ public class ProductFx implements Cloneable{
 
     public ProductFx() {
     }
+
     public ProductFx(String name) {
         this.setName(name);
     }
+
     public ProductFx(IntegerProperty id, StringProperty name, StringProperty price, ObjectProperty<CategoryFx> productCategory) {
         this.id = id;
         this.name = name;
@@ -81,8 +83,9 @@ public class ProductFx implements Cloneable{
         return (ProductFx) super.clone();
 
     }
+
     @Override
     public String toString() {
-        return name.get() + " - " +productCategory.get() ;
+        return name.get() + " - " + productCategory.get();
     }
 }

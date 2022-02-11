@@ -13,11 +13,11 @@ public class ClientFx {
     public ClientFx() {
     }
 
-    public ClientFx(String firstName, String lastName){
+    public ClientFx(String firstName, String lastName) {
         this.firstName.setValue(firstName);
         this.lastName.setValue(lastName);
-//        this.id.set(0);
     }
+
     public int getId() {
         return id.get();
     }

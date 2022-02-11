@@ -12,7 +12,7 @@ public class ClientConverter {
 
     //update robimy z id
     public static Client convertToClientWithId(ClientFx clientFx) {
-        return new Client(clientFx.getId(), clientFx.getFirstName(),clientFx.getLastName() );
+        return new Client(clientFx.getId(), clientFx.getFirstName(), clientFx.getLastName());
 
     }
 

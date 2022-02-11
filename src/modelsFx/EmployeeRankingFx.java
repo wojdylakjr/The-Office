@@ -11,23 +11,24 @@ public class EmployeeRankingFx {
     private IntegerProperty clients = new SimpleIntegerProperty();
     private IntegerProperty orders = new SimpleIntegerProperty();
 
-    public EmployeeRankingFx(){
+    public EmployeeRankingFx() {
 
     }
 
-    public EmployeeRankingFx(String firstName, String lastName, int income){
+    public EmployeeRankingFx(String firstName, String lastName, int income) {
         this.firstName.setValue(firstName);
         this.lastName.setValue(lastName);
         this.income.set(income);
     }
 
-    public EmployeeRankingFx(String firstName, String lastName, int income, int clients, int orders){
+    public EmployeeRankingFx(String firstName, String lastName, int income, int clients, int orders) {
         this.firstName.setValue(firstName);
         this.lastName.setValue(lastName);
         this.income.set(income);
         this.clients.set(clients);
         this.orders.set(orders);
     }
+
     public String getFirstName() {
         return firstName.get();
     }

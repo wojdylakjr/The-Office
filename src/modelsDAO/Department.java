@@ -80,10 +80,6 @@ public class Department {
     }
 
 
-//    public void setDepartmentBranchFromDatabase(int departmentBranch) {
-//        this.departmentBranch = departmentBranch;
-//    }
-
     @Override
     public String toString() {
         return "Department{" +

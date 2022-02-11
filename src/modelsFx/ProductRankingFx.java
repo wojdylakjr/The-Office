@@ -9,11 +9,11 @@ public class ProductRankingFx {
     private IntegerProperty quantity = new SimpleIntegerProperty();
     private IntegerProperty income = new SimpleIntegerProperty();
 
-    public ProductRankingFx(){
+    public ProductRankingFx() {
 
     }
 
-    public ProductRankingFx(String name, int quantity, int income){
+    public ProductRankingFx(String name, int quantity, int income) {
         this.name.setValue(name);
         this.quantity.setValue(quantity);
         this.income.set(income);

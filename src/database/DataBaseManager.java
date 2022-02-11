@@ -9,7 +9,6 @@ public class DataBaseManager {
     public static Connection connection;
 
     public static void initDatabaseConnection() {
-//        System.out.println("Sprawdzenie czy sterownik jest zarejestrowany w menadzerze");
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException cnfe) {
@@ -18,7 +17,6 @@ public class DataBaseManager {
             cnfe.printStackTrace();
             System.exit(1);
         }
-//        System.out.println("Zarejstrowano sterownik - OK, kolejny krok nawiazanie polaczenia z baza danych.");
 
 
         try {

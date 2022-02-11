@@ -14,7 +14,6 @@ public class Employee {
     private String lastName;
     private int bonus;
     private int salary;
-    //    private Employee employeeBoss;
     private EmployeeDto employeeBoss;
     private JobPosition employeeJobPosition;
     private DepartmentDto employeeDepartment;
@@ -115,35 +114,6 @@ public class Employee {
         this.employeeDepartment = employeeDepartment;
     }
 
-//    public void setEmployeeJobPositionFromDatabase(int employeeJobPositionId) {
-//        JobPositionService jobPositionService = new JobPositionService();
-//        JobPosition employeeJobPosition;// = new Employee();
-//        try {
-//            employeeJobPosition = jobPositionService.getJobPositionById(employeeJobPositionId);
-//            this.employeeJobPosition = employeeJobPosition;
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    public void setEmployeeBossFromDatabase(int employeeBossId) {
-//        EmployeeService employeeService = new EmployeeService();
-//        try {
-//            this.employeeBoss = employeeService.getEmployeeDtoById(employeeBossId);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    public void setEmployeeDepartmentFromDatabase(int employeeDepartmentId) {
-//        DepartmentService departmentService = new DepartmentService();
-//        try {
-//            this.employeeDepartment = departmentService.getDepartmentDtoById(employeeDepartmentId);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
     @Override
     public String toString() {
         if (employeeBoss != null) {
@@ -157,6 +127,6 @@ public class Employee {
                     ", employeeJobPosition=" + employeeJobPosition.getId() +
                     ", employeeDepartment=" + employeeDepartment.getId() +
                     '}';
-        }else return "Blad";
+        } else return "Blad";
     }
 }

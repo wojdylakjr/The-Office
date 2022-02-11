@@ -6,9 +6,9 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import modelsDAO.Category;
 
-public class CategoryFx implements Cloneable{
+public class CategoryFx implements Cloneable {
     private IntegerProperty id = new SimpleIntegerProperty();
-    private StringProperty categoryName= new SimpleStringProperty();
+    private StringProperty categoryName = new SimpleStringProperty();
 
     public CategoryFx() {
     }
@@ -41,13 +41,15 @@ public class CategoryFx implements Cloneable{
     public void setCategoryName(String categoryName) {
         this.categoryName.set(categoryName);
     }
-@Override
-public CategoryFx clone() throws CloneNotSupportedException {
-    return  (CategoryFx) super.clone();
 
-}
+    @Override
+    public CategoryFx clone() throws CloneNotSupportedException {
+        return (CategoryFx) super.clone();
+
+    }
+
     @Override
     public String toString() {
-        return ""+categoryName.get();
+        return "" + categoryName.get();
     }
 }

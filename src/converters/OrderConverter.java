@@ -8,7 +8,7 @@ import modelsFx.OrderFx;
 public class OrderConverter {
     //zapisujemy bez id
     public static Order convertToOrder(OrderFx orderFx) {
-        return new Order(EmployeeConverter.convertToEmployeeDto(orderFx.getEmployee()),ClientConverter.convertToClientWithId(orderFx.getClient()));
+        return new Order(EmployeeConverter.convertToEmployeeDto(orderFx.getEmployee()), ClientConverter.convertToClientWithId(orderFx.getClient()));
 
 
     }
@@ -21,7 +21,6 @@ public class OrderConverter {
     }
 
     public static OrderFx convertToOrderFx(Order order) {
-//        System.out.println(employee + "i jego szef" + employee.getEmployeeBoss());
         OrderFx orderFx = new OrderFx();
         orderFx.setId(order.getId());
         orderFx.setClient(ClientConverter.convertToClientFx(order.getClient()));

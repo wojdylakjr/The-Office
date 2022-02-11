@@ -6,7 +6,7 @@ import modelsDAO.Category;
 public class CategoryConverter {
     //zapisujemy bez id
     public static Category convertToCategory(CategoryFx categoryFx) {
-        return  new Category(categoryFx.getCategoryName());
+        return new Category(categoryFx.getCategoryName());
     }
 
     //update robimy z id

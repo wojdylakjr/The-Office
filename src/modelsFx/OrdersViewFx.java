@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public class OrdersViewFx {
     private IntegerProperty id = new SimpleIntegerProperty();
     private StringProperty dateTime = new SimpleStringProperty();
-//    private ObjectProperty<ArrayList<ProductInOrderFx>> productsList = new SimpleObjectProperty<>();
     private ObjectProperty<ListView<ProductInOrderFx>> productList = new SimpleObjectProperty<>();
     private ObjectProperty<ClientFx> client = new SimpleObjectProperty<>();
     private ObjectProperty<EmployeeFx> employee = new SimpleObjectProperty<>();
@@ -36,6 +35,7 @@ public class OrdersViewFx {
         this.client.set(client);
         this.employee.set(employee);
     }
+
     public int getId() {
         return id.get();
     }
@@ -59,19 +59,6 @@ public class OrdersViewFx {
     public void setDateTime(String dateTime) {
         this.dateTime.set(dateTime);
     }
-
-//    public ArrayList<ProductInOrderFx> getProductsList() {
-//        return productsList.get();
-//    }
-//
-//    public ObjectProperty<ArrayList<ProductInOrderFx>> productsListProperty() {
-//        return productsList;
-//    }
-//
-//    public void setProductsList(ArrayList<ProductInOrderFx> productsList) {
-//        this.productsList.set(productsList);
-//    }
-
 
     public ListView<ProductInOrderFx> getProductList() {
         return productList.get();

@@ -23,7 +23,6 @@ public class EmployeeConverter {
     }
 
     public static EmployeeFx convertToEmployeeFx(Employee employee) {
-//        System.out.println(employee + "i jego szef" + employee.getEmployeeBoss());
         EmployeeFx employeeFx = new EmployeeFx();
         employeeFx.setId(employee.getId());
         employeeFx.setFirstName(employee.getFirstName());

@@ -86,7 +86,7 @@ public class DepartmentFx {
     @Override
     public String toString() {
         if (departmentBranch.get() != null) {
-            return name.getValue() + " [" + departmentBranch.get() +"]";
+            return name.getValue() + " [" + departmentBranch.get() + "]";
         } else {
             return name.getValue();
         }
